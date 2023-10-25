@@ -1,0 +1,130 @@
+#principal{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+#container{
+    display: flex;
+    width: 80%;
+    height: 700px;
+    background-color: #7DD654;
+    justify-content: center;
+    align-items: center;
+    
+}
+#criarConta{
+    display: flex;
+   
+    
+    justify-content: end;
+}           
+
+#subContainer{
+    display: flex;
+    width: 90%;
+    height: 90%;
+    /* background-color: aqua; */
+    border-radius: 30px;
+    background-image: url("../img/login2.jpeg");
+    background-size: 100% 100%;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+#Subcontainer > div{
+    flex-direction: row;
+}
+
+#logo{
+    width: 50%;
+    height: 100%;
+    /* background-color: yellow; */
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+#form{
+
+    width: 50%;
+    height: 100%;
+    /* background-color: tomato; */
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+}
+.control > label{
+    font-family:'Roboto', sans-serif;
+    margin-top: 5px;
+}
+#form > button{
+    margin-top: 20px;
+
+}
+#formulario > input{
+   
+    font-family: 'Fira Sans', sans-serif;
+    color: #03BB63;
+    height: 20px;
+    font-size: medium;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    width: 80%;
+    border-bottom:1px solid #03BB63 ;
+}
+.control{
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+    align-items: center; 
+    /* justify-content: center; */
+}
+.material-symbols-outlined {
+  color: #03BB63;
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+
+  
+}
+#formulario{
+    display: flex;
+    width: 80%;
+    flex-direction: column;
+    justify-content: center;
+}
+#formulario > input:focus{
+    box-shadow: 0 0 0 0;
+  outline: none;
+}
+
+#login{
+    font-family: 'Fira Sans', sans-serif;
+}
+#userAvatar{
+    width: 30%;
+    height: 30%;
+}
+#cadLink{
+    
+    display: flex;  
+    
+    
+}
+#cadLink > a{
+    font-family:'Roboto', sans-serif;
+    text-decoration: none;
+    
+}
+#cadLink > a:hover{
+    color: #03BB63;
+}
+#btnAction{
+    margin-top: 20px;
+    width: 80%;
+    border-radius: 20px;
+}
