@@ -36,7 +36,6 @@ create table atleta(
 	faixa varchar(15),
 	genero varchar(40),
 	data_nascimento date,
-	federação varchar(45),
 	pontuacao decimal(2,1),
 	academia_fk int,
 	foreign key(academia_fk) references academia(id_academia)

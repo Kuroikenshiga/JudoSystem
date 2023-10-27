@@ -52,7 +52,7 @@
                         </div>
                         <input type="password" name="senha" id="passWord"><br>
                         <button id="btnAction"  type="button" class="btn btn-success" onclick="insert()">Cadastrar</button>
-                        <div id="criarConta"><a href="../../JudoSystem/view/loginView.php">Já tenho uma conta</a></div>
+                        <div id="cadLink"><a href="../../JudoSystem/view/loginView.php">Já tenho uma conta</a></div>
                     </form>
                     
                 </div>
