@@ -35,6 +35,12 @@
                         <input type="text" name="usuario" id="userName"><br>
                         
                         <div class="control">
+                            <span class="material-symbols-outlined">person</span>
+                            <label for="email">Email</label><br>
+                        </div>
+                        <input type="text" name="email" id="email"><br>
+
+                        <div class="control">
                             <span id="lock" class="material-symbols-outlined">lock</span>
                             <label for="passWord">Senha</label><br>
                         </div>
@@ -46,7 +52,7 @@
                         </div>
                         <input type="password" name="senha" id="passWord"><br>
                         <button id="btnAction"  type="button" class="btn btn-success" onclick="insert()">Cadastrar</button>
-                        <div id="criarConta"><a href="JudoSystem/view/loginView.php">Já tenho uma conta</a></div>
+                        <div id="criarConta"><a href="../../JudoSystem/view/loginView.php">Já tenho uma conta</a></div>
                     </form>
                     
                 </div>

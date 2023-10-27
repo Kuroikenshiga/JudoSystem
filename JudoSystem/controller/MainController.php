@@ -9,5 +9,9 @@
             $uc->showCadastro();
 
         }
+
+        public function showMain(){
+            require_once("./JudoSystem/view/principal.php");
+        }
     }
 ?>

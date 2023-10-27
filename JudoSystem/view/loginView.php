@@ -28,19 +28,21 @@
                     <img id="userAvatar" src="../../JudoSystem/view/svg/userAvatar.svg" alt="">
                     <h1 id="login">Bem Vindo</h1>
                     <form id="formulario" method="post">
+                        
                         <div class="control">
                             <span class="material-symbols-outlined">person</span>
-                            <label for="userName">Nome de usuário</label><br>
+                            <label for="email">Email</label><br>
                         </div>
-                        <input type="text" name="usuario" id="userName"><br>
-                        
+                        <input type="text" name="email" id="email"><br>
+
                         <div class="control">
                             <span id="lock" class="material-symbols-outlined">lock</span>
                             <label for="passWord">Senha</label><br>
                         </div>
                         <input type="password" name="senha" id="passWord"><br>
-                        <div id="cadLink"><a href="../../JudoSystem/view/cadastroUsuario.php">Me cadastrar</a></div>
+                        
                         <button id="btnAction" type="button" class="btn btn-success" onclick="login()">Entrar</button>
+                        <div id="cadLink"><a href="../../JudoSystem/view/cadastroUsuario.php">Me cadastrar</a></div>
                     </form>
                     
                 </div>

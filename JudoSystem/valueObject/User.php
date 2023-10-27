@@ -2,7 +2,7 @@
     class User{
         private $nome;
         private $senha;
-
+        private $email;
         public function __construct($nome,$senha,$email)
         {
             $this->nome = $nome;

@@ -11,7 +11,7 @@
             require_once("./JudoSystem/model/UserModel.php");
             require_once("./JudoSystem/valueObject/User.php");
             $json = json_decode(file_get_contents("php://input"));
-            $user = new User($json->nome,$json->senha);
+            $user = new User($json->nome,$json->senha,$json->email);
 
             $um = new UserModel(Model::createConnection());
             if(!$um->insert($user)){
@@ -27,17 +27,20 @@
             require_once("./JudoSystem/valueObject/User.php");
             $json = json_decode(file_get_contents("php://input"));
             $um = new UserModel(Model::createConnection());
-            $sucess = $um->selectByIds($json->nome,$json->senha);
+            $sucess = $um->selectByIds($json->email,$json->senha);
             if($sucess == null){
-                die("Usuário não existe");
+                die("NA");
            }
             if(!$sucess){
-                die("Erro no Login");
+                die("erro");
             }
-         
-            echo("Logado");
+            $objResponse = new stdClass();
+            $objResponse->way = "../../index.php?class=main&method=showMain";
+            echo(json_encode($objResponse));
             
         }
+
+        
     }
 
 ?>
