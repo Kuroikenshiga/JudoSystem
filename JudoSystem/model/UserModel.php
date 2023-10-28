@@ -4,7 +4,7 @@
     class UserModel extends Model{
 
         public function insert($obj){
-            $q = "insert into usuario(nome, senha,email) values (?,?,?)";
+            $q = "insert into usuario(nome, senha,email) values (?,?,?) returning id_usuario";
             try{
                 $stmt = $this->getConnection()->prepare($q);
                 $stmt->bindValue(1,$obj->getNome());
@@ -14,7 +14,7 @@
             }catch(Exception $e){
                 return $e->getMessage();
             }
-            return true;
+            return $stmt->fetch()['id_usuario'];
         }
         public function update($obj){
             

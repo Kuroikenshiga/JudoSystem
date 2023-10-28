@@ -14,10 +14,13 @@
             $user = new User($json->nome,$json->senha,$json->email);
 
             $um = new UserModel(Model::createConnection());
-            if(!$um->insert($user)){
+            $idUser = $um->insert($user);
+            if(!$idUser){
                 die("Erro no cadastro");
             }
-            echo("Cadastro realizado");
+            $json = new stdClass();
+            $json->way = "../../JudoSystem/view/cadastroAcademiaView.php?id=$idUser";
+            echo(json_encode($json));
 
         }
 

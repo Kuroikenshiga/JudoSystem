@@ -9,7 +9,7 @@
 </head>
 <body onload="promiseState()">
     <div id="principal">
-       
+        <h1>Cadastrar academia</h1>
             <form id="form">
                 <div class="form-group">
                     <label for="numero">Número para contato</label>
@@ -45,8 +45,21 @@
                         </select>
                     </div>
                 </div>
-                
-
+                <div class="form-group">
+                    <label for="bairro">Bairro</label>
+                    <input type="text" class="form-control" id="bairro"  placeholder="Bairro">
+                   
+                </div>
+                <div class="form-group">
+                    <label for="logradouro">Bairro</label>
+                    <input type="text" class="form-control" id="logradouro"  placeholder="logradouro">
+                   
+                </div>
+                <div class="form-group">
+                    <label for="complemento">Complemento</label>
+                    <input type="text" class="form-control" id="complemento"  placeholder="complemento">
+                   
+                </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
         

@@ -1,7 +1,7 @@
 <?php
     class AcademiaController{
         public function showCadastro(){
-            require_once("./JudoSystem/view/cadastroAcademia.php")
+            require_once("./JudoSystem/view/cadastroAcademiaView.php")
         }
         public function insert(){
             require_once("./JudoSystem/model/Model.php");

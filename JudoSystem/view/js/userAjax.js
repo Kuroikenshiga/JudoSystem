@@ -10,7 +10,16 @@ function insert(){
     
    xml.onreadystatechange = ()=> {
         if(xml.status == 200 && xml.readyState == 4){
-            alert(xml.responseText);
+            let json;
+            try{
+                json = JSON.parse(xml.responseText);
+            }
+            catch(error){
+                alert(error)
+                return 0
+            }
+
+            window.location.href = json.way
         }
    }
 

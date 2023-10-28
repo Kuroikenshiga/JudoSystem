@@ -1,11 +1,21 @@
 #principal{
     display: flex;
-    justify-content: center;
+    
+    align-items: center;
     width: '100%';
+    flex-direction: column;
+
+
 }
 form{
     width: 700px;
 }
 form #estado{
     width: 88%;
+}
+form #cidade{
+    width: 88%;
+}
+.form-group{
+    margin-top: 10px;
 }
