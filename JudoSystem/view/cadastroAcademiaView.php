@@ -27,18 +27,25 @@
                         <div class="input-group-prepend">
                             <label class="input-group-text" for="inputGroupSelect01">Options</label>
                         </div>
-                        <select class="custom-select" id="estado">
+                        <select class="custom-select" id="estado" onchange="promiseCity()">
                             <option selected>Selecione a unidade federal</option>
                             
                         </select>
                     </div>
                 </div>
-
                 <div class="form-group">
-                    <label for="exampleInputEmail1">Número para contato</label>
-                    <input type="text" class="form-control" id="numero"  placeholder="Número para contato">
-                   
+                    <label for="cidade">cidade</label>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <label class="input-group-text" for="cidade">Options</label>
+                        </div>
+                        <select class="custom-select" id="cidade" >
+                            <option selected>Selecione a cidade</option>
+                            
+                        </select>
+                    </div>
                 </div>
+                
 
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
