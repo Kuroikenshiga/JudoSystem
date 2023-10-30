@@ -59,7 +59,17 @@
             return $atleta;
         }
         public function selectById($id){
-        
+            $obj = null;
+            try{
+                $stmt = $this->getConnection()->prepare('select * from atleta where id_atleta = ?');
+                $stmt->bindValue(1,$id);
+                $stmt->execute();
+            }
+            catch(Exception $e){
+                return false;
+            }
+            $rows = $stmt->fetch();
+                return $obj = new Atleta($rows["id_atleta"], $rows["nome"], $rows["faixa"], $rows["genero"], $rows["data_nascimento"], $rows["pontuacao"], $rows["id_academia_fk"]);
         }
 
     }
