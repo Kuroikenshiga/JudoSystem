@@ -29,7 +29,7 @@
                 $stmt = $this->getConnection()->prepare($q);
                 $stmt->execute();
                 while($rows = $stmt->fetch()){
-                    $users[] = new User($rows["nome"],$rows["senha"],$rows["email"]);
+                    $users[] = new User($rows['id_usuario'],$rows["nome"],$rows["senha"],$rows["email"]);
                 }
             }catch(Exception $e){
                 return false;
@@ -50,7 +50,7 @@
                 $stmt->execute();
                 $rows = $stmt->fetch();
                 
-                $user = count(is_countable($rows)?$rows:array())?new User($rows["nome"],$rows["senha"],$rows["email"]):null;
+                $user = count(is_countable($rows)?$rows:array())?new User($rows['id_usuario'],$rows["nome"],$rows["senha"],$rows["email"]):null;
                   
             }catch(Exception $e){
                 $e->getMessage();

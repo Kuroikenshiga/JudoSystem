@@ -12,13 +12,13 @@ function searchState(state){
 function promiseCity(){
     
     let selectCidade = document.querySelector("#cidade");
-    select = document.querySelector("#estado");
+    let select = document.querySelector("#estado");
     selectCidade.innerHTML = "";
     initialOp = document.createElement("option");
     initialOp.value = "";
     initialOp.innerHTML = "Selecione a cidade";
     selectCidade.appendChild(initialOp);
-    alert(searchState(select.value))
+    //alert(searchState(select.value))
     fetch("https://servicodados.ibge.gov.br/api/v1/localidades/estados/"+(searchState(select.value))+"/municipios")
     .then((response)=>response.json())
     .then((cities)=>{

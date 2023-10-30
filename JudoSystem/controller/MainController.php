@@ -1,5 +1,5 @@
 <?php
-    
+    session_start();
     class MainController{
         
         public function showCad(){
@@ -12,6 +12,9 @@
 
         public function showMain(){
             require_once("./JudoSystem/view/principal.php");
+        }
+        public function logout(){
+            echo $_SESSION['idUser'];
         }
     }
 ?>
