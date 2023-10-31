@@ -54,3 +54,28 @@ function promiseState(){
         }
     }).catch((error)=>{alert(error)})
 }
+
+ function getStates(){
+    let statesL
+    fetch("https://servicodados.ibge.gov.br/api/v1/localidades/estados?orderBy=nome")
+    .then((response)=>response.json())
+    .then((states)=>{
+        statesL = states
+    }).catch((error)=>{alert(error)})
+    return statesL
+}
+
+ function getCities(id){
+    let citiesL
+    fetch("https://servicodados.ibge.gov.br/api/v1/localidades/estados/"+(id)+"/municipios")
+    .then((response)=>response.json())
+    .then((cities)=>{
+        citiesL = cities
+        
+    }).catch((error)=>{alert(error)})
+    return citiesL
+}
+//  
+// cont
+
+

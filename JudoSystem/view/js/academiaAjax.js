@@ -1,3 +1,5 @@
+
+
 function insert(){
 
     let obj = new Object();
@@ -40,4 +42,9 @@ function update(){
         }
     }
     xml.send(JSON.stringify(obj))
+}
+
+function initializeForm(){
+    states = statesApi.getStates();
+    alert(states)
 }

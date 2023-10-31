@@ -60,7 +60,7 @@
                     <input type="text" class="form-control" id="complemento"  placeholder="complemento">
                    
                 </div>
-                <button type="button" class="btn btn-primary" onclick="update()">Submit</button>
+                <button type="button" class="btn btn-primary" onclick="initializeForm()">Submit</button>
             </form>
         
     </div>
