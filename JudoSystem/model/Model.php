@@ -13,6 +13,8 @@
         
         public static function createConnection(){
             return new PDO("pgsql: host=localhost; port=5432; dbname=JudoSystem; password=1; user=postgres");
+            // return new PDO("pgsql: host=localhost; port=5432; dbname=JudoSystem; password=mqrlg; user=postgres");
+            
         }
 
         public function connetionIsSet(){
