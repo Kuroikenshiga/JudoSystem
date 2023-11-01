@@ -82,5 +82,29 @@
         public function setId($id){
             $this->id = $id;
         }
+
+        public function toStdClass(){
+            // private $id;
+            // private $numero;
+            // private $nome;
+            // private $estado;
+            // private $cidade;
+            // private $bairro;
+            // private $complemento;
+            // private $logradouro;
+            // private $user;
+            $std = new stdClass();
+            $std->id = $this->id;
+            $std->numero = $this->numero;
+            $std->nome = $this->nome;
+            $std->estado = $this->estado;
+            $std->cidade = $this->cidade;
+            $std->bairro = $this->bairro;
+            $std->complemento = $this->complemento;
+            $std->logradouro = $this->logradouro;
+            $std->user = $this->user;
+
+            return $std;
+        }
     }
 ?>

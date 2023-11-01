@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../../JudoSystem/view/css/forms.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
-<body onload="promiseState()">
+<body onload="initializeForm()">
     <div id="principal">
         <h1>Informações da academia</h1>
             <form id="form">
@@ -60,6 +60,7 @@
                     <input type="text" class="form-control" id="complemento"  placeholder="complemento">
                    
                 </div>
+                
                 <button type="button" class="btn btn-primary" onclick="update()">Submit</button>
             </form>
         

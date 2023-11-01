@@ -11,7 +11,7 @@
             require_once("./JudoSystem/valueObject/Academia.php");
             $json = json_decode(file_get_contents("php://input"));
             $academia = new Academia(null,$json->numero,$json->nome,$json->estado,$json->cidade,$json->bairro,$json->complemento,$json->logradouro,$_SESSION['idUser']);
-            session_abort();
+            
             $am = new AcademiaModel(Model::createConnection());
             if(!$am->insert($academia)){
                 die("Erro no cadastro");
@@ -38,6 +38,14 @@
                 die("Erro no update");
             }
             echo("Sucesso");
+        }
+        public function getAcademiaAPI(){
+            require_once("./JudoSystem/model/Model.php");
+            require_once("./JudoSystem/model/AcademiaModel.php");
+            require_once("./JudoSystem/valueObject/Academia.php");
+            $am = new AcademiaModel(Model::createConnection());
+            $obj = $am->selectById($_SESSION['idAcademia']);
+            echo json_encode($obj->toStdClass());
         }
     
 }

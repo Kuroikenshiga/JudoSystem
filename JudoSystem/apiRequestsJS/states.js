@@ -54,3 +54,9 @@ function promiseState(){
         }
     }).catch((error)=>{alert(error)})
 }
+
+
+//  
+// cont
+
+
