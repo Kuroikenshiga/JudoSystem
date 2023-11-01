@@ -1,11 +1,11 @@
 <?php
     class Lutas{
         private $tempo;
-        private $hansokuMake;
+        private $hansoku_make;
         private $ganhou;
         private $goldenScore;
 
-        public function __construct($tempo, $hansokuMake, $ganhou, $goldenScore){
+        public function __construct($tempo, $hansoku_make, $ganhou, $goldenScore){
             $this->tempo = $tempo;
             $this->hansokuMake  = $hansokuMake;
             $this->ganhou = $ganhou;
@@ -20,10 +20,10 @@
         }
 
         public function getHansokuMake(){
-            return $this->$hansokuMake;
+            return $this->$hansoku_make;
         }
-        public function setHansokuMake($hansokuMake){
-            $this->hansokuMake = $hansokuMake;
+        public function setHansokuMake($hansoku_make){
+            $this->hansoku_make = $hansoku_make;
         }
 
         public function getGanhou(){
