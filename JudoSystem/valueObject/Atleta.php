@@ -15,35 +15,35 @@
         }
 
         public function getNome(){
-            return $this->$nome;
+            return $this->nome;
         }
         public function setNome($nome){
             $this->nome = $nome;
         }
 
         public function getFaixa(){
-            return $this->$faixa;
+            return $this->faixa;
         }
         public function setFaixa($faixa){
             $this->faixa = $faixa;
         }
 
         public function getGenero(){
-            return $this->$genero;
+            return $this->genero;
         }
         public function setGenero($genero){
             $this->genero = $genero;
         }
 
         public function getData_Nascimento(){
-            return $this->$data_nascimento;
+            return $this->data_nascimento;
         }
         public function setData_Nascimento($data_nascimento){
             $this->data_nascimento = $data_nascimento;
         }
 
         public function getPontuacao(){
-            return $this->$pontuacao;
+            return $this->pontuacao;
         }
         public function setPontuacao($pontuacao){
             $this->pontuacao = $pontuacao;

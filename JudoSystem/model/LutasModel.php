@@ -54,7 +54,7 @@
             }catch(Exception $e){
                 return false;
             }
-            return $atleta;
+            return $lutas;
         }
         public function selectById($id){
             $obj = null;
