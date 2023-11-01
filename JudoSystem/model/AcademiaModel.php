@@ -63,7 +63,7 @@
                     $stmt->execute();
                 }
                 catch(Exception $e){
-                    return false;
+                    return $e->getMessage();
                 }
                 $rows = $stmt->fetch();
                 return $obj = new Academia($rows["id_academia"],$rows["numero_contato"], $rows["nome"], $rows["estado"], $rows["cidade"], $rows["bairro"], $rows["complemento"], $rows["logradouro"],$rows["usuario_fk"]);

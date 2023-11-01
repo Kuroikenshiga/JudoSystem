@@ -39,6 +39,14 @@
             }
             echo("Sucesso");
         }
+        public function getAcademiaAPI(){
+            require_once("./JudoSystem/model/Model.php");
+            require_once("./JudoSystem/model/AcademiaModel.php");
+            require_once("./JudoSystem/valueObject/Academia.php");
+            $am = new AcademiaModel(Model::createConnection());
+            $obj = $am->selectById($_SESSION['idAcademia']);
+            echo json_encode($obj->toStdClass());
+        }
     
 }
 ?>
