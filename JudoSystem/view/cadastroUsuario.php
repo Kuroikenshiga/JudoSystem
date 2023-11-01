@@ -19,7 +19,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,500;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
-<body>
+<body onload="promiseState()">
     <div id="principal">
         <div id="container">
             <div id="subContainer">
@@ -57,8 +57,64 @@
                     
                 </div>
             </div>
+            <h1>Cadastrar academia</h1>
+            <form id="form">
+                <div class="form-group">
+                    <label for="numero">Número para contato</label>
+                    <input type="text" class="form-control" id="numero"  placeholder="Número para contato">
+                   
+                </div>
+                <div class="form-group">
+                    <label for="Nome">Nome da academia</label>
+                    <input type="text" class="form-control" id="nome"  placeholder="Nome">
+                   
+                </div>
+                <div class="form-group">
+                    <label for="estado">estado</label>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <label class="input-group-text" for="inputGroupSelect01">Options</label>
+                        </div>
+                        <select class="custom-select" id="estado" onchange="promiseCity()">
+                            <option selected>Selecione a unidade federal</option>
+                            
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="cidade">cidade</label>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <label class="input-group-text" for="cidade">Options</label>
+                        </div>
+                        <select class="custom-select" id="cidade" >
+                            <option selected>Selecione a cidade</option>
+                            
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="bairro">Bairro</label>
+                    <input type="text" class="form-control" id="bairro"  placeholder="Bairro">
+                   
+                </div>
+                <div class="form-group">
+                    <label for="logradouro">Logradouro</label>
+                    <input type="text" class="form-control" id="logradouro"  placeholder="logradouro">
+                   
+                </div>
+                <div class="form-group">
+                    <label for="complemento">Complemento</label>
+                    <input type="text" class="form-control" id="complemento"  placeholder="complemento">
+                   
+                </div>
+               
+            </form>
+        
         </div>
     </div>
+    <script src="../../JudoSystem/apiRequestsJS/states.js"></script>
+    <script src="../../JudoSystem/view/js/academiaAjax.js"></script>
     <script src="../../JudoSystem/view//js/userAjax.js"></script>
 </body>
 </html>

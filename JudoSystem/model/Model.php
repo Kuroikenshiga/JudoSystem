@@ -1,7 +1,7 @@
 <?php
     abstract class Model{
         private $connection;
-
+        private static $connectionOfModel;
         public function __construct($connection)
         {
             $this->connection = $connection;
@@ -12,9 +12,23 @@
         }
         
         public static function createConnection(){
-            return new PDO("pgsql: host=localhost; port=5432; dbname=JudoSystem; password=1; user=postgres");
-            // return new PDO("pgsql: host=localhost; port=5432; dbname=JudoSystem; password=mqrlg; user=postgres");
+            if(Model::$connectionOfModel == null){
+                try{
+                    Model::$connectionOfModel =  new PDO("pgsql: host=localhost; port=5432; dbname=JudoSystem; password=1; user=postgres");
+                    return Model::$connectionOfModel;
+                }
+                catch(Exception $e){
+                    Model::$connectionOfModel = new PDO("pgsql: host=localhost; port=5432; dbname=JudoSystem; password=mqrlg; user=postgres");
+                    return Model::$connectionOfModel;
+                    }
+            }
+            return Model::$connectionOfModel;
+            // 
             
+        }
+
+        public function getConnectionOfModel(){
+            return Model::$connectionOfModel;
         }
 
         public function connetionIsSet(){

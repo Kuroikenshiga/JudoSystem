@@ -1,9 +1,20 @@
 function insert(){
 
-    let obj = new Object()
-    obj.senha = document.querySelector("#passWord").value;
-    obj.nome = document.querySelector("#userName").value;
-    obj.email = document.querySelector("#email").value;
+    let objUser = new Object()
+    objUser.senha = document.querySelector("#passWord").value;
+    objUser.nome = document.querySelector("#userName").value;
+    objUser.email = document.querySelector("#email").value;
+
+    let objAcademia = new Object();
+    objAcademia.numero = document.querySelector("#numero").value;
+    objAcademia.nome = document.querySelector("#nome").value;
+    objAcademia.cidade = document.querySelector("#cidade").value;
+    objAcademia.estado = document.querySelector("#estado").value;
+    objAcademia.bairro = document.querySelector("#bairro").value;
+    objAcademia.logradouro = document.querySelector("#logradouro").value;
+    objAcademia.complemento = document.querySelector("#complemento").value;
+    objUser.academia = objAcademia;
+    
     let xml = new XMLHttpRequest();
     xml.open("POST","../../index.php?class=User&method=insert",true);
     xml.setRequestHeader("content-Type","Application/Json");
@@ -23,7 +34,7 @@ function insert(){
         }
    }
 
-    xml.send(JSON.stringify(obj))
+    xml.send(JSON.stringify(objUser))
 
 
 }
