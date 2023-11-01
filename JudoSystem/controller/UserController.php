@@ -10,13 +10,17 @@
         public function showCadastro(){
             require_once("./JudoSystem/view/cadastroUsuario.php");
         }
+
         public function insert(){
             require_once("./JudoSystem/model/Model.php");
             require_once("./JudoSystem/model/UserModel.php");
             require_once("./JudoSystem/valueObject/User.php");
+            require_once("./JudoSystem/model/AcademiaModel.php");
+            require_once("./JudoSystem/valueObject/Academia.php");
             $json = json_decode(file_get_contents("php://input"));
             $user = new User(null,$json->nome,$json->senha,$json->email);
-
+            $academia = new Academia(null,$json->academia->numero,$json->academia->nome,$json->academia->estado,$json->academia->cidade,$json->academia->bairro,$json->academia->complemento,$json->academia->logradouro,$_SESSION['idUser']);
+            
             $um = new UserModel(Model::createConnection());
             $idUser = $um->insert($user);
             if(!$idUser){
@@ -52,7 +56,7 @@
             $objResponse->way = "../../index.php?class=main&method=showMain";
             echo(json_encode($objResponse));
             
-        }
+        }  
 
         
     }
