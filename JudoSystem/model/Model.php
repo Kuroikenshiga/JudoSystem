@@ -27,7 +27,7 @@
             
         }
 
-        public function getConnectionOfModel(){
+        public static function getConnectionOfModel(){
             return Model::$connectionOfModel;
         }
 

@@ -19,18 +19,32 @@
             require_once("./JudoSystem/valueObject/Academia.php");
             $json = json_decode(file_get_contents("php://input"));
             $user = new User(null,$json->nome,$json->senha,$json->email);
-            $academia = new Academia(null,$json->academia->numero,$json->academia->nome,$json->academia->estado,$json->academia->cidade,$json->academia->bairro,$json->academia->complemento,$json->academia->logradouro,$_SESSION['idUser']);
+            
+            
             
             $um = new UserModel(Model::createConnection());
+            $am = new AcademiaModel(Model::createConnection());
+            Model::getConnectionOfModel()->beginTransaction();
+
             $idUser = $um->insert($user);
+            
             if(!$idUser){
-                die("Erro no cadastro");
+                Model::getConnectionOfModel()->rollBack();
+                die("Erro no cadastro de usuário");
             }
+            
+            $academia = new Academia(null,$json->academia->numero,$json->academia->nome,$json->academia->estado,$json->academia->cidade,$json->academia->bairro,$json->academia->complemento,$json->academia->logradouro,$idUser);
+            
+            if(!$am->insert($academia)){
+                Model::getConnectionOfModel()->rollBack();
+                die("Erro no cadastro de academia");
+            }
+            Model::getConnectionOfModel()->commit();
             $json = new stdClass();
-            $json->way = "index.php?class=academia&method=showCadastro";
+            $json->way = "index.php?class=user&method=showLogin";
 
             echo(json_encode($json));
-            $_SESSION['idUser'] = $idUser;
+            
         }
 
         public function login(){

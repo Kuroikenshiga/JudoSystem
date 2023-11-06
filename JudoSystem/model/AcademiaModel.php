@@ -81,7 +81,7 @@
                     return false;
                 }
                 $rows = $stmt->fetch();
-                return $obj = new Academia($rows["id_academia"],$rows["numero_contato"], $rows["nome"], $rows["estado"], $rows["cidade"], $rows["bairro"], $rows["complemento"], $rows["logradouro"],$rows["usuario_fk"]);
+                return new Academia($rows["id_academia"],$rows["numero_contato"], $rows["nome"], $rows["estado"], $rows["cidade"], $rows["bairro"], $rows["complemento"], $rows["logradouro"],$rows["usuario_fk"]);
             }
             
     }
