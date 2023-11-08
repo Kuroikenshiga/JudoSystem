@@ -56,8 +56,13 @@
             $atl = new AtletaModel(Model::createConnection());
             $atletas = $atl->selectAll();
 
-            header('Content-Type: application/json');
-            echo json_encode($atletas);
+            if(!$atletas){
+                echo "Não existem atletas cadastrados";
+            }else{
+                require_once("./JudoSystem/view/listaAtletaView.php");
+            }
+            // header('Content-Type: application/json');
+            // echo json_encode($atletas);
         }
     }
 ?>
