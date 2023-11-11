@@ -49,20 +49,18 @@
             }
             echo("Atleta excluído com sucesso");
         }
-        public function listaAtletas(){
+        public function list(){
             require_once("./JudoSystem/model/Model.php");
             require_once("./JudoSystem/model/AtletaModel.php");
     
             $atl = new AtletaModel(Model::createConnection());
-            $atletas = $atl->selectAll();
+            $atleta = $atl->selectAll();
 
-            if(!$atletas){
+            if(!$atleta){
                 echo "Não existem atletas cadastrados";
             }else{
                 require_once("./JudoSystem/view/listaAtletaView.php");
             }
-            // header('Content-Type: application/json');
-            // echo json_encode($atletas);
         }
     }
 ?>
