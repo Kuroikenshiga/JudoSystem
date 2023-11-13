@@ -62,5 +62,18 @@
                 require_once("./JudoSystem/view/listaAtletaView.php");
             }
         }
+        public function listById(){
+            require_once("./JudoSystem/model/Model.php");
+            require_once("./JudoSystem/model/AtletaModel.php");
+    
+            $atl = new AtletaModel(Model::createConnection());
+            $atleta = $atl->selectById($id);
+
+            if(!$atleta){
+                echo "Não existem atletas cadastrados";
+            }else{
+                require_once("./JudoSystem/view/listaAtletaView.php");
+            }
+        }
     }
 ?>

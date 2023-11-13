@@ -45,7 +45,7 @@
             return true;
         }
         public function selectAll(){
-            $q = "SELECT * FROM atleta";
+            $q = "SELECT * FROM atleta WHERE id_academia_fk = ?";
             $atleta = array();
             try{
                 $stmt = $this->getConnection()->prepare($q);
