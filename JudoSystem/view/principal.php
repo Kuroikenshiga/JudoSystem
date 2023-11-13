@@ -63,7 +63,7 @@
       <nav id="navbar" class="navbar">
         <ul>
           <li><a class="nav-link scrollto active" href="#hero">Inicio</a></li>
-          <li><a class="nav-link scrollto" href="../../JudoSystem/view/cadastroAtletaView.php">Atletas</a></li>
+          <li><a class="nav-link scrollto" href="../../JudoSystem/view/listaAtletaView.php">Atletas</a></li>
           <li><a class="nav-link scrollto" href="#services">Competições</a></li>
           <li><a class="nav-link scrollto" href="index.php?class=academia&method=showUpdate">Academia</a></li>
           <li><a class="nav-link scrollto" href="#contact">Contato</a></li>
