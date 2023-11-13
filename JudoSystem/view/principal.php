@@ -130,7 +130,7 @@
    
 
     <!-- ======= Competições Section ======= -->
-    <section id="services" class="services">
+    <section id="Competições" class="services">
       <div class="container">
 
         <div class="section-title">
@@ -223,7 +223,7 @@
         <div class="row">
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in">
             <div class="member">
-              <img src="assets/img/team/team-1.jfif" alt="">
+              <img src="../../JudoSystem/view/assets/img/team/team-1.jfif" alt="">
               <h4>Salim Lopes</h4>
               <span>Chief Executive Officer</span>
               <p>
@@ -240,7 +240,7 @@
 
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in">
             <div class="member">
-              <img src="assets/img/team/team-2.jpg" alt="">
+              <img src="../../JudoSystem/view/assets/img/team/team-2.jpg" alt="">
               <h4>Marcelo Silva</h4>
               <span>Product Manager</span>
               <p>
@@ -257,7 +257,7 @@
 
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in">
             <div class="member">
-              <img src="assets/img/team/team-3.jfif" alt="">
+              <img src="../../JudoSystem/view/assets/img/team/team-3.jfif" alt="">
               <h4>Rogerio Palafoz</h4>
               <span>CTO</span>
               <p>

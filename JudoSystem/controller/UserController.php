@@ -41,7 +41,7 @@
             }
             Model::getConnectionOfModel()->commit();
             $json = new stdClass();
-            $json->way = "index.php?class=user&method=showLogin";
+            $json->way = "../../index.php?class=user&method=showLogin";
 
             echo(json_encode($json));
             
