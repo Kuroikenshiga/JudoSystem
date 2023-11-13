@@ -5,13 +5,15 @@
         private $genero;
         private $data_nascimento;
         private $pontuacao;
+        private $academia;
 
-        public function __construct($nome, $faixa, $genero, $data_nascimento, $pontuacao){;
+        public function __construct($nome, $faixa, $genero, $data_nascimento, $pontuacao, $academia){;
             $this->nome = $nome;
             $this->faixa = $faixa;
             $this->genero = $genero;
             $this->data_nascimento = $data_nascimento;
             $this->pontuacao = $pontuacao;
+            $this->academia = $academia;
         }
 
         public function getNome(){
@@ -47,6 +49,12 @@
         }
         public function setPontuacao($pontuacao){
             $this->pontuacao = $pontuacao;
+        }
+        public function getAcademia(){
+            return $this->academia;
+        }
+        public function setAcademia($academia){
+            $this->academia = $academia;
         }
 
     }

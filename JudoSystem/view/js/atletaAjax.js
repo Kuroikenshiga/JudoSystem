@@ -9,7 +9,7 @@ function insert(){
 
 
     let xml = new XMLHttpRequest();
-    xml.open("POST",'index.php?class=atleta&method=insert');
+    xml.open("POST",'../../index.php?class=atleta&method=insert');
     xml.setRequestHeader("content-type",'application/json');
 
     xml.onreadystatechange = ()=>{
@@ -28,7 +28,7 @@ function update(){
     obj.pontuacao = document.querySelector("#pontuacao").value
 
     let xml = new XMLHttpRequest();
-    xml.open("POST",'index.php?class=atleta&method=update');
+    xml.open("POST",'../../index.php?class=atleta&method=update');
     xml.setRequestHeader("content-type",'application/json');
 
     xml.onreadystatechange = ()=>{

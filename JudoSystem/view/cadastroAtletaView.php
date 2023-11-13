@@ -29,8 +29,8 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="dtnasc">Data Nascimento</label>
-                    <input type="date" class="form-control" id="dtnasc">
+                    <label for="data_nascimento">Data Nascimento</label>
+                    <input type="date" class="form-control" id="data_nascimento">
                 </div>
 
                 <div class="form-group">
@@ -38,9 +38,12 @@
                     <input type="number" class="form-control" id="pontuacao">
                 </div>
 
-                <button type="submit" class="btn btn-primary">Cadastrar</button>
+                <button type="button" class="btn btn-primary" onclick="insert()">Cadastrar</button>
+                <a href="../../JudoSystem/view/listaAtletaView.php">lista</a>
+                <a href="../../JudoSystem/view/updateAtletaView.php">update</a>
             </form>
         
     </div>
+    <script src="../../JudoSystem/view/js/atletaAjax.js"></script>
 </body>
 </html>
