@@ -1,10 +1,11 @@
 <?php
+    session_start();
     require_once("./JudoSystem/model/Model.php");
     require_once("./JudoSystem/valueObject/Atleta.php");
     class AtletaModel extends Model{
 
         public function insert($obj){
-            $q = "INSERT INTO atleta(nome, faixa, genero, data_nascimento, pontuacao) VALUES (?,?,?,?,?)";
+            $q = "INSERT INTO atleta(nome, faixa, genero, data_nascimento, pontuacao, academia_fk) VALUES (?,?,?,?,?,?)";
             try{
                 $stmt = $this->getConnection()->prepare($q);
                 $stmt->bindValue(1,$obj->getNome());
@@ -12,6 +13,7 @@
                 $stmt->bindValue(3,$obj->getGenero());
                 $stmt->bindValue(4,$obj->getData_Nascimento());
                 $stmt->bindValue(5,$obj->getPontuacao());
+                $stmt->bindValue(6,$obj->getAcademia());
                 $stmt->execute();
             }catch(Exception $e){
                 return false;
@@ -27,6 +29,7 @@
                 $stmt->bindValue(3,$obj->getGenero());
                 $stmt->bindValue(4,$obj->getData_Nascimento());
                 $stmt->bindValue(5,$obj->getPontuacao());
+                $stmt->bindValue(6,$obj->getAcademia());
                 $stmt->execute();
             }catch(Exception $e){
                 return false;
@@ -45,13 +48,13 @@
             return true;
         }
         public function selectAll(){
-            $q = "SELECT * FROM atleta WHERE id_academia_fk = ?";
+            $q = "SELECT * FROM atleta WHERE academia_fk = ?";
             $atleta = array();
             try{
                 $stmt = $this->getConnection()->prepare($q);
                 $stmt->execute();
                 while($rows = $stmt->fetch()){
-                    $atleta[] = new Atleta($rows["id_atleta"], $rows["nome"], $rows["faixa"], $rows["genero"], $rows["data_nascimento"], $rows["pontuacao"], $rows["id_academia_fk"]);
+                    $atleta[] = new Atleta($rows["nome"], $rows["faixa"], $rows["genero"], $rows["data_nascimento"], $rows["pontuacao"], $rows["academia_fk"]);
                 }
             }catch(Exception $e){
                 return false;
@@ -69,7 +72,7 @@
                 return false;
             }
             $rows = $stmt->fetch();
-                return $obj = new Atleta($rows["id_atleta"], $rows["nome"], $rows["faixa"], $rows["genero"], $rows["data_nascimento"], $rows["pontuacao"], $rows["id_academia_fk"]);
+                return $obj = new Atleta($rows["nome"], $rows["faixa"], $rows["genero"], $rows["data_nascimento"], $rows["pontuacao"], $rows["academia_fk"]);
         }
 
     }

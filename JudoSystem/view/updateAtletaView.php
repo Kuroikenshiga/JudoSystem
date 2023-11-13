@@ -42,9 +42,10 @@
                     <input type="number" class="form-control" id="pontuacao" value="<?php echo $atleta->getPontuacao() ?>">
                 </div>
 
-                <button type="submit" class="btn btn-primary">Modificar</button>
+                <button type="submit" class="btn btn-primary" onclick="update()">Modificar</button>
             </form>
         
     </div>
+    <script src="../../JudoSystem/view/js/atletaAjax.js"></script>
 </body>
 </html>

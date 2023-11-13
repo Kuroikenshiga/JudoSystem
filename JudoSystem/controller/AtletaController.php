@@ -8,7 +8,7 @@
             require_once("./JudoSystem/model/AtletaModel.php");
             require_once("./JudoSystem/valueObject/Atleta.php");
             $json = json_decode(file_get_contents("php://input"));
-            $atleta = new Atleta($json->nome,$json->faixa,$json->genero,$json->data_nascimento,$json->pontuacao);
+            $atleta = new Atleta($json->nome,$json->faixa,$json->genero,$json->data_nascimento,$json->pontuacao,$_SESSION['idAcademia']);
 
             $atl = new AtletaModel(Model::createConnection());
             if(!$atl->insert($atleta)){
@@ -28,7 +28,7 @@
             require_once(".JudoSystem/model/AtletaModel.php");
             require_once(".JudoSystem/valueObject/Atleta.php");
             $json = json_decode(file_get_contents("php://input"));
-            $atleta = new Atleta($json->nome,$json->faixa,$json->genero,$json->data_nascimento,$json->pontuacao);
+            $atleta = new Atleta($json->nome,$json->faixa,$json->genero,$json->data_nascimento,$json->pontuacao,$_SESSION['idAcademia']);
     
             $atl = new AtletaModel(Model::createConnection());
             if(!$atl->update($atleta)){

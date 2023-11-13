@@ -18,7 +18,7 @@
                 <th>Pontuação</th>
             </tr>
             <?php
-                foreach($atletas as $i){
+                foreach($atleta as $i){
             ?>
             <tr>
                 <td><?php echo $i->getNome() ?></td>
