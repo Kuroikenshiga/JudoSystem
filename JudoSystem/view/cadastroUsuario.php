@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
@@ -48,9 +48,9 @@
 
                         <div class="control">
                             <span id="lock" class="material-symbols-outlined">lock</span>
-                            <label for="passWord">Repita a senha</label><br>
+                            <label for="RpassWord">Repita a senha</label><br>
                         </div>
-                        <input type="password" name="senha" id="passWord"><br>
+                        <input type="password" name="senha" id="RpassWord"><br>
                         <button id="btnAction"  type="button" class="btn btn-success" onclick="insert()">Cadastrar</button>
                         <div id="cadLink"><a href="../../JudoSystem/view/loginView.php">Já tenho uma conta</a></div>
                     </form>
