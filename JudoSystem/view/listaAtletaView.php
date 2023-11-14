@@ -36,7 +36,7 @@
 </head>
 
 <body>
-
+<script src="../../JudoSystem/view/js/listaAtletas.js"></script>
   <!-- ======= Top Bar ======= -->
   <section id="topbar" class="d-flex align-items-center">
     <div class="container d-flex justify-content-center justify-content-md-between">
@@ -111,6 +111,6 @@
             
         </table>
     </div>
-    <script src="../../JudoSystem/view/js/listaAtletas.js"></script>
+   
 </body>
 </html>
