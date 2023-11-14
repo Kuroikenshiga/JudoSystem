@@ -15,6 +15,7 @@
         }
         public function logout(){
             echo $_SESSION['idUser'];
+            
         }
     }
 ?>

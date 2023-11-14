@@ -1,0 +1,14 @@
+#principal{
+    display: flex;
+    flex-direction: row;
+}
+#slideBar{
+    width: 200px;
+    background-color: green;
+    display: none;
+}
+#showSlideBar{
+    width: 20px;
+    height: 20px;
+    background-color: aqua;
+}

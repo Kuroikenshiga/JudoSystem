@@ -56,7 +56,7 @@
             $atl = new AtletaModel(Model::createConnection());
             $atleta = $atl->selectAllByAcademia($_SESSION['idAcademia']);
 
-            if(!$atleta){
+            if($atleta){
                 echo "Não existem atletas cadastrados";
             }else{
                 require_once("./JudoSystem/view/listaAtletaView.php");
@@ -69,9 +69,8 @@
             $atl = new AtletaModel(Model::createConnection());
             $atleta = $atl->selectById($id);
 
-            if(!$atleta){
-                echo "Não existem atletas cadastrados";
-            }else{
+            
+            if($atleta != false){
                 require_once("./JudoSystem/view/listaAtletaView.php");
             }
         }

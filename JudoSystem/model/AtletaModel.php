@@ -72,7 +72,7 @@
                     $atleta[] = new Atleta($rows["nome"], $rows["faixa"], $rows["genero"], $rows["data_nascimento"], $rows["pontuacao"], $rows["academia_fk"]);
                 }
             }catch(Exception $e){
-                return false;
+                return $e->getMessage();
             }
             return $atleta;
         }
