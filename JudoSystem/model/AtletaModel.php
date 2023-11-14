@@ -48,10 +48,25 @@
             return true;
         }
         public function selectAll(){
+            $q = "SELECT * FROM atleta";
+            $atleta = array();
+            try{
+                $stmt = $this->getConnection()->prepare($q);
+                $stmt->execute();
+                while($rows = $stmt->fetch()){
+                    $atleta[] = new Atleta($rows["nome"], $rows["faixa"], $rows["genero"], $rows["data_nascimento"], $rows["pontuacao"], $rows["academia_fk"]);
+                }
+            }catch(Exception $e){
+                return false;
+            }
+            return $atleta;
+        }
+        public function selectAllByAcademia($academia){
             $q = "SELECT * FROM atleta WHERE academia_fk = ?";
             $atleta = array();
             try{
                 $stmt = $this->getConnection()->prepare($q);
+                $stmt->bindValue(1,$academia);
                 $stmt->execute();
                 while($rows = $stmt->fetch()){
                     $atleta[] = new Atleta($rows["nome"], $rows["faixa"], $rows["genero"], $rows["data_nascimento"], $rows["pontuacao"], $rows["academia_fk"]);
