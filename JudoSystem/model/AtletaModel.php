@@ -29,7 +29,7 @@
                 $stmt->bindValue(3,$obj->getGenero());
                 $stmt->bindValue(4,$obj->getData_Nascimento());
                 $stmt->bindValue(5,$obj->getPontuacao());
-                $stmt->bindValue(6,$obj->getAcademia());
+                $stmt->bindValue(6,$obj->getId());
                 $stmt->execute();
             }catch(Exception $e){
                 return false;
@@ -54,7 +54,7 @@
                 $stmt = $this->getConnection()->prepare($q);
                 $stmt->execute();
                 while($rows = $stmt->fetch()){
-                    $atleta[] = new Atleta($rows["nome"], $rows["faixa"], $rows["genero"], $rows["data_nascimento"], $rows["pontuacao"], $rows["academia_fk"]);
+                    $atleta[] = new Atleta($rows['id_atleta'],$rows["nome"], $rows["faixa"], $rows["genero"], $rows["data_nascimento"], $rows["pontuacao"], $rows["academia_fk"]);
                 }
             }catch(Exception $e){
                 return false;
@@ -69,10 +69,10 @@
                 $stmt->bindValue(1,$academia);
                 $stmt->execute();
                 while($rows = $stmt->fetch()){
-                    $atleta[] = new Atleta($rows["nome"], $rows["faixa"], $rows["genero"], $rows["data_nascimento"], $rows["pontuacao"], $rows["academia_fk"]);
+                    $atleta[] = new Atleta($rows['id_atleta'],$rows["nome"], $rows["faixa"], $rows["genero"], $rows["data_nascimento"], $rows["pontuacao"], $rows["academia_fk"]);
                 }
             }catch(Exception $e){
-                return $e->getMessage();
+                return false;
             }
             return $atleta;
         }
@@ -87,7 +87,7 @@
                 return false;
             }
             $rows = $stmt->fetch();
-                return $obj = new Atleta($rows["nome"], $rows["faixa"], $rows["genero"], $rows["data_nascimento"], $rows["pontuacao"], $rows["academia_fk"]);
+                return $obj = new Atleta($rows['id_atleta'],$rows["nome"], $rows["faixa"], $rows["genero"], $rows["data_nascimento"], $rows["pontuacao"], $rows["academia_fk"]);
         }
 
     }

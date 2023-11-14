@@ -11,11 +11,11 @@
     <div id="principal">
         
             <h1>Modifica Atleta</h1>
-       
-            <form action="index.php" method="POST">
+            
+            <form action="index.php" >
                 <input type="hidden" value="Atleta" name="class">
                 <input type="hidden" value="update" name="method">
-                <input type="hidden" name="id_atleta" value="<?php echo $atleta->getCodigo() ?>">
+                <input type="hidden" id="id_atleta" value="<?php echo $atleta->getId() ?>">
 
                 <div class="form-group">
                     <label for="nome">Nome</label>
@@ -42,7 +42,7 @@
                     <input type="number" class="form-control" id="pontuacao" value="<?php echo $atleta->getPontuacao() ?>">
                 </div>
 
-                <button type="submit" class="btn btn-primary" onclick="update()">Modificar</button>
+                <button type="button" class="btn btn-primary" onclick="update()">Modificar</button>
             </form>
         
     </div>

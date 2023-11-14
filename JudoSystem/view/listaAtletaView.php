@@ -35,8 +35,7 @@
   ======================================================== -->
 </head>
 
-<body>
-
+<body> <script src="../../JudoSystem/view/js/listaAtletas.js"></script>
   <!-- ======= Top Bar ======= -->
   <section id="topbar" class="d-flex align-items-center">
     <div class="container d-flex justify-content-center justify-content-md-between">
@@ -100,8 +99,8 @@
                     <td><?php echo $i->getGenero() ?></td>
                     <td><?php echo $i->getData_Nascimento() ?></td>
                     <td><?php echo $i->getPontuacao() ?></td>
-                    <td><a href="index.php?class=Atleta&method=update&id_atleta=<?php echo $i->getIdAtleta() ?>">Modificar</a></td>
-                    <td><a href="index.php?class=Atleta&method=delete&id_atleta=<?php echo $i->getIdAtleta() ?>">Remover</a></td>
+                    <td><a href="index.php?class=Atleta&method=ShowUpdate&id_atleta=<?php echo $i->getId() ?>">Modificar</a></td>
+                    <td><a href="index.php?class=Atleta&method=delete&id_atleta=<?php echo $i->getId() ?>">Remover</a></td>
                 </tr>
             <?php
                 }
@@ -111,6 +110,6 @@
             
         </table>
     </div>
-    <script src="../../JudoSystem/view/js/listaAtletas.js"></script>
+   
 </body>
 </html>

@@ -1,5 +1,6 @@
 <?php
     class Atleta{
+        private $id;
         private $nome;
         private $faixa;
         private $genero;
@@ -7,15 +8,21 @@
         private $pontuacao;
         private $academia;
 
-        public function __construct($nome, $faixa, $genero, $data_nascimento, $pontuacao, $academia){;
+        public function __construct($id,$nome, $faixa, $genero, $data_nascimento, $pontuacao, $academia){;
             $this->nome = $nome;
             $this->faixa = $faixa;
             $this->genero = $genero;
             $this->data_nascimento = $data_nascimento;
             $this->pontuacao = $pontuacao;
             $this->academia = $academia;
+            $this->id = $id;
         }
-
+        public function getId(){
+            return $this->id;
+        }
+        public function setId($id){
+            $this->id = $id;
+        }
         public function getNome(){
             return $this->nome;
         }
