@@ -25,6 +25,7 @@
 
   <!-- Template Main CSS File -->
   <link href="../../JudoSystem/view/assets/css/style.css" rel="stylesheet">
+  
 
   <!-- =======================================================
   * Template Name: Day
@@ -91,27 +92,27 @@
                     <th>Data de nascimento</th>
                     <th>Pontuação</th>
                 </tr>
-            <tbody>
-            <?php
-                foreach($atleta as $i){
-            ?>
-                <tr>
-                    <td><?php echo $i->getNome() ?></td>
-                    <td><?php echo $i->getFaixa() ?></td>
-                    <td><?php echo $i->getGenero() ?></td>
-                    <td><?php echo $i->getData_Nascimento() ?></td>
-                    <td><?php echo $i->getPontuacao() ?></td>
-                    <td><a href="index.php?class=Atleta&method=ShowUpdate&id_atleta=<?php echo $i->getId() ?>">Modificar</a></td>
-                    <td><a href="index.php?class=Atleta&method=delete&id_atleta=<?php echo $i->getId() ?>">Remover</a></td>
-                </tr>
-            <?php
-                }
-            ?>
+            <tbody id="bodyTable">
+                <?php
+                    foreach($atleta as $i){
+                ?>
+                    <tr>
+                        <td><?php echo $i->getNome() ?></td>
+                        <td><?php echo $i->getFaixa() ?></td>
+                        <td><?php echo $i->getGenero() ?></td>
+                        <td><?php echo $i->getData_Nascimento() ?></td>
+                        <td><?php echo $i->getPontuacao() ?></td>
+                        <td><a href="index.php?class=Atleta&method=ShowUpdate&id_atleta=<?php echo $i->getId() ?>"><button type="button" class="btn btn-info">Modificar</button></a></td>
+                        <td><button class="btn btn-danger" onclick="remove(<?php echo $i->getId() ?>)">Deletar</button></td>
+                    </tr>
+                <?php
+                    }
+                ?>
             </tbody>
             </thead>
             
         </table>
     </div>
-   
+    <script src="../../JudoSystem/view/js/atletaAjax.js"></script>
 </body>
 </html>

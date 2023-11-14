@@ -64,5 +64,16 @@
             $this->academia = $academia;
         }
 
+        public function toStdClass(){
+            $std = new stdClass();
+            $std->id = $this->id;
+            $std->nome = $this->nome;
+            $std->faixa = $this->faixa;
+            $std->genero = $this->genero;
+            $std->data_nascimento = $this->data_nascimento;
+            $std->pontuacao = $this->pontuacao;
+            $std->academia = $this->academia;
+            return $std;
+        }
     }
 ?>
