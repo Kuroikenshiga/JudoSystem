@@ -49,8 +49,14 @@
             if(!$atl->delete($id)){
                 die("Erro na exclusão do atleta");
             }
-            echo("Atleta excluído com sucesso");
+            $atletas = $atl->selectAllByAcademia($_SESSION['idAcademia']);
+            $atletasStdClass = [];
+            foreach($atletas as $at){
+                $atletasStdClass[] = $at->toStdClass();
+            }
+            echo(json_encode($atletasStdClass));
         }
+
         public function list(){
             require_once("./JudoSystem/model/Model.php");
             require_once("./JudoSystem/model/AtletaModel.php");
@@ -58,11 +64,9 @@
             $atl = new AtletaModel(Model::createConnection());
             $atleta = $atl->selectAllByAcademia($_SESSION['idAcademia']);
 
-            if(!$atleta){
-                echo "Não existem atletas cadastrados";
-            }else{
+           
                 require_once("./JudoSystem/view/listaAtletaView.php");
-            }
+            
         }
         public function listById(){
             require_once("./JudoSystem/model/Model.php");
