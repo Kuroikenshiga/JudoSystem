@@ -24,10 +24,10 @@
   <link href="../../JudoSystem/view/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
   <link href="../../JudoSystem/view/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="../../JudoSystem/view/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
+  
   <!-- Template Main CSS File -->
   <link href="../../JudoSystem/view/assets/css/style.css" rel="stylesheet">
-
+  <link rel="stylesheet" href="../../JudoSystem/view/css/mainCss.css">
   <!-- =======================================================
   * Template Name: Day
   * Updated: Sep 18 2023 with Bootstrap v5.3.2
@@ -56,7 +56,7 @@
   <header id="header" class="d-flex align-items-center">
     <div class="container d-flex align-items-center justify-content-between">
 
-      <h1 class="logo"><a href="index.html">Day</a></h1>
+      <h1 class="logo"><a href="index.html">JudoSystem</a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
@@ -64,7 +64,7 @@
         <ul>
           <li><a class="nav-link scrollto active" href="#hero">Inicio</a></li>
           <li><a class="nav-link scrollto" href="index.php?class=atleta&method=list">Atletas</a></li>
-          <li><a class="nav-link scrollto" href="#services">Competições</a></li>
+          <li><a class="nav-link scrollto" href="index.php?class=competicao&method=list">Competições</a></li>
           <li><a class="nav-link scrollto" href="index.php?class=academia&method=showUpdate">Academia</a></li>
           <li><a class="nav-link scrollto" href="#contact">Contato</a></li>
           <li><a class="nav-link scrollto " href="index.php?class=main&method=logout">Sair</a></li>
@@ -138,56 +138,24 @@
           <h2>Competições</h2>
           <p>Competições mais próximas</p>
         </div>
-
+          
         <div class="row">
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up">
-            <div class="icon-box">
-              <div class="icon"><i class="bx bxl-dribbble"></i></div>
-              <h4><a href="">Rasta a cara no chão</a></h4>
-              <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
+          <?php
+            $timeToShow = ["","data-aos-delay='150'","data-aos-delay='300'","data-aos-delay='450'","data-aos-delay='600'","data-aos-delay='750'"];
+            $icons = ['bx bxl-dribbble','bx bx-file','bx bx-tachometer','bx bx-world','bx bx-slideshow','bx bx-arch'];
+            for($i = 0; $i < sizeof($competicoes);$i++){
+          ?>
+            <div class="col-lg-4 col-md-6 d-flex align-items-center" data-aos="fade-up" <?=$timeToShow[$i]?> >
+            <div class="icon-box" class='compContainers'>
+              <div class="icon"><i class="<?=$icons[$i]?>"></i></div>
+              <h4><a href=""><?php echo $competicoes[$i]->getNome();?></a></h4>
+              <p>Data: <?=$competicoes[$i]->getData_competicao()?> </p>
             </div>
           </div>
-
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="fade-up" data-aos-delay="150">
-            <div class="icon-box">
-              <div class="icon"><i class="bx bx-file"></i></div>
-              <h4><a href="">Quebra quixo</a></h4>
-              <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="300">
-            <div class="icon-box">
-              <div class="icon"><i class="bx bx-tachometer"></i></div>
-              <h4><a href="">Competição dos bronze</a></h4>
-              <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="fade-up" data-aos-delay="450">
-            <div class="icon-box">
-              <div class="icon"><i class="bx bx-world"></i></div>
-              <h4><a href="">Quero Quero Quebra mão</a></h4>
-              <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="fade-up" data-aos-delay="600">
-            <div class="icon-box">
-              <div class="icon"><i class="bx bx-slideshow"></i></div>
-              <h4><a href="">Tamanho não é documento</a></h4>
-              <p>Quis consequatur saepe eligendi voluptatem consequatur dolor consequuntur</p>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="fade-up" data-aos-delay="750">
-            <div class="icon-box">
-              <div class="icon"><i class="bx bx-arch"></i></div>
-              <h4><a href="">Cai duro</a></h4>
-              <p>Modi nostrum vel laborum. Porro fugit error sit minus sapiente sit aspernatur</p>
-            </div>
-          </div>
-
+          <?php
+          
+            }
+          ?>
         </div>
 
       </div>
@@ -333,7 +301,7 @@
 
           <div class="col-lg-4 col-md-6">
             <div class="footer-info">
-              <h3>Day</h3>
+              <h3>JudoSystem</h3>
               <p>
                 A108 Adam Street <br>
                 NY 535022, USA<br><br>

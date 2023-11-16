@@ -1,7 +1,7 @@
 <?php
 
 class Competicao{
-    private $id_competições;
+    private $id_competicao;
     private $nome;
     private $data_competicao;
     private $estado;
@@ -9,12 +9,23 @@ class Competicao{
     private $bairro;
     private $complemento;
     private $logradouro;
+
+    public function __construct($id,$nome,$data,$estado,$cidade,$bairro,$complemento,$logradouro){
+        $this->id_competicao = $id;
+        $this->nome = $nome;
+        $this->data_competicao = $data;
+        $this->estado = $estado;
+        $this->cidade = $cidade;
+        $this->bairro = $bairro;
+        $this->complemento = $complemento;
+        $this->logradouro = $logradouro;
     
-    public function getId_competições(){
-        return $this->id_competições;
     }
-    public function setId_competições($id_competições){
-        $this->id_competições = $id_competições;
+    public function getId_competicao(){
+        return $this->id_competicao;
+    }
+    public function setId_competicao($id_competicao){
+        $this->id_competicao = $id_competicao;
     }
     
     public function getNome(){

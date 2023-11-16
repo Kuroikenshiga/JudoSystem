@@ -1,14 +1,29 @@
 #principal{
     display: flex;
+    flex-direction: column; 
+}
+#contain{
+    display: flex;
     flex-direction: row;
 }
 #slideBar{
     width: 200px;
     background-color: green;
     display: none;
+    position: absolute;
+    top:0;
+    left: 0;
+    margin-top: 115px;
 }
 #showSlideBar{
+    margin-top: 115px;
+    position: absolute;
+    left: 0;
+    top:0;
     width: 20px;
     height: 20px;
     background-color: aqua;
+}
+.section-title {
+    margin-top: 10px;
 }

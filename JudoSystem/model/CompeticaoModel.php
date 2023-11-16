@@ -7,14 +7,28 @@
        public function update($obj){}
        public function delete($id){}
 
-        public function selectAll(){
-            $q = "SELECT * FROM competicao";
+        public function selectAllLimited(){
+            $q = "SELECT * FROM competicao where data_competicao >= CURRENT_DATE order by data_competicao asc limit 6";
             $competicoes = array();
             try{
                 $stmt = $this->getConnection()->prepare($q);
                 $stmt->execute();
                 while($rows = $stmt->fetch()){
-                    $competicoes[] = new Competicao($rows["id_competições"], $rows["nome"], $rows["data_competicao"], $rows["estado"], $rows["cidade"], $rows["bairro"], $rows["complemento"],$rows["logradouro"]);
+                    $competicoes[] = new Competicao($rows["id_competicao"], $rows["nome"], $rows["data_competicao"], $rows["estado"], $rows["cidade"], $rows["bairro"], $rows["complemento"],$rows["logradouro"]);
+                }
+            }catch(Exception $e){
+                return false;
+            }
+            return $competicoes;
+        }
+        public function selectAll(){
+            $q = "SELECT * FROM competicao where data_competicao >= CURRENT_DATE order by data_competicao asc";
+            $competicoes = array();
+            try{
+                $stmt = $this->getConnection()->prepare($q);
+                $stmt->execute();
+                while($rows = $stmt->fetch()){
+                    $competicoes[] = new Competicao($rows["id_competicao"], $rows["nome"], $rows["data_competicao"], $rows["estado"], $rows["cidade"], $rows["bairro"], $rows["complemento"],$rows["logradouro"]);
                 }
             }catch(Exception $e){
                 return false;
@@ -22,9 +36,9 @@
             return $competicoes;
         }
         public function selectById($id){
-            $obj = null;
+            $competicoes = null;
             try{
-                $stmt = $this->getConnection()->prepare('select * from atleta where id_atleta = ?');
+                $stmt = $this->getConnection()->prepare('select * from competicao where id_competicao = ?');
                 $stmt->bindValue(1,$id);
                 $stmt->execute();
             }
@@ -32,7 +46,7 @@
                 return false;
             }
             $rows = $stmt->fetch();
-                return $obj = new Atleta($rows["id_atleta"], $rows["nome"], $rows["faixa"], $rows["genero"], $rows["data_nascimento"], $rows["pontuacao"], $rows["id_academia_fk"]);
+                return $competicoes[] = new Competicao($rows["id_competicao"], $rows["nome"], $rows["data_competicao"], $rows["estado"], $rows["cidade"], $rows["bairro"], $rows["complemento"],$rows["logradouro"]);
         }
 
     }
