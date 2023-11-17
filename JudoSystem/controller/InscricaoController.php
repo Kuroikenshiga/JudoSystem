@@ -62,5 +62,16 @@
                 require_once("./JudoSystem/view/listaInscricaoView.php");
             }
         }
+        public function listById(){
+            require_once("./JudoSystem/model/Model.php");
+            require_once("./JudoSystem/model/InscricaoModel.php");
+
+            $insc = new InscricaoModel(Model::createConnection());
+            $inscricao = $insc->selectById($id_inscricao);
+
+            if($inscricao != false){
+                require_once("./JudoSystem/view/listaInscricaoView.php");
+            }
+        }
     }
 ?>
