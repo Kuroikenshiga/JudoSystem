@@ -20,6 +20,8 @@
     <div class="container" data-aos="zoom-in">
 
 
+
+    
       </div>
     <div class="section-title">
           <span><?=$competicoes->getNome()?></span>
