@@ -56,7 +56,7 @@
   <header id="header" class="d-flex align-items-center">
     <div class="container d-flex align-items-center justify-content-between">
 
-      <h1 class="logo"><a href="index.html">JudoSystem</a></h1>
+      <h1 class="logo"><a href="index.php?class=main&method=showMain">JudoSystem</a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
@@ -148,7 +148,7 @@
             <div class="col-lg-4 col-md-6 d-flex align-items-center" data-aos="fade-up" <?=$timeToShow[$i]?> >
             <div class="icon-box" class='compContainers'>
               <div class="icon"><i class="<?=$icons[$i]?>"></i></div>
-              <h4><a href=""><?php echo $competicoes[$i]->getNome();?></a></h4>
+              <h4><a href="index.php?class=competicao&method=seeMore&id=<?=$competicoes[$i]->getId_competicao()?>"><?php echo $competicoes[$i]->getNome();?></a></h4>
               <p>Data: <?=$competicoes[$i]->getData_competicao()?> </p>
             </div>
           </div>

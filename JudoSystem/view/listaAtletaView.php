@@ -67,6 +67,7 @@
                       <th>Data de nascimento</th>
                       <th>Pontuação</th>
                   </tr>
+                </thead>
               <tbody id="bodyTable">
                   <?php
                       foreach($atleta as $i){
@@ -84,7 +85,7 @@
                       }
                   ?>
               </tbody>
-              </thead>
+              
               
           </table>
         </div>

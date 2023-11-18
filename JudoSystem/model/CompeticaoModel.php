@@ -46,7 +46,7 @@
                 return false;
             }
             $rows = $stmt->fetch();
-                return $competicoes[] = new Competicao($rows["id_competicao"], $rows["nome"], $rows["data_competicao"], $rows["estado"], $rows["cidade"], $rows["bairro"], $rows["complemento"],$rows["logradouro"]);
+            return $competicoes = new Competicao($rows["id_competicao"], $rows["nome"], $rows["data_competicao"], $rows["estado"], $rows["cidade"], $rows["bairro"], $rows["complemento"],$rows["logradouro"]);
         }
 
     }

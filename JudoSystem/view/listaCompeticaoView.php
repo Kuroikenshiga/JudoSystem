@@ -47,7 +47,7 @@
             <div class="col-lg-4 col-md-6 d-flex align-items-center" data-aos-delay='450' >
             <div class="icon-box" class='compContainers'>
               <div class="icon"><i class="<?=$icons[sizeof($competicoes) - 1 == $i?4:$i]?>"></i></div>
-              <h4><a href=""><?php echo $competicoes[$i]->getNome();?></a></h4>
+              <h4><a href="index.php?class=competicao&method=seeMore&id=<?=$competicoes[$i]->getId_competicao()?>"><?php echo $competicoes[$i]->getNome();?></a></h4>
               <p>Data: <?=$competicoes[$i]->getData_competicao()?> </p>
             </div>
           </div>

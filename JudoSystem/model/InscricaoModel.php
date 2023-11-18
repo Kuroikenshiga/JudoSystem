@@ -56,6 +56,21 @@
             }
             return $inscricao;
         }
+        public function selectAllByAtleta($id){
+
+            $inscricao = array();
+            try{
+                $stmt = $this->getConnection()->prepare("SELECT * FROM inscricao where atleta_fk in (select id_atleta from atleta where academia_fk = ?");
+                $stmt->bindValue(1,$id);
+                $stmt->execute();
+                while($rows = $stmt->fetch()){
+                    $inscricao[] = new Inscricao($rows['id_inscricao'],$rows["atleta_fk"], $rows["competicao_fk"], $rows["categoria_fk"], $rows["data_inscricao"], $rows["hora_inscricao"]);
+                }
+            }catch(Exception $e){
+                return false;
+            }
+            return $inscricao;
+        }
         public function selectById($id){
             $obj = null;
             try{

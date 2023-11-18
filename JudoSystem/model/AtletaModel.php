@@ -1,5 +1,5 @@
 <?php
-    session_start();
+    
     require_once("./JudoSystem/model/Model.php");
     require_once("./JudoSystem/valueObject/Atleta.php");
     class AtletaModel extends Model{

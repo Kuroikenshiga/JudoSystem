@@ -14,5 +14,5 @@
         }
         echo '}';
     }
-    gerator('id_inscricao atleta_fk competicao_fk categoria_fk data_inscricao hora_inscricao','Incricao');
+    gerator('idCategoria classe genero peso','Categoria');
 ?>
