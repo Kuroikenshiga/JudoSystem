@@ -69,5 +69,37 @@
             $rows = $stmt->fetch();
                 return $obj = new Lutas($rows["id_lutas"], $rows["tempo"], $rows["hansoku_make"], $rows["ganhou"], $rows["goldenScore"], $rows["atleta_fk"], $rows["categoria_fk"]);
         }
+        public function selectAllByAtleta($atleta_fk){
+            $q = "SELECT * FROM lutas WHERE atleta_fk = ?";
+            $lutas = array();
+            try{
+                $stmt = $this->getConnection()->prepare($q);
+                $stmt->bindValue(1,$atleta_fk);
+                $stmt->execute();
+                while($rows = $stmt->fetch()){
+                    $lutas[] = new Lutas($rows["id_lutas"], $rows["tempo"], $rows["hansoku_make"], $rows["ganhou"], $rows["goldenScore"], $rows["atleta_fk"], $rows["categoria_fk"]);
+                }
+            }
+            catch(Exception $e){
+                return false;
+            }
+            return $lutas;
+        }
+        public function selectAllByCategoria($categoria_fk){
+            $q = "SELECT * FROM lutas WHERE categoria_fk = ?";
+            $lutas = array();
+            try{
+                $stmt = $this->getConnection()->prepare($q);
+                $stmt->bindValue(1,$categoria_fk);
+                $stmt->execute();
+                while($rows = $stmt->fetch()){
+                    $lutas[] = new Lutas($rows["id_lutas"], $rows["tempo"], $rows["hansoku_make"], $rows["ganhou"], $rows["goldenScore"], $rows["atleta_fk"], $rows["categoria_fk"]);
+                }
+            }
+            catch(Exception $e){
+                return false;
+            }
+            return $lutas;
+        }
     }
 ?>
