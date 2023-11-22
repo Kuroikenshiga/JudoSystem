@@ -8,3 +8,4 @@ function showSlideBar(slideButton){
 
     showing = !showing;
 }
+

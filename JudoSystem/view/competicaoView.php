@@ -33,9 +33,9 @@
       <div class="container" data-aos="zoom-in">
 
         <div class="text-center">
-          <h3>Inscrever atleta</h3>
-          <p>Inscrever atleta</p>
-          <a class="cta-btn" href="#">Inscrever atleta</a>
+          <h3>Inscrever atleta em <?=$competicoes->getNome()?></h3>
+          
+          <a class="cta-btn" href="index.php?class=inscricao&method=showCadastro&id=<?=$competicoes->getId_competicao()?>">Inscrever atleta</a>
         </div>
 
       </div>
@@ -86,7 +86,7 @@
                     <tr>
                         <td><?=$ins->getId_inscricao()?></td>
                         <td><?=searchAtletaInList($atletas,$ins->getAtleta_fk())?></td>
-
+                        <td><?=$ins->getData_inscricao()?></td>
                     </tr>
                 <?php
             }?>

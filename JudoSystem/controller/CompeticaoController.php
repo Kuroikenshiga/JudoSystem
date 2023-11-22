@@ -25,7 +25,7 @@
             $im = new InscricaoModel(Model::createConnection());
             $am = new AtletaModel(Model::createConnection());
             $competicoes = $cm->selectById(isset($_GET['id'])?$_GET['id']:null);
-            $inscricoes = $im->selectAllByAtleta($_SESSION['idAcademia']);
+            $inscricoes = $im->selectAllByAtleta($_SESSION['idAcademia'],$_GET['id']);
             $atletas = $am->selectAllByAcademia($_SESSION['idAcademia']);
             
             require_once('./JudoSystem/view/competicaoView.php');

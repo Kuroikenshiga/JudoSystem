@@ -1,4 +1,5 @@
 <?php
+    session_start();
     class AtletaController{
         public function showCadastro(){
             require_once("./JudoSystem/view/cadastroAtletaView.php");
@@ -79,6 +80,26 @@
             if($atleta != false){
                 require_once("./JudoSystem/view/listaAtletaView.php");
             }
+        }
+        public function listAtletaJson(){
+            $nome = $_GET['nome'];
+            require_once("./JudoSystem/model/Model.php");
+            require_once("./JudoSystem/model/AtletaModel.php");
+            $json = [];
+            $atl = new AtletaModel(Model::createConnection());
+            $s = $atl->selectFiltred($nome);
+            if(!$s and !is_countable($s)){
+                
+                die($s);
+            }
+            
+
+            foreach($s as $at){
+                $json[] = $at->toStdClass();
+            }
+
+            echo json_encode($json);
+
         }
     }
 ?>

@@ -1,20 +1,31 @@
 <?php
     class InscricaoController{
         public function showCadastro(){
-            require_once("./JudoSystem/view/cadastroInscricaoView.php");
+            require_once("./JudoSystem/model/Model.php");
+            require_once("./JudoSystem/model/CategoriaModel.php");
+            $cm = new CategoriaModel(Model::createConnection());
+            $categorias = $cm->selectAllClasses();
+            
+            require_once("./JudoSystem/view/cadastraInscricaoView.php");
         }
         public function insert(){
             require_once("./JudoSystem/model/Model.php");
             require_once("./JudoSystem/model/InscricaoModel.php");
+            require_once("./JudoSystem/model/CategoriaModel.php");
             require_once("./JudoSystem/valueObject/Inscricao.php");
+
             $json = json_decode(file_get_contents("php://input"));
-            $inscricao = new Inscricao(null,$json->atleta_fk,$json->competicao_fk,$json->categoria_fk,$json->data_inscricao,$json->hora_inscricao);
+
+            $cm = new CategoriaModel(Model::createConnection());
+            
+            $idCategoria = $cm->selectCategoria($json->genero,$json->classe,$json->peso);
+            $inscricao = new Inscricao(null,$json->atleta,$json->competicao,$idCategoria,null,null);
 
             $insc = new InscricaoModel(Model::createConnection());
             if(!$insc->insert($inscricao)){
                 die("Erro no cadastro");
             }
-            echo("../../index.php?class=inscricao&method=insert");
+            echo("../../index.php?class=competicao&method=list");
         }
 
         public function showUpdate(){
@@ -73,5 +84,7 @@
                 require_once("./JudoSystem/view/listaInscricaoView.php");
             }
         }
+
+       
     }
 ?>

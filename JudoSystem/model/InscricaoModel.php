@@ -4,14 +4,13 @@
 
     class InscricaoModel extends Model{
         public function insert($obj){
-            $q = "INSERT INTO inscricao(atleta_fk, competicao_fk, categoria_fk, data_inscricao, hora_inscricao) VALUES(?,?,?,?,?)";
+            $q = "INSERT INTO inscricao(atleta_fk, competicao_fk, categoria_fk, data_inscricao, hora_inscricao) VALUES(?,?,?,current_date,current_time)";
             try{
                 $stmt = $this->getConnection()->prepare($q);
                 $stmt->bindValue(1,$obj->getAtleta_fk());
                 $stmt->bindValue(2,$obj->getCompeticao_fk());
                 $stmt->bindValue(3,$obj->getCategoria_fk());
-                $stmt->bindValue(4,$obj->getData_inscricao());
-                $stmt->bindValue(5,$obj->getHora_inscricao());
+                
                 $stmt->execute();
             }catch(Exception $e){
                 return false;
@@ -56,12 +55,13 @@
             }
             return $inscricao;
         }
-        public function selectAllByAtleta($id){
+        public function selectAllByAtleta($idAcademia,$competicao){
 
             $inscricao = array();
             try{
-                $stmt = $this->getConnection()->prepare("SELECT * FROM inscricao where atleta_fk in (select id_atleta from atleta where academia_fk = ?");
-                $stmt->bindValue(1,$id);
+                $stmt = $this->getConnection()->prepare("SELECT * FROM inscricao where atleta_fk in (select id_atleta from atleta where academia_fk = ?) and competicao_fk = ?");
+                $stmt->bindValue(1,$idAcademia);
+                $stmt->bindValue(2,$competicao);
                 $stmt->execute();
                 while($rows = $stmt->fetch()){
                     $inscricao[] = new Inscricao($rows['id_inscricao'],$rows["atleta_fk"], $rows["competicao_fk"], $rows["categoria_fk"], $rows["data_inscricao"], $rows["hora_inscricao"]);

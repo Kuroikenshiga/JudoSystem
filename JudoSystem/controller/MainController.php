@@ -18,7 +18,7 @@
             require_once("./JudoSystem/view/principal.php");
         }
         public function logout(){
-            echo $_SESSION['idUser'];
+            echo $_SESSION['idAcademia'];
             
         }
     }

@@ -89,6 +89,23 @@
             $rows = $stmt->fetch();
                 return $obj = new Atleta($rows['id_atleta'],$rows["nome"], $rows["faixa"], $rows["genero"], $rows["data_nascimento"], $rows["pontuacao"], $rows["academia_fk"]);
         }
+        public function selectFiltred($nome){
+            $atletas = [];
+            $char = '%';
+            try{
+                $stmt = $this->getConnection()->prepare("select * from atleta where nome like ?");
+                $stmt->bindValue(1,$char.$nome.$char);
+                $stmt->execute();
+                while($rows = $stmt->fetch()){
+                    $atletas[] = new Atleta($rows['id_atleta'],$rows["nome"], $rows["faixa"], $rows["genero"], $rows["data_nascimento"], $rows["pontuacao"], $rows["academia_fk"]);
+                }
+            }
+            catch(Exception $e){
+                return $e->getMessage();
+            }
+            return $atletas;
 
+
+        }
     }
 ?>
