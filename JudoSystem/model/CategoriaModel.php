@@ -73,7 +73,22 @@
             }
             return $stmt->fetch()['id_categoria'];
         }
-        public function selectById($id){}
+        public function selectById($id){
+            require_once('./JudoSystem/valueObject/Categoria.php');
+            $categorias;
+            try{
+                $stmt = $this->getConnection()->prepare('select * from categoria where id_categoria = ?');
+               
+                $stmt->bindValue(1,$id);
+                $stmt->execute();
+                $rows = $stmt->fetch();
+                    $categoria = new Categoria($rows['id_categoria'],$rows['classe'],$rows['genero'],$rows['peso']);
+            }
+            catch(Exception $e){
+                return false;
+            }
+            return $categoria;
+        }
     }
 
 ?>

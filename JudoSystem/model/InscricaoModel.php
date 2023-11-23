@@ -18,15 +18,16 @@
             return true;
         }
         public function update($obj){
-            $q = "UPDATE inscricao SET data_inscricao = ?, hora_inscricao = ? WHERE id_inscricao = ?";
+            $q = "UPDATE inscricao SET atleta_fk = ?,categoria_fk = ? WHERE id_inscricao = ?";
             try{
                 $stmt = $this->getConnection()->prepare($q);
-                $stmt->bindValue(1,$obj->getData_inscricao());
-                $stmt->bindValue(2,$obj->getHora_inscricao());
+                $stmt->bindValue(1,$obj->getAtleta_fk());
+                $stmt->bindValue(2,$obj->getCategoria_fk());
                 $stmt->bindValue(3,$obj->getId_inscricao());
+                
                 $stmt->execute();
             }catch(Exception $e){
-                return false;
+                return $e->getMessage();
             }
             return true;
         }

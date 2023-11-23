@@ -16,12 +16,12 @@
         <form>
             <div class="section-title">
                 <span>Atualizar inscrição</span>
-                <h2>Atualizar inscrição</h2>
+                <h2>Atualizar inscrição </h2>
         
             </div>
             <input type="hidden" id="competicao" value="<?=$_GET['id']?>">
             <div class="mb-3">
-                <input type="text" class="form-control" id="search" placeholder="Pesquisar atleta" oninput="getAtleta()">
+                <input type="text" value="<?=getAtleta($inscricao->getAtleta_fk(),$atletas)->getNome()?>" class="form-control" id="search" placeholder="Pesquisar atleta" oninput="getAtleta()">
             </div>
             <select id="atletas" class="form-select" multiple aria-label="multiple select example" onchange="changeSearchValue()">
                <?php foreach($atletas as $a){ ?>
@@ -31,25 +31,27 @@
             <select class="form-select" aria-label="Default select example" id="classe"  onchange="getClassPeso()">
                 <option value="" selected>Selecione a classe do atleta</option>
                 <?php
-                    foreach($categorias as $c){
+                    foreach($classes as $c){
                 ?>
-                <option value="<?=$c?>"><?=$c?></option>
+                <option value="<?=$c?>" <?=$categoria->getClasse() == $c?'selected':''?>><?=$c?></option>
             <?php
             }?>
             </select>
             
             <select class="form-select" aria-label="Default select example" id="genero"  onchange="getClassPeso()" >
                 <option value="" selected>Selecione o genero do atleta</option>
-                <option value="Masculino">Masculino</option>
-                <option value="Feminino">Feminino</option>
+                <option value="Masculino" <?=$categoria->getGenero() == 'Masculino'?'selected':''?> >Masculino</option>
+                <option value="Feminino" <?=$categoria->getGenero() == 'Feminino'?'selected':''?> >Feminino</option>
             </select>
             <select class="form-select" aria-label="Default select example" id="peso" ">
-                <option selected>Selecione a classe e o genero do atleta</option>
-
+                <option selected>Escolha o peso do atleta</option>
+                <?php foreach($pesos as $p){ ?>
+                <option value="<?=$p?>" <?=$categoria->getPeso() == $p?'selected':''?>><?=$p?></option>
+                <?php }?>
             </select>
-            
-
-                <button type="button" class="btn btn-primary" onclick="insert()">Submit</button>
+            <input type="hidden" id="id" value="<?=!isset($_GET['id_inscricao'])?null:$_GET['id_inscricao']?>">
+            <input type="hidden" id="idComp" value="<?=!isset($_GET['id'])?null:$_GET['id']?>">
+                <button type="button" class="btn btn-primary" onclick="update()">modificar</button>
         </form>
     </div>
     <script src="../../JudoSystem/view/js/inscricaoAjax.js"></script>

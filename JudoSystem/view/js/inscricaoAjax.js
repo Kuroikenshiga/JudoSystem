@@ -17,7 +17,7 @@ function insert(){
                 window.location.href = obj.way;
             }
             catch(e){
-                alert('Erro no login')
+                alert('Erro na inserção')
             }
         }   
     }
@@ -31,17 +31,26 @@ function changeSearchValue(){
 }
 function update(){
     let obj = new Object();
-    obj.data_inscricao = document.querySelector("#data_inscricao").value
-    obj.hora_inscricao = document.querySelector("#hora_inscricao").value
-
+    obj.id = document.querySelector('#id').value;
+    obj.atleta = document.querySelector('#atletas').value;
+    obj.classe = document.querySelector('#classe').value;
+    obj.genero = document.querySelector('#genero').value;
+    obj.peso = document.querySelector('#peso').value
+    obj.competicao = document.querySelector('#competicao').value
     let xml = new XMLHttpRequest();
-    xml.open("POST",'../../index.php?class=inscricao&method=update');
+    xml.open("POST",'../../index.php?class=inscricao&method=update&id='+document.querySelector('#idComp').value);
     xml.setRequestHeader("content-type",'application/json');
 
     xml.onreadystatechange = ()=>{
         if(xml.readyState == 4 && xml.status == 200){
-
-        }
+            try{
+                obj = JSON.parse(xml.responseText);
+                window.location.href = obj.way;
+            }
+            catch(e){
+                alert(xml.responseText)
+            }
+        }   
     }
     xml.send(JSON.stringify(obj))
 }
