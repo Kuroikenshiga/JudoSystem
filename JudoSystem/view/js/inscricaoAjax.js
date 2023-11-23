@@ -118,6 +118,28 @@ function getAtleta(){
 //     }
 //     xml.send(null);
 // }
+function deletar (idRow){
+    let xml = new XMLHttpRequest();
+    xml.open('POST','../../index.php?class=inscricao&method=delete',true);
+    xml.setRequestHeader('content-type','application/json');
+    obj = new Object();
+    obj.id = idRow;
+    xml.onreadystatechange = ()=>{
+        if(xml.readyState == 4 && xml.status == 200){
+            try{
+                JSON.parse(xml.responseText);
+                row = document.getElementById(idRow);
+
+                row.parentNode.removeChild(row);
+            }
+            catch(e){
+                alert(xml.responseText);
+            }
+        }
+    }
+    xml.send(JSON.stringify(obj));
+   
+}
 function getClassPeso(){
     let select = document.querySelector('#peso')
     let genero = document.querySelector('#genero')
