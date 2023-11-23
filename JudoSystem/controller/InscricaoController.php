@@ -1,4 +1,5 @@
 <?php
+    session_start();
     class InscricaoController{
         public function showCadastro(){
             require_once("./JudoSystem/model/Model.php");
@@ -25,14 +26,22 @@
             if(!$insc->insert($inscricao)){
                 die("Erro no cadastro");
             }
-            echo("../../index.php?class=competicao&method=list");
+            $response = new stdClass();
+            $response->way = ("../../index.php?class=competicao&method=seeMore&id=$json->competicao");
+            echo json_encode($response);
         }
 
         public function showUpdate(){
             require_once("./JudoSystem/model/Model.php");
             require_once("./JudoSystem/model/InscricaoModel.php");
-            $insc = new InscricaoModel(Model::createConnection());
-            $inscricao = $insc->selectById($_GET['id_inscricao']);
+            require_once("./JudoSystem/model/AtletaModel.php");
+
+            $am = new AtletaModel(Model::createConnection());
+            $atletas = $am->selectAllByAcademia($_SESSION['idAcademia']);
+            
+            $im = new InscricaoModel(Model::createConnection());
+            $inscricao = $im->selectById($_GET['id_inscricao']);
+
             require_once("./JudoSystem/view/updateInscricaoView.php");
         }
         public function update(){

@@ -73,7 +73,7 @@
 
         </div>
         <?php foreach($inscricoesDistintas as $insD){ 
-            echo json_encode($inscricoesDistintas);
+            //echo json_encode($inscricoesDistintas);
             $inscricaoFiltrd = getInscricoesFiltred($inscricoes,$insD);
             
             $categoria = getCategoriasFiltred($categorias,$inscricaoFiltrd[0]->getCategoria_fk());
@@ -100,6 +100,9 @@
                         <td><?=searchAtletaInList($atletas,$ins->getAtleta_fk())?></td>
                         <td><?=Date('d-m-Y',strtotime($ins->getData_inscricao()))?></td>
                         <td><?=explode('.',$ins->getHora_inscricao())[0]?></td>
+                        <td><a href="index.php?class=inscricao&method=showUpdate&id=<?=!isset($_GET['id'])?null:$_GET['id']?>&id_inscricao=<?=$ins->getId_inscricao()?>"><button class="btn btn-info">Modificar</button></a></td>
+                        <td><a href=""><button class="btn btn-danger">Deletar</button></a></td>
+                        
                     </tr>
                 <?php
             }?>

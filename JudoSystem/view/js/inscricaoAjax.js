@@ -12,7 +12,13 @@ function insert(){
 
     xml.onreadystatechange = ()=>{
         if(xml.readyState == 4 && xml.status == 200){
-            alert(xml.responseText)
+            try{
+                obj = JSON.parse(xml.responseText);
+                window.location.href = obj.way;
+            }
+            catch(e){
+                alert('Erro no login')
+            }
         }   
     }
     xml.send(JSON.stringify(obj))
