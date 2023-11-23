@@ -81,13 +81,16 @@
             require_once("./JudoSystem/model/InscricaoModel.php");
 
             $json = json_decode(file_get_contents("php://input"));
-            $id_inscricao = $json->id_inscricao;
+            $id_inscricao = $json->id;
 
             $insc = new InscricaoModel(Model::createConnection());
-            if(!$insc->delete($id_inscricao)){
-                die("Erro na exclusão da inscrição");
+            $deleteValue = $insc->delete($id_inscricao);
+            if(!$deleteValue){
+                die($deleteValue);
             }
-            echo("Inscrição excluída com sucesso");
+            $response = new stdClass();
+            $response->msg = ("ok");
+            echo json_encode($response);
         }
         public function list(){
             require_once("./JudoSystem/model/Model.php");

@@ -31,8 +31,9 @@
             }
             return true;
         }
+
         public function delete($id){
-            $q = "DELETE FROM inscricao WHERE id_inscricao";
+            $q = "DELETE FROM inscricao WHERE id_inscricao = ?";
             try{
                 $stmt = $this->getConnection()->prepare($q);
                 $stmt->bindValue(1,$id);
@@ -42,6 +43,7 @@
             }
             return true;
         }
+
         public function selectAll(){
             $q = "SELECT * FROM inscricao";
             $inscricao = array();

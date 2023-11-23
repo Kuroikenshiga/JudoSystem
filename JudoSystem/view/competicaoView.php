@@ -80,7 +80,10 @@
             
           ?>
         <div class="categorias">
-          <h3> <?=$categoria->getIdCategoria() ?> <?=$categoria->getClasse() ?> <?=$categoria->getGenero() ?> <?=$categoria->getPeso() ?></h3>
+          <div id="esq">
+            <h3> <?=$categoria->getIdCategoria() ?> <?=$categoria->getClasse() ?> <?=$categoria->getGenero() ?> <?=$categoria->getPeso() ?> </h3>
+          </div>
+          <div id="dir"><a id='cad' href="index.php?class=lutas&method=showCadastro"><button  type="button" class="btn btn-secondary">Cadastrar uma luta</button></a></div>
         </div>
         <table class="table table-striped">
             <thead>
@@ -95,13 +98,13 @@
             </thead>
             <tbody>
                 <?php foreach($inscricaoFiltrd as $ins){?>
-                    <tr>
+                    <tr id="<?=$ins->getId_inscricao()?>">
                         <td><?=$ins->getId_inscricao()?></td>
                         <td><?=searchAtletaInList($atletas,$ins->getAtleta_fk())?></td>
                         <td><?=Date('d-m-Y',strtotime($ins->getData_inscricao()))?></td>
                         <td><?=explode('.',$ins->getHora_inscricao())[0]?></td>
                         <td><a href="index.php?class=inscricao&method=showUpdate&id=<?=!isset($_GET['id'])?null:$_GET['id']?>&id_inscricao=<?=$ins->getId_inscricao()?>"><button class="btn btn-info">Modificar</button></a></td>
-                        <td><a href=""><button class="btn btn-danger">Deletar</button></a></td>
+                        <td><button class="btn btn-danger" onclick="deletar('<?=$ins->getId_inscricao()?>')">Deletar</button></td>
                         
                     </tr>
                 <?php
@@ -117,5 +120,6 @@
   <script src="../../JudoSystem/view/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
   <script src="../../JudoSystem/view/assets/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="../../JudoSystem/view/assets/js/main.js"></script>
+  <script src="../../JudoSystem/view/js/inscricaoAjax.js"></script>
 </body>
 </html>
