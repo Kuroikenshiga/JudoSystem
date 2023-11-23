@@ -24,7 +24,6 @@
   <link href="../../JudoSystem/view/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
   <link href="../../JudoSystem/view/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="../../JudoSystem/view/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="../../JudoSystem/view/css/lutas.css">
 
   <!-- Template Main CSS File -->
   <link href="../../JudoSystem/view/assets/css/style.css" rel="stylesheet">
@@ -39,36 +38,50 @@
   ======================================================== -->
 </head>
 <body>
-<?php require_once('./JudoSystem/view/header.php')?>
+    <?php require_once('./JudoSystem/view/header.php')?>
     <div id="principal">
+     
+        <div class="section-title">
+          <span>Lutas cadastradas</span>
+          <h2>Lutas cadastradas</h2>
+    
+        </div>
         
-            <h1>Cadastro de Luta</h1>
-       
-            <form>
-                <div class="form-group">
-                    <label for="tempo">Tempo</label>
-                    <input type="time" class="form-control" id="tempo">
-                </div>
-
-                <div class="form-group">
-                    <label for="hansoku_make">Hansoku-Make</label>
-                    <input type="text" class="form-control" id="hansoku_make">
-                </div>
-
-                <div class="form-group">
-                    <label for="ganhou">Ganhou</label>
-                    <input type="text" class="form-control" id="ganhou">
-                </div>
-
-                <div class="form-group">
-                    <label for="goldenScore">Golden Score</label>
-                    <input type="time" class="form-control" id="goldenScore">
-                </div>
-
-                <button type="button" class="btn btn-primary" onclick="insert()">Cadastrar</button>
+        <div id="contain">
+        
+         
+        
+          <table class="table table-striped">
+              <thead>
+                  <tr>
                 
-            </form>
-        
+                      <th>Tempo</th>
+                      <th>Hansoku-make</th>
+                      <th>Ganhou</th>
+                      <th>Golden Score</th>
+
+                  </tr>
+                </thead>
+              <tbody id="bodyTable">
+                  <?php
+                      foreach($lutas as $i){
+                  ?>
+                      <tr>
+                          <td><?php echo $i->getTempo() ?></td>
+                          <td><?php echo $i->getHansokuMake() ?></td>
+                          <td><?php echo $i->getGanhou() ?></td>
+                          <td><?php echo $i->getGoldenScore() ?></td>
+                          <td><a href="index.php?class=Lutas&method=showUpdate&id_lutas=<?php echo $i->getIdLutas() ?>"><button type="button" class="btn btn-info">Modificar</button></a></td>
+                          <td><button class="btn btn-danger" onclick="remove(<?php echo $i->getIdLutas() ?>)">Deletar</button></td>
+                      </tr>
+                  <?php
+                      }
+                  ?>
+              </tbody>
+              
+              
+          </table>
+        </div>
     </div>
     <script src="../../JudoSystem/view/js/lutasAjax.js"></script>
 </body>
