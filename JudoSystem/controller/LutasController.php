@@ -1,5 +1,5 @@
 <?php
-    class AtletaController{
+    class LutasController{
         public function showCadastro(){
             require_once("./JudoSystem/view/cadastroLutasView.php");
         }
