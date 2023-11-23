@@ -71,6 +71,22 @@
             }
             return $inscricao;
         }
+        public function selectAllByAtletaDistinct($idAcademia,$competicao){
+
+            $inscricao = array();
+            try{
+                $stmt = $this->getConnection()->prepare("SELECT distinct(categoria_fk) FROM inscricao where atleta_fk in (select id_atleta from atleta where academia_fk = ?) and competicao_fk = ?");
+                $stmt->bindValue(1,$idAcademia);
+                $stmt->bindValue(2,$competicao);
+                $stmt->execute();
+                while($rows = $stmt->fetch()){
+                    $inscricao[] = $rows['categoria_fk'];
+                }
+            }catch(Exception $e){
+                return false;
+            }
+            return $inscricao;
+        }
         public function selectById($id){
             $obj = null;
             try{

@@ -12,6 +12,7 @@
   <link href="../../JudoSystem/view/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
   <link href="../../JudoSystem/view/assets/css/style.css" rel="stylesheet">
   <link rel="stylesheet" href="../../JudoSystem/view/css/mainCss.css">
+  <link rel="stylesheet" href="../../JudoSystem//view/css/competicao.css">
   
 </head>
 <body>
@@ -68,7 +69,18 @@
         <div class="section-title">
           <span>Inscrições</span>
           <h2>Inscrições</h2>
-    
+        
+
+        </div>
+        <?php foreach($inscricoesDistintas as $insD){ 
+            echo json_encode($inscricoesDistintas);
+            $inscricaoFiltrd = getInscricoesFiltred($inscricoes,$insD);
+            
+            $categoria = getCategoriasFiltred($categorias,$inscricaoFiltrd[0]->getCategoria_fk());
+            
+          ?>
+        <div class="categorias">
+          <h3> <?=$categoria->getIdCategoria() ?> <?=$categoria->getClasse() ?> <?=$categoria->getGenero() ?> <?=$categoria->getPeso() ?></h3>
         </div>
         <table class="table table-striped">
             <thead>
@@ -76,22 +88,24 @@
                 
                     <th>Id da inscrição</th>
                     <th>Nome do atleta</th>
-                    <th>Categoria da inscrição</th>
                     <th>Data da inscrição</th>
+                    <th>Hora da inscrição</th>
                     
                 </tr>
             </thead>
             <tbody>
-                <?php foreach($inscricoes as $ins){?>
+                <?php foreach($inscricaoFiltrd as $ins){?>
                     <tr>
                         <td><?=$ins->getId_inscricao()?></td>
                         <td><?=searchAtletaInList($atletas,$ins->getAtleta_fk())?></td>
-                        <td><?=$ins->getData_inscricao()?></td>
+                        <td><?=Date('d-m-Y',strtotime($ins->getData_inscricao()))?></td>
+                        <td><?=explode('.',$ins->getHora_inscricao())[0]?></td>
                     </tr>
                 <?php
             }?>
             </tbody>
         </table>
+        <?php }?>
       </div>
     </section><!-- End Featured Services Section -->
     <script src="../../JudoSystem/view/assets/vendor/aos/aos.js"></script>
