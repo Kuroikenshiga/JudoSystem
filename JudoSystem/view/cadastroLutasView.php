@@ -41,10 +41,23 @@
 <body>
 <?php require_once('./JudoSystem/view/header.php')?>
     <div id="principal">
-        
-            <h1>Cadastro de Luta</h1>
-       
+    <?php echo sizeof($atletas) ?>
             <form>
+            <div class="section-title">
+                <span>Adicionar luta</span>
+                <h2>Adicionar luta</h2>
+        
+            </div>
+            <input type="hidden" id="competicao" value="">
+            <div class="mb-3">
+                <input type="text" class="form-control" id="search" placeholder="Pesquisar atleta" oninput="getAtleta()">
+            </div>
+            <select id="atletas" class="form-select" multiple aria-label="multiple select example" onchange="changeSearchValue()">
+               <?php
+                foreach($atletas as $at){ ?>
+                <option value="<?=$at->getId()?>"><?=$at->getNome()?></option>
+                <?php }?>
+            </select>
                 <div class="form-group">
                     <label for="tempo">Tempo</label>
                     <input type="time" class="form-control" id="tempo">

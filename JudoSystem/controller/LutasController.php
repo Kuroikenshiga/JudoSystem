@@ -1,7 +1,13 @@
 <?php
     class LutasController{
         public function showCadastro(){
+            require_once("./JudoSystem/model/Model.php");
+            require_once("./JudoSystem/model/AtletaModel.php");
+            $am = new AtletaModel(Model::createConnection());
+            $atletas = $am->selectAtletaByCategoria(isset($_GET['id'])?$_GET['id']:null);
+            
             require_once("./JudoSystem/view/cadastroLutasView.php");
+
         }
         public function insert(){
             require_once("./JudoSystem/model/Model.php");

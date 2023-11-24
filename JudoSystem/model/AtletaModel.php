@@ -107,5 +107,22 @@
 
 
         }
+
+        public function selectAtletaByCategoria($id){
+            $atletas = [];
+            try{
+                $stmt = $this->getConnection()->prepare('select*from atleta where id_atleta in (select atleta_fk from inscricao where categoria_fk = ?)');
+                $stmt->bindValue(1,$id);
+                $stmt->execute();
+                while($rows = $stmt->fetch()){
+                    $atletas[] = new Atleta($rows['id_atleta'],$rows["nome"], $rows["faixa"], $rows["genero"], $rows["data_nascimento"], $rows["pontuacao"], $rows["academia_fk"]);
+                }
+                
+            }
+            catch(Exception $e){
+                return false;
+            }
+            return $atletas;
+        }
     }
 ?>
