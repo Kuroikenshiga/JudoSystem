@@ -41,7 +41,7 @@
 <body>
 <?php require_once('./JudoSystem/view/header.php')?>
     <div id="principal">
-    <?php echo sizeof($atletas) ?>
+    
             <form>
             <div class="section-title">
                 <span>Adicionar luta</span>
@@ -50,7 +50,7 @@
             </div>
             <input type="hidden" id="competicao" value="">
             <div class="mb-3">
-                <input type="text" class="form-control" id="search" placeholder="Pesquisar atleta" oninput="getAtleta()">
+                <input type="text" class="form-control" id="search" placeholder="Pesquisar atleta" oninput="getAtleta(<?=$_GET['id']?>)">
             </div>
             <select id="atletas" class="form-select" multiple aria-label="multiple select example" onchange="changeSearchValue()">
                <?php
@@ -60,22 +60,24 @@
             </select>
                 <div class="form-group">
                     <label for="tempo">Tempo</label>
-                    <input type="time" class="form-control" id="tempo">
+                    <input type="text" class="form-control" id="tempo">
                 </div>
 
-                <div class="form-group">
-                    <label for="hansoku_make">Hansoku-Make</label>
-                    <input type="text" class="form-control" id="hansoku_make">
-                </div>
-
-                <div class="form-group">
-                    <label for="ganhou">Ganhou</label>
-                    <input type="text" class="form-control" id="ganhou">
-                </div>
+               
 
                 <div class="form-group">
                     <label for="goldenScore">Golden Score</label>
-                    <input type="time" class="form-control" id="goldenScore">
+                    <input type="text" class="form-control" id="goldenScore">
+                </div>
+                
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="vitoria" onclick="constraintCheckbx()">
+                    <label class="form-check-label" for="vitoria">Vitoria</label>
+                </div>
+
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="hansokumake" onclick="constraintCheckbx()">
+                    <label class="form-check-label" for="hansokumake">Desqualificado</label>
                 </div>
 
                 <button type="button" class="btn btn-primary" onclick="insert()">Cadastrar</button>

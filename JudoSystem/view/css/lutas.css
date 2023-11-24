@@ -7,3 +7,6 @@
 #principal form{
     width: 50%;
 }
+#principal form div{
+    margin-top: 10px;
+}

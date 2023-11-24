@@ -81,6 +81,21 @@
                 require_once("./JudoSystem/view/listaAtletaView.php");
             }
         }
+        public function listByCategoriaAndNome(){
+            require_once("./JudoSystem/model/Model.php");
+            require_once("./JudoSystem/model/AtletaModel.php");
+
+            $am = new AtletaModel(Model::createConnection());
+            $atletas = $am->selectAtletaByCategoriaAndNome(isset($_POST['id'])?$_POST['id']:null,isset($_POST['nome'])?$_POST['nome']:null);
+            
+            $json = [];
+
+            foreach($atletas as $at){
+                $json[] = $at->toStdClass();
+            }
+
+            echo json_encode($json);
+        }
         public function listAtletaJson(){
             $nome = $_GET['nome'];
             require_once("./JudoSystem/model/Model.php");
