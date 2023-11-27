@@ -1,10 +1,12 @@
 function insert(){
 
     let obj = new Object();
+    obj.atleta = document.querySelector('#atletas').value
     obj.tempo = document.querySelector("#tempo").value
-    obj.hansoku_make = document.querySelector("#hansoku_make").value
-    obj.ganhou = document.querySelector("#ganhou").value
+    obj.hansoku_make = document.querySelector("#hansokumake").value
+    obj.ganhou = document.querySelector("#vitoria").value
     obj.goldenScore = document.querySelector("#goldenScore").value
+    obj.categoria = document.querySelector("#categoria").value
 
     let xml = new XMLHttpRequest();
     xml.open("POST",'index.php?class=lutas&method=insert');
@@ -19,7 +21,7 @@ function insert(){
 }
 function update(){
     let obj = new Object();
-    obj.tempo = document.querySelector("#tempo").value
+    obj.tempo = document.querySelector("#search").value
     obj.hansoku_make = document.querySelector("#hansoku_make").value
     obj.ganhou = document.querySelector("#ganhou").value
     obj.goldenScore = document.querySelector("#goldenScore").value
@@ -71,7 +73,12 @@ function getAtleta(id){
     xml.send('id='+id+'&nome='+barraDePesquisa.value);
 
 }
+function setInputValue(){
+    let barraDePesquisa = document.querySelector('#search');
+    let select = document.querySelector('#atletas');
 
+    barraDePesquisa.value = select.innerText
+}
 function constraintCheckbx(){
     vit = document.querySelector('#vitoria');
     hanso = document.querySelector('#hansokumake');
@@ -79,4 +86,11 @@ function constraintCheckbx(){
     if(hanso.checked == true){
         vit.checked = false;
     }
+}
+
+function validaTempo(){
+    let tempo = document.querySelector("#tempo").value
+
+    alert(tempo.match(/[1-5][:][0-5][0-9]/))
+    tempo.value = tempo.match(/[1-5]/)
 }

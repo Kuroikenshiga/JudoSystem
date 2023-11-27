@@ -4,7 +4,7 @@
 <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Lista de atletas</title>
+  <title>Adionar nova luta</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -48,11 +48,11 @@
                 <h2>Adicionar luta</h2>
         
             </div>
-            <input type="hidden" id="competicao" value="">
+            <input type="hidden" id="categoria" value="<?=isset($_GET['id'])?$_GET['id']:null?>">
             <div class="mb-3">
                 <input type="text" class="form-control" id="search" placeholder="Pesquisar atleta" oninput="getAtleta(<?=$_GET['id']?>)">
             </div>
-            <select id="atletas" class="form-select" multiple aria-label="multiple select example" onchange="changeSearchValue()">
+            <select id="atletas" class="form-select" multiple aria-label="multiple select example" onchange="setInputValue()">
                <?php
                 foreach($atletas as $at){ ?>
                 <option value="<?=$at->getId()?>"><?=$at->getNome()?></option>
@@ -60,7 +60,7 @@
             </select>
                 <div class="form-group">
                     <label for="tempo">Tempo</label>
-                    <input type="text" class="form-control" id="tempo">
+                    <input type="text" class="form-control" id="tempo" onclick="validaTempo()">
                 </div>
 
                

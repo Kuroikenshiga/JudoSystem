@@ -14,7 +14,7 @@
             require_once("./JudoSystem/model/LutasModel.php");
             require_once("./JudoSystem/valueObject/Lutas.php");
             $json = json_decode(file_get_contents("php://input"));
-            $lutas = new Lutas(null,$json->tempo,$json->hansoku_make,$json->ganhou,$json->goldenScore,$json->atleta_fk,$json->categoria_fk);
+            $lutas = new Lutas(null,$json->tempo,$json->hansoku_make,$json->ganhou,$json->goldenScore,$json->atleta,$json->categoria);
 
             $lutasm = new LutasModel(Model::createConnection());
             if(!$lutasm->insert($lutas)){

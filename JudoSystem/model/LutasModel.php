@@ -4,13 +4,15 @@
     class LutasModel extends Model{
 
         public function insert($obj){
-            $q = "INSERT INTO lutas(tempo, hansoku_make, ganhou, goldenScore) VALUES (?,?,?,?)";
+            $q = "INSERT INTO lutas(tempo, hansoku_make, ganhou, goldenScore,atleta_fk,categoria_fk) VALUES (?,?,?,?,?,?)";
             try{
                 $stmt = $this->getConnection()->prepare($q);
                 $stmt->bindValue(1,$obj->getTempo());
                 $stmt->bindValue(2,$obj->getHansokuMake());
                 $stmt->bindValue(3,$obj->getGanhou());
                 $stmt->bindValue(4,$obj->getGoldenScore());
+                $stmt->bindValue(5,$obj->getAtleta_fk());
+                $stmt->bindValue(6,$obj->getCategoria_fk());
                 $stmt->execute();
             }catch(Exception $e){
                 return false;
