@@ -14,5 +14,5 @@
         }
         echo '}';
     }
-    gerator('idCategoria classe genero peso','Categoria');
+    gerator('idLutadores wazari1 wazari2 ippon tecnicaNeWaza tecnica forca condicionamentoFisico faltas luta_fk','Lutadores');
 ?>

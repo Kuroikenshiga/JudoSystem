@@ -10,3 +10,12 @@
 #principal form div{
     margin-top: 10px;
 }
+#lutadores{
+    width: 60%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+#lutadores form{
+    width: 45%;
+}
