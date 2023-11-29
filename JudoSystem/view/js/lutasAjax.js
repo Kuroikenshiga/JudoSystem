@@ -73,11 +73,20 @@ function getAtleta(id){
     xml.send('id='+id+'&nome='+barraDePesquisa.value);
 
 }
-function setInputValue(){
-    let barraDePesquisa = document.querySelector('#search');
-    let select = document.querySelector('#atletas');
-
-    barraDePesquisa.value = select.innerText
+function setInputValue(value){
+   
+    let barraDePesquisa = document.querySelector(value == 1?'#search':'#search_2');
+    let select = document.querySelector(value == 1?'#atletas':'#atletas_2');
+    
+    let i = 0;
+    
+    while(i < select.options.length){
+        if(select.options[i].value == select.value){
+            barraDePesquisa.value = select.options[i].innerText
+            break;
+        }
+        i++;
+    }
 }
 function constraintCheckbx(){
     vit = document.querySelector('#vitoria');
@@ -93,4 +102,17 @@ function validaTempo(){
 
     alert(tempo.match(/[1-5][:][0-5][0-9]/))
     tempo.value = tempo.match(/[1-5]/)
+}
+
+function showContent(){
+    divLuta = document.querySelector('#luta');
+    divLuta.style.display = divLuta.style.display  == 'none'?'block':'none'
+    divLutadores = document.querySelector('#lutadores'); 
+    divLutadores.style.display = divLutadores.style.display == 'flex'?'none':'flex'
+    bt = document.querySelector('#btCad');
+    bt.style.display =  bt.style.display == 'block'?'none':'block'
+    btB = document.querySelector('#btBack');
+    btB.style.display =  btB.style.display == 'block'?'none':'block'
+    texto = document.querySelector('#lutadoresText');
+    texto.style.display = texto.style.display == 'block'?'none':'block'
 }

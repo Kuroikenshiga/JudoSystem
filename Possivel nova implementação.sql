@@ -68,11 +68,8 @@ create table lutas(
     id_lutas serial primary key,
     tempo varchar(4),
     hansoku_make boolean,
-    ganhou boolean,
     goldenScore varchar(4),
-   
     categoria_fk int,
-    
     foreign key (categoria_fk) references categoria(id_categoria)
 
 );
@@ -86,13 +83,12 @@ create table lutadores(
     tecnica decimal(2,1),
     forca decimal(2,1),
     condicionamento_fisico decimal(2,1),
-    lutador_casa boolean,
     qtd_falta_lutador int,
     luta_fk int,
-	oponente_fk int,
+	ganhador boolean,
     foreign key(luta_fk) references lutas(id_lutas),
-	foreign key(atleta_fk) references atleta(id_atleta),
-    foreign key(oponente_fk) references lutadores(id_lutadores)
+	foreign key(atleta_fk) references atleta(id_atleta)
+    
 );
 
 create table podio(
