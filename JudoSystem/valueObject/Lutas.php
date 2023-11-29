@@ -3,18 +3,14 @@
         private $id_lutas;
         private $tempo;
         private $hansoku_make;
-        private $ganhou;
         private $goldenScore;
-        private $atleta_fk;
         private $categoria_fk;
 
-        public function __construct($id_lutas, $tempo, $hansoku_make, $ganhou, $goldenScore, $atleta_fk, $categoria_fk){
+        public function __construct($id_lutas, $tempo, $hansoku_make, $goldenScore, $categoria_fk){
             $this->id_lutas = $id_lutas;
             $this->tempo = $tempo;
-            $this->hansoku_make  = $hansoku_make;
-            $this->ganhou = $ganhou;
+            $this->hansoku_make  = $hansoku_make?1:0;
             $this->goldenScore = $goldenScore;
-            $this->atleta_fk = $atleta_fk;
             $this->categoria_fk = $categoria_fk;
         }
 
@@ -39,12 +35,7 @@
             $this->hansoku_make = $hansoku_make;
         }
 
-        public function getGanhou(){
-            return $this->ganhou;
-        }
-        public function setGanhou($ganhou){
-            $this->ganhou = $ganhou;
-        }
+     
 
         public function getGoldenScore(){
             return $this->goldenScore;
@@ -52,19 +43,21 @@
         public function setGoldenScore($goldenScore){
             $this->goldenScore = $goldenScore;
         }
-        
-        public function getAtleta_fk(){
-            return $this->atleta_fk;
-        }
-        public function setAtleta_fk($atleta_fk){
-            $this->atleta_fk = $atleta_fk;
-        }
 
         public function getCategoria_fk(){
             return $this->categoria_fk;
         }
         public function setCategoria_fk($categoria_fk){
             $this->categoria_fk = $categoria_fk;
+        }
+        public function toStdClass(){
+            $std = new stdClass();
+            $std->id_lutas = $this->id_lutas;
+            $std->tempo = $this->tempo;
+            $std->hansoku_make = $this->hansoku_make;
+            $std->goldenScore = $this->goldenScore;
+            $std->categoria_fk = $this->categoria_fk;
+            return $std;
         }
     }
 ?>

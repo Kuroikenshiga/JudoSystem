@@ -62,7 +62,10 @@
                         <input type="text" class="form-control" id="goldenScore">
                     </div>
                     
-                    
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="Hansokumake" >
+                        <label class="form-check-label" for="Hansokumake">Desqualificação</label>
+                    </div>
 
                    
 
@@ -94,7 +97,7 @@
                     </div>
                     
                     <div class="form-group">
-                        <label for="wazari1">2° Wazari</label>
+                        <label for="wazari2">2° Wazari</label>
                         <input type="text" class="form-control" id="wazari2" aria-describedby="wazari2" placeholder="2° wazari" >
                         
                     </div>
@@ -110,20 +113,20 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="Tecnica">Técnica</label>
-                        <input type="numeric" class="form-control" id="Tecnica" aria-describedby="Tecnica" placeholder="Técnica" >
+                        <label for="tecnica">Técnica</label>
+                        <input type="number" class="form-control" id="tecnica" aria-describedby="Tecnica" placeholder="Técnica" >
                         
                     </div>
 
                     <div class="form-group">
                         <label for="forca">Força</label>
-                        <input type="numeric" class="form-control" id="forca" aria-describedby="forca" placeholder="Força" >
+                        <input type="number" class="form-control" id="forca" aria-describedby="forca" placeholder="Força" >
                         
                     </div>
 
                     <div class="form-group">
                         <label for="condFisico">Condicionamento físico</label>
-                        <input type="numeric" class="form-control" id="condFisico" aria-describedby="condFisico" placeholder="Condicionamento físico" >
+                        <input type="number" class="form-control" id="condFisico" aria-describedby="condFisico" placeholder="Condicionamento físico" >
                         
                     </div>
 
@@ -134,7 +137,7 @@
                     
                     <div class="form-group">
                         <label for="faltas">Quantidade de faltas</label>
-                        <input type="numeric" class="form-control" id="faltas" aria-describedby="faltas" placeholder="Quantidade de faltas" >
+                        <input type="number" class="form-control" id="faltas" aria-describedby="faltas" placeholder="Quantidade de faltas" >
                         
                     </div>
                     <!-- <button type="submit" class="btn btn-primary">Enviar</button> -->
@@ -174,19 +177,19 @@
 
                     <div class="form-group">
                         <label for="Tecnica">Técnica</label>
-                        <input type="numeric" class="form-control" id="Tecnica_2" aria-describedby="Tecnica" placeholder="Técnica" >
+                        <input type="number" class="form-control" id="tecnica_2" aria-describedby="Tecnica" placeholder="Técnica" >
                         
                     </div>
 
                     <div class="form-group">
                         <label for="forca">Força</label>
-                        <input type="numeric" class="form-control" id="forca_2" aria-describedby="forca" placeholder="Força" >
+                        <input type="number" class="form-control" id="forca_2" aria-describedby="forca" placeholder="Força" >
                         
                     </div>
 
                     <div class="form-group">
                         <label for="condFisico">Condicionamento físico</label>
-                        <input type="numeric" class="form-control" id="condFisico_2" aria-describedby="condFisico" placeholder="Condicionamento físico" >
+                        <input type="number" class="form-control" id="condFisico_2" aria-describedby="condFisico" placeholder="Condicionamento físico" >
                         
                     </div>
 
@@ -197,7 +200,7 @@
                     
                     <div class="form-group">
                         <label for="faltas_2">Quantidade de faltas</label>
-                        <input type="numeric" class="form-control" id="faltas" aria-describedby="faltas" placeholder="Quantidade de faltas" >
+                        <input type="number" class="form-control" id="faltas_2" aria-describedby="faltas" placeholder="Quantidade de faltas" >
                         
                     </div>
                     <!-- <button type="submit" class="btn btn-primary">Enviar</button> -->

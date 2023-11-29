@@ -2,6 +2,7 @@
 
 class Lutadores{
     private $idLutadores;
+    private $atletaFk;
     private $wazari1;
     private $wazari2;
     private $ippon;
@@ -9,10 +10,11 @@ class Lutadores{
     private $tecnica;
     private $forca;
     private $condicionamentoFisico;
-    private $faltas;
+    private $qtdFaltas;
+    private $ganhador;
     private $luta_fk;
-    private $lutadorDaCasa;
-    public function __construct($id,$w1,$w2,$ippon,$tnw,$tecnica,$forca,$condFisico,$faltas,$luta,$ldc)
+
+    public function __construct($id,$atleta,$w1,$w2,$ippon,$tnw,$tecnica,$forca,$condFisico,$faltas,$ganhador,$luta)
     {
         $this->idLutadores = $id;
         $this->wazari1 = $w1;
@@ -22,9 +24,10 @@ class Lutadores{
         $this->tecnica = $tecnica;
         $this->forca = $forca;
         $this->condicionamentoFisico = $condFisico;
-        $this->faltas = $faltas;
+        $this->qtdFaltas = $faltas;
         $this->luta_fk = $luta;
-        $this->lutadorDaCasa = $ldc;
+        $this->atletaFk = $atleta;
+        $this->ganhador = $ganhador?1:0;
     }
 
     public function getIdLutadores(){
@@ -32,6 +35,13 @@ class Lutadores{
     }
     public function setIdLutadores($idLutadores){
         $this->idLutadores = $idLutadores;
+    }
+    
+    public function getAtletaFk(){
+        return $this->atletaFk;
+    }
+    public function setAtletaFk($atletaFk){
+        $this->atletaFk = $atletaFk;
     }
     
     public function getWazari1(){
@@ -83,11 +93,18 @@ class Lutadores{
         $this->condicionamentoFisico = $condicionamentoFisico;
     }
     
-    public function getFaltas(){
-        return $this->faltas;
+    public function getQtdFaltas(){
+        return $this->qtdFaltas;
     }
-    public function setFaltas($faltas){
-        $this->faltas = $faltas;
+    public function setQtdFaltas($qtdFaltas){
+        $this->qtdFaltas = $qtdFaltas;
+    }
+    
+    public function getGanhador(){
+        return $this->ganhador;
+    }
+    public function setGanhador($ganhador){
+        $this->ganhador = $ganhador;
     }
     
     public function getLuta_fk(){
@@ -96,12 +113,7 @@ class Lutadores{
     public function setLuta_fk($luta_fk){
         $this->luta_fk = $luta_fk;
     }
-    public function getLutadorDaCasa(){
-        return $this->lutadorDaCasa;
-    }
-    public function setLutadorDaCasa($ldc){
-        $this->lutadorDaCasa = $ldc;
-    }
+    
     }
 
 ?>

@@ -5,20 +5,23 @@
         
         public function insert($obj){
             try{
-                $stmt = $this->getConnection()->prepare('INSERT INTO lutadores(wazari_1, wazari_2, ippon, tecnica_ne_waza, tecnica, forca, condicionamento_fisico, falta_lutador, luta_fk,lutador_casa)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?,?)');
-                $stmt->bindValua(1,$obj->getWazari1());
-                $stmt->bindValua(2,$obj->getWazari2());
-                $stmt->bindValua(3,$obj->getIppon());
-                $stmt->bindValua(4,$obj->getTecnicaNeWaza());
-                $stmt->bindValua(5,$obj->getTecnica());
-                $stmt->bindValua(6,$obj->getForca());
-                $stmt->bindValua(7,$obj->getCondicionamentoFisico());
-                $stmt->bindValua(8,$obj->getFaltas());
-                $stmt->bindValua(9,$obj->getLuta_fk());
-                $stmt->bindValua(10,$obj->getLutadorDaCasa());
+                $stmt = $this->getConnection()->prepare('INSERT INTO lutadores(
+                    wazari_1, atleta_fk, wazari_2, ippon, tecnica_ne_waza, tecnica, forca, condicionamento_fisico, qtd_falta_lutador, luta_fk, ganhador)
+                   VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)');
+                $stmt->bindValue(1,$obj->getWazari1());
+                $stmt->bindValue(2,$obj->getAtletaFk());
+                $stmt->bindValue(3,$obj->getWazari2());
+                $stmt->bindValue(4,$obj->getIppon());
+                $stmt->bindValue(5,$obj->getTecnicaNeWaza());
+                $stmt->bindValue(6,$obj->getTecnica());
+                $stmt->bindValue(7,$obj->getForca());
+                $stmt->bindValue(8,$obj->getCondicionamentoFisico());
+                $stmt->bindValue(9,$obj->getQtdFaltas());
+                $stmt->bindValue(10,$obj->getLuta_fk());
+                $stmt->bindValue(11,$obj->getGanhador());
                 $stmt->execute();
             }catch(Exception $e){
+                echo $e->getMessage();
                 return false;
             }
             return true;

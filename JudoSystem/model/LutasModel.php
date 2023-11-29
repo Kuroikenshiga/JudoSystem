@@ -4,20 +4,21 @@
     class LutasModel extends Model{
 
         public function insert($obj){
-            $q = "INSERT INTO lutas(tempo, hansoku_make, ganhou, goldenScore,atleta_fk,categoria_fk) VALUES (?,?,?,?,?,?)";
-            try{
+            echo json_encode($obj->toStdClass());
+            $q = "INSERT INTO lutas(tempo, hansoku_make, goldenscore, categoria_fk)VALUES ( ?, ?, ?, ?) returning id_lutas";
+            
                 $stmt = $this->getConnection()->prepare($q);
+                try{
                 $stmt->bindValue(1,$obj->getTempo());
                 $stmt->bindValue(2,$obj->getHansokuMake());
-                $stmt->bindValue(3,$obj->getGanhou());
-                $stmt->bindValue(4,$obj->getGoldenScore());
-                $stmt->bindValue(5,$obj->getAtleta_fk());
-                $stmt->bindValue(6,$obj->getCategoria_fk());
+                $stmt->bindValue(3,$obj->getGoldenScore());
+                $stmt->bindValue(4,$obj->getCategoria_fk());
                 $stmt->execute();
             }catch(Exception $e){
+                // echo $e->getMessage();
                 return false;
             }
-            return true;
+            return $stmt->fetch()['id_lutas'];
         }
         public function update($obj){
             $q = "UPDATE lutas SET tempo = ?, hansoku_make = ?, ganhou = ?, goldenScore = ?WHERE id_lutas = ?";
