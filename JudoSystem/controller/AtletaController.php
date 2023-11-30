@@ -86,7 +86,7 @@
             require_once("./JudoSystem/model/AtletaModel.php");
 
             $am = new AtletaModel(Model::createConnection());
-            $atletas = $am->selectAtletaByCategoriaAndNome(isset($_POST['id'])?$_POST['id']:null,isset($_POST['nome'])?$_POST['nome']:null);
+            $atletas = $am->selectAtletaByCategoriaAndNome(isset($_POST['id'])?$_POST['id']:null,isset($_POST['nome'])?$_POST['nome']:null,isset($_POST['comp'])?$_POST['comp']:null);
             
             $json = [];
 

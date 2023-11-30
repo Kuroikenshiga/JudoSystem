@@ -62,7 +62,7 @@ function update(){
     xml.send(JSON.stringify(obj))
 }
 
-function getAtleta(id){
+function getAtleta(id,comp){
     
     let barraDePesquisa = document.querySelector('#search');
     let select = document.querySelector('#atletas');
@@ -94,7 +94,7 @@ function getAtleta(id){
             }
         } 
     }
-    xml.send('id='+id+'&nome='+barraDePesquisa.value);
+    xml.send('id='+id+'&nome='+barraDePesquisa.value+'&comp='+comp);
 
 }
 function setInputValue(value){

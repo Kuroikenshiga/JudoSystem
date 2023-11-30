@@ -81,7 +81,7 @@
 
                 <form>
                 <div class="mb-3">
-                    <input type="text" class="form-control" id="search" placeholder="Pesquisar atleta" oninput="getAtleta(<?=$_GET['id']?>)">
+                    <input type="text" class="form-control" id="search" placeholder="Pesquisar atleta" oninput="getAtleta(<?=$_GET['id']?>,<?=$_GET['comp']?>)">
                 </div>
                 <select id="atletas" class="form-select" multiple aria-label="multiple select example" onchange="setInputValue(1)">
                 <?php

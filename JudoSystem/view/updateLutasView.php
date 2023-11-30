@@ -4,7 +4,7 @@
 <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Lista de atletas</title>
+  <title>Adionar nova luta</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -40,39 +40,179 @@
 </head>
 <body>
 <?php require_once('./JudoSystem/view/header.php')?>
-<div id="principal">
-        
-            <h1>Modifica Luta</h1>
+    <div id="principal">
+    
+            <form id="luta">
+                <div class="section-title">
+                    <span>Informações da luta</span>
+                    <h2>Informações da luta</h2>
             
-            <form action="index.php" >
-                <input type="hidden" value="Lutas" name="class">
-                <input type="hidden" value="update" name="method">
-                <input type="hidden" id="id_lutas" value="<?php echo $lutas->getIdLutas() ?>">
-
-                <div class="form-group">
-                    <label for="tempo">Tempo</label>
-                    <input type="time" class="form-control" id="tempo" value="<?php echo $lutas->getTempo() ?>">
                 </div>
+                <input type="hidden" id="categoria" value="<?=isset($_GET['categoria'])?$_GET['categoria']:null?>">
+               
+                    <div class="form-group">
+                        <label for="tempo">Tempo</label>
+                        <input type="text" class="form-control" id="tempo" onclick="validaTempo()">
+                    </div>
 
-                <div class="form-group">
-                    <label for="hansoku_make">Hansoku-Make</label>
-                    <input type="text" class="form-control" id="hansoku_make" value="<?php echo $lutas->getHansokuMake() ?>">
-                </div>
+                
 
-                <div class="form-group">
-                    <label for="ganhou">Ganhou</label>
-                    <input type="text" class="form-control" id="ganhou" value="<?php echo $lutas->getGanhou() ?>">
-                </div>
+                    <div class="form-group">
+                        <label for="goldenScore">Golden Score</label>
+                        <input type="text" class="form-control" id="goldenScore">
+                    </div>
+                    
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="Hansokumake" >
+                        <label class="form-check-label" for="Hansokumake">Desqualificação</label>
+                    </div>
 
-                <div class="form-group">
-                    <label for="goldenScore">Golden Score</label>
-                    <input type="time" class="form-control" id="goldenScore" value="<?php echo $lutas->getGoldenScore() ?>">
-                </div>
+                   
 
-                <button type="button" class="btn btn-primary" onclick="update()">Modificar</button>
+                    <button id="proximo" type="button" class="btn btn-primary" onclick="showContent()">Próximo</button>
+                
             </form>
-        
+            <div id="lutadoresText" class="section-title">
+                    <span>Inserir informações da luta</span>
+                    <h2>Inserir informações da luta</h2>
+            
+                </div>
+            <div id="lutadores">
+
+                <form>
+                <div class="mb-3">
+                    <input type="text" class="form-control" id="search" placeholder="Pesquisar atleta" oninput="getAtleta(<?=$_GET['categoria']?>,<?=$_GET['comp']?>)">
+                </div>
+                <select id="atletas" class="form-select" multiple aria-label="multiple select example" onchange="setInputValue(1)">
+                <?php
+                    foreach($atletas as $at){ ?>
+                    <option value="<?=$at->getId()?>"><?=$at->getNome()?></option>
+                    <?php }?>
+                </select>
+
+                    <div class="form-group">
+                        <label for="wazari1">1° Wazari</label>
+                        <input type="text" class="form-control" id="wazari1" aria-describedby="wazari1" placeholder="1° wazari" >
+                        
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="wazari2">2° Wazari</label>
+                        <input type="text" class="form-control" id="wazari2" aria-describedby="wazari2" placeholder="2° wazari" >
+                        
+                    </div>
+                    <div class="form-group">
+                        <label for="ippon">Ippon</label>
+                        <input type="text" class="form-control" id="ippon" aria-describedby="ippon" placeholder="Ippon" >
+                        
+                    </div>
+                    <div class="form-group">
+                        <label for="ne-waza">Tecnica ne-waza</label>
+                        <input type="text" class="form-control" id="ne-waza" aria-describedby="ne-waza" placeholder="ne-waza" >
+                        
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tecnica">Técnica</label>
+                        <input type="number" class="form-control" id="tecnica" aria-describedby="Tecnica" placeholder="Técnica" >
+                        
+                    </div>
+
+                    <div class="form-group">
+                        <label for="forca">Força</label>
+                        <input type="number" class="form-control" id="forca" aria-describedby="forca" placeholder="Força" >
+                        
+                    </div>
+
+                    <div class="form-group">
+                        <label for="condFisico">Condicionamento físico</label>
+                        <input type="number" class="form-control" id="condFisico" aria-describedby="condFisico" placeholder="Condicionamento físico" >
+                        
+                    </div>
+
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="vencedor" >
+                        <label class="form-check-label" for="vencedor">Vencedor</label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="faltas">Quantidade de faltas</label>
+                        <input type="number" class="form-control" id="faltas" aria-describedby="faltas" placeholder="Quantidade de faltas" >
+                        
+                    </div>
+                    <!-- <button type="submit" class="btn btn-primary">Enviar</button> -->
+                </form>
+                <form>
+                <div class="mb-3">
+                    <input type="text" class="form-control" id="search_2" placeholder="Pesquisar atleta" oninput="getAtleta(<?=$_GET['categoria']?>,<?=$_GET['comp']?>)">
+                </div>
+                <select id="atletas_2" class="form-select" multiple aria-label="multiple select example" onchange="setInputValue(2)">
+                <?php
+                    foreach($atletas as $at){ ?>
+                    <option value="<?=$at->getId()?>"><?=$at->getNome()?></option>
+                    <?php }?>
+                </select>
+
+                    <div class="form-group">
+                        <label for="wazari1">1° Wazari</label>
+                        <input type="text" class="form-control" id="wazari1_2" aria-describedby="wazari1" placeholder="1° wazari" >
+                        
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="wazari1">2° Wazari</label>
+                        <input type="text" class="form-control" id="wazari2_2" aria-describedby="wazari2" placeholder="2° wazari" >
+                        
+                    </div>
+                    <div class="form-group">
+                        <label for="ippon">Ippon</label>
+                        <input type="text" class="form-control" id="ippon_2" aria-describedby="ippon" placeholder="Ippon" >
+                        
+                    </div>
+                    <div class="form-group">
+                        <label for="ne-waza">Tecnica ne-waza</label>
+                        <input type="text" class="form-control" id="ne-waza_2" aria-describedby="ne-waza" placeholder="ne-waza" >
+                        
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Tecnica">Técnica</label>
+                        <input type="number" class="form-control" id="tecnica_2" aria-describedby="Tecnica" placeholder="Técnica" >
+                        
+                    </div>
+
+                    <div class="form-group">
+                        <label for="forca">Força</label>
+                        <input type="number" class="form-control" id="forca_2" aria-describedby="forca" placeholder="Força" >
+                        
+                    </div>
+
+                    <div class="form-group">
+                        <label for="condFisico">Condicionamento físico</label>
+                        <input type="number" class="form-control" id="condFisico_2" aria-describedby="condFisico" placeholder="Condicionamento físico" >
+                        
+                    </div>
+
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="vencedor_2" >
+                        <label class="form-check-label" for="vencedor_2">Vencedor</label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="faltas_2">Quantidade de faltas</label>
+                        <input type="number" class="form-control" id="faltas_2" aria-describedby="faltas" placeholder="Quantidade de faltas" >
+                        
+                    </div>
+                    <!-- <button type="submit" class="btn btn-primary">Enviar</button> -->
+                   
+                </form>
+                
+                
+            </div>
+            <button type="button" class="btn btn-info" id="btBack" onclick="showContent()">Voltar</button>
+            <button type="button" class="btn btn-primary" id="btCad" onclick="insert()">Cadastrar</button>
     </div>
     <script src="../../JudoSystem/view/js/lutasAjax.js"></script>
+    <script src="../../JudoSystem/view/js/inscricaoAjax.js"></script>
 </body>
 </html>

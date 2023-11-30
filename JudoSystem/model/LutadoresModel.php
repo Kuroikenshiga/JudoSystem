@@ -26,16 +26,21 @@
             }
             return true;
         }
-        public function selectAllByLuta(){
-            $stmt->this->getConnection()->prepare('SELECT id_lutadores, wazari_1, atleta_fk, wazari_2, ippon, tecnica_ne_waza, tecnica, forca, condicionamento_fisico, qtd_falta_lutador, luta_fk, ganhador
-            FROM lutadores');
+        public function selectAllByLuta($luta){
+            $stmt = $this->getConnection()->prepare('SELECT * FROM lutadores where luta_fk = ?');
             $array = [];
             try{
+                $stmt->bindValue(1,$luta);
                 $stmt->execute();
                 while($row = $stmt->fetch()){
-                    $array[] = new Lutadores($row['lutadores_id']);
+                    $array[] = new Lutadores($row['id_lutadores'],$row['atleta_fk'],$row['wazari_1'],$row['wazari_2'],$row['ippon'],$row['tecnica_ne_waza'],$row['tecnica'],$row['forca'],$row['condicionamento_fisico'],$row['qtd_falta_lutador'],$row['ganhador'],$row['luta_fk']);
                 }
             }
+            catch(Exception $e){
+                echo $e->getMessage();
+                return false;
+            }
+            return $array;
         }
         public function update($obj){}
         public function delete($id){}

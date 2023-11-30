@@ -84,8 +84,8 @@
             <h3> <?=$categoria->getIdCategoria() ?> <?=$categoria->getClasse() ?> <?=$categoria->getGenero() ?> <?=$categoria->getPeso() ?> </h3>
           </div>
           <div id="dir">
-            <a id='cad' href="index.php?class=lutas&method=showCadastro&id=<?=$categoria->getIdCategoria()?>"><button  type="button" class="btn btn-secondary">Cadastrar uma luta</button></a>
-            <a href="index.php?class=lutas&method=listByCategoriaAndCompeticao&comp=<?=isset($_GET['id'])?$_GET['id']:null?>&categoria=<?=$categoria->getIdCategoria()?>"><button type="button" class="btn btn-success">Ver lutas</button></a>
+            <a id='cad' href="index.php?class=lutas&method=showCadastro&id=<?=$categoria->getIdCategoria()?>&comp=<?=$_GET['id']?>"><button  type="button" class="btn btn-secondary">Cadastrar uma luta</button></a>
+            <a href="index.php?class=lutas&method=listByCategoriaAndCompeticao&comp=<?=isset($_GET['id'])?$_GET['id']:null?>&categoria=<?=$categoria->getIdCategoria()?>"><button type="button" class="btn btn-success" id="showLutas">Ver lutas</button></a>
             </div>
           </div>
         <table class="table table-striped">

@@ -4,7 +4,7 @@
             require_once("./JudoSystem/model/Model.php");
             require_once("./JudoSystem/model/AtletaModel.php");
             $am = new AtletaModel(Model::createConnection());
-            $atletas = $am->selectAtletaByCategoria(isset($_GET['id'])?$_GET['id']:null);
+            $atletas = $am->selectAtletaByCategoriaAndCompeticao(isset($_GET['id'])?$_GET['id']:null,isset($_GET['comp'])?$_GET['comp']:null);
             
             require_once("./JudoSystem/view/cadastroLutasView.php");
 
@@ -43,8 +43,11 @@
 
         public function showUpdate(){
             require_once("./JudoSystem/model/Model.php");
+            require_once("./JudoSystem/model/AtletaModel.php");
+            require_once("./JudoSystem/model/Model.php");
             require_once("./JudoSystem/model/LutasModel.php");
-            $lutasm = new LutasModel(Model::createConnection());
+            $am = new AtletaModel(Model::createConnection());
+            $atletas = $am->selectAtletaByCategoriaAndCompeticao(isset($_GET['categoria'])?$_GET['categoria']:null,isset($_GET['comp'])?$_GET['comp']:null);
             require_once("./JudoSystem/view/updateLutasView.php");
         }
         public function update(){
@@ -113,11 +116,23 @@
         public function listByCategoriaAndCompeticao(){
             require_once("./JudoSystem/model/Model.php");
             require_once("./JudoSystem/model/LutasModel.php");
+            require_once("./JudoSystem/model/LutadoresModel.php");
+            require_once('./JudoSystem/model/AtletaModel.php');
+            //$ltdM = new LutadoresModel(Model::createConnection());
+           
+            $lm = new LutasModel(Model::createConnection());
+            $lutas = $lm->selectAllByCategoriaAndCompeticao(isset($_GET['comp'])?$_GET['comp']:null,isset($_GET['categoria'])?$_GET['categoria']:null);
 
-            $lutasm = new LutasModel(Model::createConnection());
-            $lutas = $lutasm->selectAllByCategoriaAndCompeticao(isset($_GET['comp'])?$_GET['comp']:null,isset($_GET['categoria'])?$_GET['categoria']:null);
-
-            
+            function getNomeOponentes($luta){
+                $ltdM = new LutadoresModel(Model::createConnection());
+                $am = new AtletaModel(Model::createConnection());
+                $atletas = [];
+                $lutadores = $ltdM->selectAllByLuta($luta);
+                $atletas[] = is_null($lutadores[0]->getAtletaFk())?null:$am->selectById($lutadores[0]->getAtletaFk());
+                $atletas[] = is_null($lutadores[1]->getAtletaFk())?null:$am->selectById($lutadores[1]->getAtletaFk());
+                
+                return $atletas;
+            }
                 require_once("./JudoSystem/view/listaLutasView.php");
             
         }
