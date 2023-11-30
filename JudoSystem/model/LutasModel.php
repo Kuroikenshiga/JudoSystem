@@ -85,10 +85,11 @@
                 $stmt->execute();
             }
             catch(Exception $e){
+                echo($e->getMessage());
                 return false;
             }
             $rows = $stmt->fetch();
-                return $obj = new Lutas($rows["id_lutas"], $rows["tempo"], $rows["hansoku_make"], $rows["ganhou"], $rows["goldenScore"], $rows["atleta_fk"], $rows["categoria_fk"]);
+                return $obj = new Lutas($rows["id_lutas"], $rows["tempo"], $rows["hansoku_make"], $rows["goldenscore"], $rows["categoria_fk"]);
         }
         public function selectAllByAtleta($atleta_fk){
             $q = "SELECT * FROM lutas WHERE atleta_fk = ?";

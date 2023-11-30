@@ -46,8 +46,24 @@
             require_once("./JudoSystem/model/AtletaModel.php");
             require_once("./JudoSystem/model/Model.php");
             require_once("./JudoSystem/model/LutasModel.php");
+            require_once("./JudoSystem/model/LutadoresModel.php");
+            $lm = new LutasModel(Model::createConnection());
+            $ltdM = new LutadoresModel(Model::createConnection());
+            $lutadores = $ltdM->selectAllByLuta(isset($_GET['id_lutas'])?$_GET['id_lutas']:null);
+
+            $luta = $lm->selectById(isset($_GET['id_lutas'])?$_GET['id_lutas']:null);
             $am = new AtletaModel(Model::createConnection());
             $atletas = $am->selectAtletaByCategoriaAndCompeticao(isset($_GET['categoria'])?$_GET['categoria']:null,isset($_GET['comp'])?$_GET['comp']:null);
+
+            function getAtletaNome($id,$atletas){
+                foreach($atletas as $at){
+                    if($at->getId() == $id){
+                        return $at->getNome();
+                    }
+                    
+                }
+                return 'Atleta externo';
+            }
             require_once("./JudoSystem/view/updateLutasView.php");
         }
         public function update(){

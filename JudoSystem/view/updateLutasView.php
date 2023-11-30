@@ -52,19 +52,19 @@
                
                     <div class="form-group">
                         <label for="tempo">Tempo</label>
-                        <input type="text" class="form-control" id="tempo" onclick="validaTempo()">
+                        <input type="text" class="form-control" id="tempo"  value="<?=$luta->getTempo()?>" disabled>
                     </div>
 
                 
 
                     <div class="form-group">
                         <label for="goldenScore">Golden Score</label>
-                        <input type="text" class="form-control" id="goldenScore">
+                        <input type="text" class="form-control" id="goldenScore" value="<?=$luta->getGoldenScore()?>" disabled>
                     </div>
                     
                     <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="Hansokumake" >
-                        <label class="form-check-label" for="Hansokumake">Desqualificação</label>
+                        <input type="checkbox" class="form-check-input" id="Hansokumake" <?=$luta->getHansokuMake()?'checked':''?> disabled>
+                        <label class="form-check-label" for="Hansokumake" >Desqualificação</label>
                     </div>
 
                    
@@ -81,126 +81,128 @@
 
                 <form>
                 <div class="mb-3">
-                    <input type="text" class="form-control" id="search" placeholder="Pesquisar atleta" oninput="getAtleta(<?=$_GET['categoria']?>,<?=$_GET['comp']?>)">
+                    <input type="text" class="form-control" id="search" disabled value="<?=getAtletaNome($lutadores[0]->getAtletaFk(),$atletas)?>" placeholder="Pesquisar atleta" oninput="getAtleta(<?=$_GET['categoria']?>,<?=$_GET['comp']?>)">
                 </div>
-                <select id="atletas" class="form-select" multiple aria-label="multiple select example" onchange="setInputValue(1)">
-                <?php
-                    foreach($atletas as $at){ ?>
-                    <option value="<?=$at->getId()?>"><?=$at->getNome()?></option>
-                    <?php }?>
-                </select>
-
+                <div class="mb-3">
+                    <label for="atletas">Selecione o atleta</label>
+                    <select id="atletas" class="form-select" multiple aria-label="multiple select example" onchange="setInputValue(1)" disabled>
+                    <?php
+                        foreach($atletas as $at){ ?>
+                        <option value="<?=$at->getId()?>"  <?=$lutadores[0]->getAtletaFk() == $at->getId()?'selected':''?> ><?=$at->getNome()?></option>
+                        <?php }?>
+                    </select>
+                </div>
                     <div class="form-group">
-                        <label for="wazari1">1° Wazari</label>
-                        <input type="text" class="form-control" id="wazari1" aria-describedby="wazari1" placeholder="1° wazari" >
+                        <label for="wazari1">Golpe 1° Wazari</label>
+                        <input type="text" class="form-control" id="wazari1" aria-describedby="wazari1" value="<?=$lutadores[0]->getWazari1()?>" placeholder="1° wazari" disabled>
                         
                     </div>
                     
                     <div class="form-group">
-                        <label for="wazari2">2° Wazari</label>
-                        <input type="text" class="form-control" id="wazari2" aria-describedby="wazari2" placeholder="2° wazari" >
+                        <label for="wazari2">Golpe 2° Wazari</label>
+                        <input type="text" class="form-control" id="wazari2" aria-describedby="wazari2" placeholder="2° wazari" disabled value="<?=$lutadores[0]->getWazari2()?>">
                         
                     </div>
                     <div class="form-group">
-                        <label for="ippon">Ippon</label>
-                        <input type="text" class="form-control" id="ippon" aria-describedby="ippon" placeholder="Ippon" >
+                        <label for="ippon">Golpe Ippon</label>
+                        <input type="text" class="form-control" id="ippon" aria-describedby="ippon" placeholder="Ippon" disabled value="<?=$lutadores[0]->getIppon()?>">
                         
                     </div>
                     <div class="form-group">
-                        <label for="ne-waza">Tecnica ne-waza</label>
-                        <input type="text" class="form-control" id="ne-waza" aria-describedby="ne-waza" placeholder="ne-waza" >
-                        
-                    </div>
-
-                    <div class="form-group">
-                        <label for="tecnica">Técnica</label>
-                        <input type="number" class="form-control" id="tecnica" aria-describedby="Tecnica" placeholder="Técnica" >
+                        <label for="ne-waza">Tecnica de solo</label>
+                        <input type="text" class="form-control" id="ne-waza" aria-describedby="ne-waza" placeholder="ne-waza" disabled value="<?=$lutadores[0]->getTecnicaNeWaza()?>">
                         
                     </div>
 
                     <div class="form-group">
-                        <label for="forca">Força</label>
-                        <input type="number" class="form-control" id="forca" aria-describedby="forca" placeholder="Força" >
+                        <label for="tecnica">Avaliação da técnica(0 a 10)</label>
+                        <input type="number" class="form-control" id="tecnica" aria-describedby="Tecnica" placeholder="Técnica" disabled value="<?=$lutadores[0]->getTecnica()?>">
                         
                     </div>
 
                     <div class="form-group">
-                        <label for="condFisico">Condicionamento físico</label>
-                        <input type="number" class="form-control" id="condFisico" aria-describedby="condFisico" placeholder="Condicionamento físico" >
+                        <label for="forca">Avaliação da força(0 a 10)</label>
+                        <input type="number" class="form-control" id="forca" aria-describedby="forca" placeholder="Força" disabled value="<?=$lutadores[0]->getForca()?>">
+                        
+                    </div>
+
+                    <div class="form-group">
+                        <label for="condFisico">Avaliação do condicionamento físico(0 a 10)</label>
+                        <input type="number" class="form-control" id="condFisico" aria-describedby="condFisico" placeholder="Condicionamento físico" disabled value="<?=$lutadores[0]->getCondicionamentoFisico()?>">
                         
                     </div>
 
                     <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="vencedor" >
+                        <input type="checkbox" class="form-check-input" id="vencedor" disabled value="<?=$lutadores[0]->getGanhador()?'checked':''?>">
                         <label class="form-check-label" for="vencedor">Vencedor</label>
                     </div>
                     
                     <div class="form-group">
                         <label for="faltas">Quantidade de faltas</label>
-                        <input type="number" class="form-control" id="faltas" aria-describedby="faltas" placeholder="Quantidade de faltas" >
+                        <input type="number" class="form-control" id="faltas" aria-describedby="faltas" placeholder="Quantidade de faltas" disabled value="<?=$lutadores[0]->getQtdFaltas()?>">
                         
                     </div>
                     <!-- <button type="submit" class="btn btn-primary">Enviar</button> -->
                 </form>
                 <form>
                 <div class="mb-3">
-                    <input type="text" class="form-control" id="search_2" placeholder="Pesquisar atleta" oninput="getAtleta(<?=$_GET['categoria']?>,<?=$_GET['comp']?>)">
+                    <input type="text" class="form-control" id="search_2" disabled value="<?=getAtletaNome($lutadores[1]->getAtletaFk(),$atletas)?>" placeholder="Pesquisar atleta" oninput="getAtleta(<?=$_GET['categoria']?>,<?=$_GET['comp']?>)">
                 </div>
                 <select id="atletas_2" class="form-select" multiple aria-label="multiple select example" onchange="setInputValue(2)">
                 <?php
                     foreach($atletas as $at){ ?>
-                    <option value="<?=$at->getId()?>"><?=$at->getNome()?></option>
+                    <option value="<?=$at->getId()?>" <?=$lutadores[1]->getAtletaFk() == $at->getId()?'selected':''?> ><?=$at->getNome()?></option>
                     <?php }?>
                 </select>
 
                     <div class="form-group">
-                        <label for="wazari1">1° Wazari</label>
-                        <input type="text" class="form-control" id="wazari1_2" aria-describedby="wazari1" placeholder="1° wazari" >
+                        <label for="wazari1">Golpe 1° Wazari</label>
+                        <input type="text" class="form-control" id="wazari1_2" aria-describedby="wazari1" placeholder="1° wazari" disabeled value="<?=$lutadores[1]->getWazari1()?>">
                         
                     </div>
                     
                     <div class="form-group">
-                        <label for="wazari1">2° Wazari</label>
-                        <input type="text" class="form-control" id="wazari2_2" aria-describedby="wazari2" placeholder="2° wazari" >
+                        <label for="wazari1">Golpe 2° Wazari</label>
+                        <input type="text" class="form-control" id="wazari2_2" aria-describedby="wazari2" placeholder="2° wazari" disabeled value="<?=$lutadores[1]->getWazari2()?>">
                         
                     </div>
                     <div class="form-group">
-                        <label for="ippon">Ippon</label>
-                        <input type="text" class="form-control" id="ippon_2" aria-describedby="ippon" placeholder="Ippon" >
+                        <label for="ippon">Golpe Ippon</label>
+                        <input type="text" class="form-control" id="ippon_2" aria-describedby="ippon" placeholder="Ippon" disabeled value="<?=$lutadores[1]->getIppon()?>">
                         
                     </div>
                     <div class="form-group">
-                        <label for="ne-waza">Tecnica ne-waza</label>
-                        <input type="text" class="form-control" id="ne-waza_2" aria-describedby="ne-waza" placeholder="ne-waza" >
-                        
-                    </div>
-
-                    <div class="form-group">
-                        <label for="Tecnica">Técnica</label>
-                        <input type="number" class="form-control" id="tecnica_2" aria-describedby="Tecnica" placeholder="Técnica" >
+                        <label for="ne-waza">Tecnica de solo</label>
+                        <input type="text" class="form-control" id="ne-waza_2" aria-describedby="ne-waza" placeholder="ne-waza" disabeled value="<?=$lutadores[1]->getTecnicaNeWaza()?>">
                         
                     </div>
 
                     <div class="form-group">
-                        <label for="forca">Força</label>
-                        <input type="number" class="form-control" id="forca_2" aria-describedby="forca" placeholder="Força" >
+                        <label for="Tecnica">Avaliação da tecnica(0 a 10)</label>
+                        <input type="number" class="form-control" id="tecnica_2" aria-describedby="Tecnica" placeholder="Técnica" disabeled value="<?=$lutadores[1]->getTecnica()?>>
                         
                     </div>
 
                     <div class="form-group">
-                        <label for="condFisico">Condicionamento físico</label>
-                        <input type="number" class="form-control" id="condFisico_2" aria-describedby="condFisico" placeholder="Condicionamento físico" >
+                        <label for="forca">Avaliação da força(0 a 10)</label>
+                        <input type="number" class="form-control" id="forca_2" aria-describedby="forca" placeholder="Força" disabeled value="<?=$lutadores[1]->getForca()?>">
+                        
+                    </div>
+
+                    <div class="form-group">
+                        <label for="condFisico">Avaliação do condicionamento físico(0 a 10)</label>
+                        <input type="number" class="form-control" id="condFisico_2" aria-describedby="condFisico" placeholder="Condicionamento físico" disabeled value="<?=$lutadores[1]->getCondicionamentoFisico()?>">
                         
                     </div>
 
                     <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="vencedor_2" >
+                        <input type="checkbox" class="form-check-input" id="vencedor_2" disabled checked="<?=$lutadores[1]->getGanhador()?'checked':''?>>
                         <label class="form-check-label" for="vencedor_2">Vencedor</label>
                     </div>
                     
                     <div class="form-group">
                         <label for="faltas_2">Quantidade de faltas</label>
-                        <input type="number" class="form-control" id="faltas_2" aria-describedby="faltas" placeholder="Quantidade de faltas" >
+                        <input type="number" class="form-control" id="faltas_2" aria-describedby="faltas" placeholder="Quantidade de faltas" disabled value="<?=$lutadores[1]->getQtdFaltas()?>">
                         
                     </div>
                     <!-- <button type="submit" class="btn btn-primary">Enviar</button> -->
