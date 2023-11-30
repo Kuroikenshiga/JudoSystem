@@ -26,6 +26,17 @@
             }
             return true;
         }
+        public function selectAllByLuta(){
+            $stmt->this->getConnection()->prepare('SELECT id_lutadores, wazari_1, atleta_fk, wazari_2, ippon, tecnica_ne_waza, tecnica, forca, condicionamento_fisico, qtd_falta_lutador, luta_fk, ganhador
+            FROM lutadores');
+            $array = [];
+            try{
+                $stmt->execute();
+                while($row = $stmt->fetch()){
+                    $array[] = new Lutadores($row['lutadores_id']);
+                }
+            }
+        }
         public function update($obj){}
         public function delete($id){}
         public function selectAll(){}

@@ -110,18 +110,16 @@
                 require_once("./JudoSystem/view/listaLutasView.php");
             }
         }
-        public function listByCategoria(){
+        public function listByCategoriaAndCompeticao(){
             require_once("./JudoSystem/model/Model.php");
             require_once("./JudoSystem/model/LutasModel.php");
 
             $lutasm = new LutasModel(Model::createConnection());
-            $lutas = $lutasm->selectAllByCategoria($categoria_fk);
+            $lutas = $lutasm->selectAllByCategoriaAndCompeticao(isset($_GET['comp'])?$_GET['comp']:null,isset($_GET['categoria'])?$_GET['categoria']:null);
 
-            if(!$lutas){
-                echo("Não possui lutas nessa categoria");
-            }else{
+            
                 require_once("./JudoSystem/view/listaLutasView.php");
-            }
+            
         }
     }
 ?>

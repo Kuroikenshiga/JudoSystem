@@ -27,7 +27,15 @@ function changeSearchValue(){
 
     search = document.querySelector('#search');
 
-    search.value = document.querySelector('#atletas').innerText;
+    select = document.querySelector('#atletas');
+    let i = 0;
+    while(i < select.options.length){
+        if(select.options[i].value == select.value){
+            search.value = select.options[i].innerText;
+            break;
+        }
+        i++;
+    }
 }
 function update(){
     let obj = new Object();

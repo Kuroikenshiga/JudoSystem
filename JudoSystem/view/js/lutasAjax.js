@@ -14,22 +14,23 @@ function insert(){
     obj.oponente1.ippon = document.querySelector('#ippon').value;
     obj.oponente1.neWaza = document.querySelector('#ne-waza').value;
     obj.oponente1.tecnica = document.querySelector('#tecnica').value;
-    obj.oponente1.forca = document.querySelector('#forca').value;;
-    obj.oponente1.condFisico = document.querySelector('#condFisico').value
-    obj.oponente1.vencedor = document.querySelector('#vencedor').checked
-    obj.oponente1.qtdFaltas = document.querySelector('#faltas').value
+    obj.oponente1.forca = document.querySelector('#forca').value;
+    obj.oponente1.condFisico = document.querySelector('#condFisico').value;
+    obj.oponente1.vencedor = document.querySelector('#vencedor').checked;
+    obj.oponente1.qtdFaltas = document.querySelector('#faltas').value;
 
     obj.oponente2 = new Object();
-    obj.oponente2.atleta = document.querySelector('#atletas_2').value;
+    obj.oponente2.atleta = document.querySelector('#atletas_2').value == ''?null:document.querySelector('#atletas_2').value;
     obj.oponente2.w1 = document.querySelector('#wazari1_2').value;
     obj.oponente2.w2 = document.querySelector('#wazari2_2').value;
     obj.oponente2.ippon = document.querySelector('#ippon_2').value;
     obj.oponente2.neWaza = document.querySelector('#ne-waza_2').value;
     obj.oponente2.tecnica = document.querySelector('#tecnica_2').value;
-    obj.oponente2.forca = document.querySelector('#forca_2').value;;
-    obj.oponente2.condFisico = document.querySelector('#condFisico_2').value
-    obj.oponente2.vencedor = document.querySelector('#vencedor_2').checked
-    obj.oponente2.qtdFaltas = document.querySelector('#faltas_2').value
+    obj.oponente2.forca = document.querySelector('#forca_2').value;
+    obj.oponente2.condFisico = document.querySelector('#condFisico_2').value;
+    obj.oponente2.vencedor = document.querySelector('#vencedor_2').checked;
+    obj.oponente2.qtdFaltas = document.querySelector('#faltas_2').value;
+
     console.log(JSON.stringify(obj))
     let xml = new XMLHttpRequest();
     xml.open("POST",'index.php?class=lutas&method=insert');

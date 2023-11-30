@@ -57,22 +57,20 @@
                 
                       <th>Tempo</th>
                       <th>Hansoku-make</th>
-                      <th>Ganhou</th>
                       <th>Golden Score</th>
 
                   </tr>
                 </thead>
               <tbody id="bodyTable">
                   <?php
-                      foreach($lutas as $i){
+                      foreach($lutas as $l){
                   ?>
                       <tr>
-                          <td><?php echo $i->getTempo() ?></td>
-                          <td><?php echo $i->getHansokuMake() ?></td>
-                          <td><?php echo $i->getGanhou() ?></td>
-                          <td><?php echo $i->getGoldenScore() ?></td>
-                          <td><a href="index.php?class=Lutas&method=showUpdate&id_lutas=<?php echo $i->getIdLutas() ?>"><button type="button" class="btn btn-info">Modificar</button></a></td>
-                          <td><button class="btn btn-danger" onclick="remove(<?php echo $i->getIdLutas() ?>)">Deletar</button></td>
+                          <td><?php echo $l->getTempo() ?></td>
+                          <td><?php echo $l->getHansokuMake() ?></td>
+                          <td><?php echo $l->getGoldenScore() ?></td>
+                          <td><a href="index.php?class=Lutas&method=showUpdate&id_lutas=<?php echo $l->getIdLutas() ?>"><button type="button" class="btn btn-info">Modificar</button></a></td>
+                          <td><button class="btn btn-danger" onclick="remove(<?php echo $l->getIdLutas() ?>)">Deletar</button></td>
                       </tr>
                   <?php
                       }

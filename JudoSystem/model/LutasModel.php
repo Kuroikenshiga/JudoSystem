@@ -52,7 +52,25 @@
                 $stmt = $this->getConnection()->prepare($q);
                 $stmt->execute();
                 while($rows = $stmt->fetch()){
-                    $lutas[] = new Lutas($rows["id_lutas"], $rows["tempo"], $rows["hansoku_make"], $rows["ganhou"], $rows["goldenScore"], $rows["atleta_fk"], $rows["categoria_fk"]);
+                    $lutas[] = new Lutas($rows["id_lutas"], $rows["tempo"], $rows["hansoku_make"], $rows["ganhou"], $rows["goldenscore"], $rows["atleta_fk"], $rows["categoria_fk"]);
+                }
+            }catch(Exception $e){
+                return false;
+            }
+            return $lutas;
+        }
+        public function selectAllByCategoriaAndCompeticao($comp,$categoria){
+            $q = "select*from lutas where id_lutas in (select luta_fk from lutadores where atleta_fk in (
+                select id_atleta from atleta where id_atleta in (select atleta_fk from inscricao where competicao_fk = ? and categoria_fk = ?))) and categoria_fk = ?";
+            $lutas = array();
+            try{
+                $stmt = $this->getConnection()->prepare($q);
+                $stmt->bindValue(1,$comp);
+                $stmt->bindValue(2,$categoria);
+                $stmt->bindValue(3,$categoria);
+                $stmt->execute();
+                while($rows = $stmt->fetch()){
+                    $lutas[] = new Lutas($rows["id_lutas"], $rows["tempo"], $rows["hansoku_make"], $rows["goldenscore"], $rows["categoria_fk"]);
                 }
             }catch(Exception $e){
                 return false;
@@ -88,21 +106,6 @@
             }
             return $lutas;
         }
-        public function selectAllByCategoria($categoria_fk){
-            $q = "SELECT * FROM lutas WHERE categoria_fk = ?";
-            $lutas = array();
-            try{
-                $stmt = $this->getConnection()->prepare($q);
-                $stmt->bindValue(1,$categoria_fk);
-                $stmt->execute();
-                while($rows = $stmt->fetch()){
-                    $lutas[] = new Lutas($rows["id_lutas"], $rows["tempo"], $rows["hansoku_make"], $rows["ganhou"], $rows["goldenScore"], $rows["atleta_fk"], $rows["categoria_fk"]);
-                }
-            }
-            catch(Exception $e){
-                return false;
-            }
-            return $lutas;
-        }
+       
     }
 ?>
