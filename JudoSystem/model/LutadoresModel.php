@@ -26,6 +26,29 @@
             }
             return true;
         }
+        public function update($obj){
+            try{
+                $stmt = $this->getConnection()->prepare('UPDATE lutadores
+                SET wazari_1=?, atleta_fk=?, wazari_2=?, ippon=?, tecnica_ne_waza=?, tecnica=?, forca=?, condicionamento_fisico=?, qtd_falta_lutador=?, ganhador=?
+                WHERE id_lutadores=?');
+                $stmt->bindValue(1,$obj->getWazari1());
+                $stmt->bindValue(2,$obj->getAtletaFk());
+                $stmt->bindValue(3,$obj->getWazari2());
+                $stmt->bindValue(4,$obj->getIppon());
+                $stmt->bindValue(5,$obj->getTecnicaNeWaza());
+                $stmt->bindValue(6,$obj->getTecnica());
+                $stmt->bindValue(7,$obj->getForca());
+                $stmt->bindValue(8,$obj->getCondicionamentoFisico());
+                $stmt->bindValue(9,$obj->getQtdFaltas());
+                $stmt->bindValue(10,$obj->getGanhador());
+                $stmt->bindValue(11,$obj->getIdLutadores());
+                $stmt->execute();
+            }catch(Exception $e){
+                echo $e->getMessage();
+                return false;
+            }
+            return true;
+        }
         public function selectAllByLuta($luta){
             $stmt = $this->getConnection()->prepare('SELECT * FROM lutadores where luta_fk = ?');
             $array = [];
@@ -42,7 +65,7 @@
             }
             return $array;
         }
-        public function update($obj){}
+        
         public function delete($id){}
         public function selectAll(){}
         public function selectById($id){}

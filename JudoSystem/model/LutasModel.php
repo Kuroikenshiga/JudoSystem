@@ -21,13 +21,14 @@
             return $stmt->fetch()['id_lutas'];
         }
         public function update($obj){
-            $q = "UPDATE lutas SET tempo = ?, hansoku_make = ?, ganhou = ?, goldenScore = ?WHERE id_lutas = ?";
+            $q = "UPDATE lutas SET tempo = ?, hansoku_make = ?, goldenScore = ? WHERE id_lutas = ?";
             try{
                 $stmt = $this->getConnection()->prepare($q);
                 $stmt->bindValue(1,$obj->getTempo());
                 $stmt->bindValue(2,$obj->getHansokuMake());
-                $stmt->bindValue(3,$obj->getGanhou());
-                $stmt->bindValue(4,$obj->getGoldenScore());
+                $stmt->bindValue(3,$obj->getGoldenScore());
+                $stmt->bindValue(4,$obj->getIdLutas());
+                
                 $stmt->execute();
             }catch(Exception $e){
                 return false;

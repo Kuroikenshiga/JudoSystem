@@ -15,22 +15,28 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    display: none;
+    /* display: none; */
 }
 #lutadores form{
     width: 45%;
+    margin-bottom: 2%;
 }
 #btCad{
     margin-top: 2%;
-    display: none;
+    /* display: none; */
 }
 #btBack{
     margin-top: 2%;
-    display: none;
+    /* display: none; */
 }
 #lutadoresText{
-    display:none
+    /* display:none */
 }
 #proximo{
     margin-top: 2%;
+}
+#btUp{
+    margin-top: 2%;
+    margin-bottom: 2%;
+    display: none;
 }
