@@ -43,6 +43,24 @@ function insertLuta(){
     }
     xml.send(JSON.stringify(obj))
 }
+function deletaLuta(id){
+    let xml = new XMLHttpRequest();
+    xml.open("POST",'index.php?class=lutas&method=delete');
+    xml.setRequestHeader("content-type",'application/x-www-form-urlencoded');
+    
+    xml.onreadystatechange = ()=>{
+        if(xml.readyState == 4 && xml.status == 200){
+            //alert(xml.responseText)
+            if(xml.responseText == "OK"){
+              
+                row = document.getElementById(id)
+                row.parentNode.removeChild(row)
+            }
+        }
+    }
+    xml.send("id="+id)
+}
+
 function updateLuta(){
     let obj = new Object();
     obj.luta = new Object();

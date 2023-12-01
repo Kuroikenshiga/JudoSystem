@@ -65,7 +65,19 @@
             }
             return $array;
         }
-        
+        public function deleteFromLutas($id){
+            $q = "DELETE FROM lutadores WHERE luta_fk=? ";
+            try{
+                $stmt = $this->getConnection()->prepare($q);
+                $stmt->bindValue(1,$id);
+                
+                $stmt->execute();
+            }catch(Exception $e){
+                echo $e->getMessage();
+                return false;
+            }
+            return true;
+        }
         public function delete($id){}
         public function selectAll(){}
         public function selectById($id){}

@@ -69,7 +69,7 @@
                     foreach($lutas as $l){
                     $lutadores = getNomeOponentes($l->getIdLutas());    
                   ?>
-                      <tr>
+                      <tr id="<?=$l->getIdLutas()?>">
                         <td><?=$l->getIdLutas()?></td>
                         <td><?=$lutadores[0] == null?'Atleta externo':$lutadores[0]->getNome()?></td>
                         <td><?=$lutadores[1] == null?'Atleta externo':$lutadores[1]->getNome()?></td>
@@ -77,7 +77,7 @@
                         <td><?php echo $l->getHansokuMake()?'Sim':'Não' ?></td>
                         <td><?php echo $l->getGoldenScore() ?></td>
                         <td><a href="index.php?class=Lutas&method=showUpdate&id_lutas=<?php echo $l->getIdLutas() ?>&comp=<?=$_GET['comp']?>&categoria=<?=$_GET['categoria']?>"><button type="button" class="btn btn-info">Modificar</button></a></td>
-                        <td><button class="btn btn-danger" onclick="remove(<?php echo $l->getIdLutas() ?>)">Deletar</button></td>
+                        <td><button class="btn btn-danger" onclick="deletaLuta(<?php echo $l->getIdLutas() ?>)">Deletar</button></td>
                       </tr>
                   <?php
                       }

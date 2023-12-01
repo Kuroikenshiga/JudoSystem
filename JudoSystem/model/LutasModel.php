@@ -36,12 +36,14 @@
             return true;
         }
         public function delete($id){
-            $q = "DELETE FROM lutas WHERE id_lutas=?";
+            $q = "DELETE FROM lutas WHERE id_lutas=? ";
             try{
                 $stmt = $this->getConnection()->prepare($q);
                 $stmt->bindValue(1,$id);
+                
                 $stmt->execute();
             }catch(Exception $e){
+                echo $e->getMessage();
                 return false;
             }
             return true;

@@ -100,15 +100,27 @@
         public function delete(){
             require_once("./JudoSystem/model/Model.php");
             require_once("./JudoSystem/model/LutasModel.php");
-    
-            $json = json_decode(file_get_contents("php://input"));
-            $id_lutas = $json->id_lutas;
-    
-            $lutasm = new LutasModel(Model::createConnection());
-            if(!$lutasm->delete($id_lutas)){
+            require_once("./JudoSystem/model/LutadoresModel.php");
+            
+            $id_lutas = isset($_POST['id'])?$_POST['id']:null;
+            $ltdM = new LutadoresModel(Model::createConnection());
+
+            $lm = new LutasModel(Model::createConnection());
+
+            $lm->getConnection()->beginTransaction();
+
+            if(!$ltdM->deleteFromLutas($id_lutas)){
+                
                 die("Erro na exclusão da luta");
             }
-            echo("Luta excluída com sucesso");
+
+            if(!$lm->delete($id_lutas)){
+                $lm->getConnection()->rollBack();
+                die("Erro na exclusão da luta");
+            }
+
+            
+            echo("OK");
         }
         public function list(){
             require_once("./JudoSystem/model/Model.php");
