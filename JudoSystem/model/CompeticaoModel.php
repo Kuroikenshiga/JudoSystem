@@ -22,7 +22,7 @@
             return $competicoes;
         }
         public function selectAll(){
-            $q = "SELECT * FROM competicao where data_competicao >= CURRENT_DATE order by data_competicao asc";
+            $q = "SELECT * FROM competicao order by data_competicao asc";
             $competicoes = array();
             try{
                 $stmt = $this->getConnection()->prepare($q);

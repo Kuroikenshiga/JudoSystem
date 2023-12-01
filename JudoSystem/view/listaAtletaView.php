@@ -65,7 +65,7 @@
                       <th>Faixa</th>
                       <th>Gênero</th>
                       <th>Data de nascimento</th>
-                      <th>Pontuação</th>
+                      <th>Pontos no ranking</th>
                   </tr>
                 </thead>
               <tbody id="bodyTable">
