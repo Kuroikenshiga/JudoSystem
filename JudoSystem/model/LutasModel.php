@@ -4,7 +4,7 @@
     class LutasModel extends Model{
 
         public function insert($obj){
-            echo json_encode($obj->toStdClass());
+            //echo json_encode($obj->toStdClass());
             $q = "INSERT INTO lutas(tempo, hansoku_make, goldenscore, categoria_fk)VALUES ( ?, ?, ?, ?) returning id_lutas";
             
                 $stmt = $this->getConnection()->prepare($q);
