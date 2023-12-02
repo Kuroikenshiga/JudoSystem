@@ -14,5 +14,5 @@
         }
         echo '}';
     }
-    gerator('idLutadores atletaFk wazari1 wazari2 ippon tecnicaNeWaza tecnica forca condicionamentoFisico qtdFaltas ganhador luta_fk','Lutadores');
+    gerator('id nome telefone email endereco','Pessoa');
 ?>
