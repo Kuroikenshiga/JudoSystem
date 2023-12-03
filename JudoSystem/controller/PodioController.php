@@ -51,6 +51,18 @@
             echo "OK";
 
         }
+        public function update(){
+            $json = json_decode(file_get_contents("php://input"));
+            $podio = new Podio(null,$json->l1,$json->l2,$json->l3,$json->l3_2,$json->p1,$json->p2,$json->p3,$json->p3_2,$json->competicao,$json->categoria);
+            $pm = new PodioModel(Model::createConnection());
+
+            if(!$pm->updateByCompeticaoAndCategoria($podio)){
+                die('Erro de Atualização');
+            }
+
+            echo "OK";
+
+        }
 
     }
 ?>

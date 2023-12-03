@@ -43,6 +43,31 @@
             }
             return $obj;
         }
+        public function updateByCompeticaoAndCategoria($obj){
+            $stmt = $this->getConnection()->prepare('UPDATE podio
+            SET lugar_1=?, lugar_2=?, lugar_3=?, lugar_3_2=?, pontuacao_1=?, pontuacao_2=?, pontuacao_3=?, pontuacao_3_2=? 
+            WHERE competicao_fk=? and categoria_fk=?');
+
+            try{
+                $stmt->bindValue(1,$obj->getLugar1());
+                $stmt->bindValue(2,$obj->getLugar2());
+                $stmt->bindValue(3,$obj->getLugar3());
+                $stmt->bindValue(4,$obj->getLugar3_2());
+                $stmt->bindValue(5,$obj->getPontuacao1());
+                $stmt->bindValue(6,$obj->getPontuacao2());
+                $stmt->bindValue(7,$obj->getPontuacao3());
+                $stmt->bindValue(8,$obj->getPontuacao3_2());
+                $stmt->bindValue(9,$obj->getCompeticaoFk());
+                $stmt->bindValue(10,$obj->getCategoriaFk());
+                $stmt->execute();
+            }
+            catch(Exception $e){
+                
+                return false;
+            }
+            return true;
+        
+        }
         public function update($obj){}
         public function delete($id){}
         public function selectAll(){}

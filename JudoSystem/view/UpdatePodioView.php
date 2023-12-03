@@ -32,8 +32,15 @@
 <body>
     <?php require_once('./JudoSystem/view/header.php') ?>
     <div id="containner">
+        
         <div id="principal">
-            <div  class="section-title">
+        <div class="form-check" id="check">
+            <input class="form-check-input" type="checkbox" id="flexCheckDefault" onclick="allowUpdate(this)">
+            <label class="form-check-label" for="flexCheckDefault">
+               Realizar alterações
+            </label>
+        </div>
+            <div class="section-title">
                 <span>Informações do pódio</span>
                 <h2>Informações do pódio</h2>
 
@@ -42,91 +49,91 @@
                 <input type="hidden" id="categoria" value="<?= $_GET['categoria'] ?>">
                 <input type="hidden" id="competicao" value="<?= $_GET['competicao'] ?>">
                 <div class="mb-3">
-                    <input type="text" value="<?=findAtletaNome($atletas,$podio->getLugar1())?>" class="form-control" id="search1" placeholder="Pesquisar atleta" oninput="getAtleta(<?= $_GET['categoria'] ?>,<?= $_GET['competicao'] ?>,this,'atl1')">
+                    <input type="text" disabled value="<?= findAtletaNome($atletas, $podio->getLugar1()) ?>" class="form-control disable" id="search1" placeholder="Pesquisar atleta" oninput="getAtleta(<?= $_GET['categoria'] ?>,<?= $_GET['competicao'] ?>,this,'atl1')">
                 </div>
                 <div class="mb-3">
                     <label for="atl1">Selecione o atleta da 1° colocação</label>
-                    <select id="atl1" class="form-select atletas" multiple aria-label="multiple select example" onchange="setInputValue('search1','atl1')">
-                        <option value="" <?=is_null($podio->getLugar1())?'selected':''?>>Atleta externo</option>
+                    <select id="atl1" disabled class="form-select atletas disable" multiple aria-label="multiple select example" onchange="setInputValue('search1','atl1')">
+                        <option value="" <?= is_null($podio->getLugar1()) ? 'selected' : '' ?>>Atleta externo</option>
                         <?php
                         foreach ($atletas as $at) { ?>
-                            <option value="<?= $at->getId() ?>" <?=$podio->getLugar1() == $at->getId()?'selected':''?> ><?= $at->getNome() ?></option>
+                            <option value="<?= $at->getId() ?>" <?= $podio->getLugar1() == $at->getId() ? 'selected' : '' ?>><?= $at->getNome() ?></option>
                         <?php } ?>
                     </select>
                 </div>
                 <div class="mb-3">
-                    <input type="text" class="form-control" value="<?=findAtletaNome($atletas,$podio->getLugar2())?>" id="search2" placeholder="Pesquisar atleta" oninput="getAtleta(<?= $_GET['categoria'] ?>,<?= $_GET['competicao'] ?>,this,'atl2')">
+                    <input type="text" disabled class="form-control disable" value="<?= findAtletaNome($atletas, $podio->getLugar2()) ?>" id="search2" placeholder="Pesquisar atleta" oninput="getAtleta(<?= $_GET['categoria'] ?>,<?= $_GET['competicao'] ?>,this,'atl2')">
                 </div>
 
                 <div class="mb-3">
                     <label for="atl2">Selecione o atleta da 2° colocação</label>
-                    <select id="atl2" class="form-select atletas" multiple aria-label="multiple select example" onchange="setInputValue('search2','atl2')">
-                        <option value="" <?=is_null($podio->getLugar2())?'selected':''?>>Atleta externo</option>
+                    <select id="atl2" disabled class="form-select atletas disable" multiple aria-label="multiple select example" onchange="setInputValue('search2','atl2')">
+                        <option value="" <?= is_null($podio->getLugar2()) ? 'selected' : '' ?>>Atleta externo</option>
                         <?php
                         foreach ($atletas as $at) { ?>
-                            <option value="<?= $at->getId() ?>" <?=$podio->getLugar2() == $at->getId()?'selected':''?>><?= $at->getNome() ?></option>
+                            <option value="<?= $at->getId() ?>" <?= $podio->getLugar2() == $at->getId() ? 'selected' : '' ?>><?= $at->getNome() ?></option>
                         <?php } ?>
                     </select>
                 </div>
 
                 <div class="mb-3">
-                    <input type="text" class="form-control" value="<?=findAtletaNome($atletas,$podio->getLugar3())?>" id="search3" placeholder="Pesquisar atleta" oninput="getAtleta(<?= $_GET['categoria'] ?>,<?= $_GET['competicao'] ?>,this,'atl3')">
+                    <input type="text" disabled class="form-control disable" value="<?= findAtletaNome($atletas, $podio->getLugar3()) ?>" id="search3" placeholder="Pesquisar atleta" oninput="getAtleta(<?= $_GET['categoria'] ?>,<?= $_GET['competicao'] ?>,this,'atl3')">
                 </div>
 
                 <div class="mb-3">
                     <label for="atl3">Selecione o atleta da 3° colocação</label>
-                    <select id="atl3" class="form-select atletas" multiple aria-label="multiple select example" onchange="setInputValue('search3','atl3')">
-                        <option value="" <?=is_null($podio->getLugar3())?'selected':''?>>Atleta externo</option>
+                    <select id="atl3" disabled class="form-select atletas disable" multiple aria-label="multiple select example" onchange="setInputValue('search3','atl3')">
+                        <option value="" <?= is_null($podio->getLugar3()) ? 'selected' : '' ?>>Atleta externo</option>
                         <?php
                         foreach ($atletas as $at) { ?>
-                            <option value="<?= $at->getId() ?>" <?=$podio->getLugar3() == $at->getId()?'selected':''?>><?= $at->getNome() ?></option>
+                            <option value="<?= $at->getId() ?>" <?= $podio->getLugar3() == $at->getId() ? 'selected' : '' ?>><?= $at->getNome() ?></option>
                         <?php } ?>
                     </select>
                 </div>
 
                 <div class="mb-3">
-                    <input type="text" class="form-control" id="search3_2" value="<?=findAtletaNome($atletas,$podio->getLugar3_2())?>" placeholder="Pesquisar atleta" oninput="getAtleta(<?= $_GET['categoria'] ?>,<?= $_GET['competicao'] ?>,this,'atl3_2')">
+                    <input type="text" disabled class="form-control disable" id="search3_2" value="<?= findAtletaNome($atletas, $podio->getLugar3_2()) ?>" placeholder="Pesquisar atleta" oninput="getAtleta(<?= $_GET['categoria'] ?>,<?= $_GET['competicao'] ?>,this,'atl3_2')">
                 </div>
 
                 <div class="mb-3">
                     <label for="atl3_2">Selecione o atleta da 3° colocação</label>
-                    <select id="atl3_2" class="form-select atletas" multiple aria-label="multiple select example" onchange="setInputValue('search3_2','atl3_2')">
-                        <option value="" <?=is_null($podio->getLugar3_2())?'selected':''?>>Atleta externo</option>
+                    <select id="atl3_2" disabled class="form-select atletas disable" multiple aria-label="multiple select example" onchange="setInputValue('search3_2','atl3_2')">
+                        <option value="" <?= is_null($podio->getLugar3_2()) ? 'selected' : '' ?>>Atleta externo</option>
                         <?php
                         foreach ($atletas as $at) { ?>
-                            <option value="<?= $at->getId() ?>" <?=$podio->getLugar3_2() == $at->getId()?'selected':''?>><?= $at->getNome() ?></option>
+                            <option value="<?= $at->getId() ?>" <?= $podio->getLugar3_2() == $at->getId() ? 'selected' : '' ?>><?= $at->getNome() ?></option>
                         <?php } ?>
                     </select>
                 </div>
-                
+
                 <div class="form-group">
                     <label for="p1">Pontuação para a 1° colocação</label>
-                    <input type="number" value="<?=$podio->getPontuacao1()?>" class="form-control" id="p1" aria-describedby="faltas" placeholder="Pontuação do 1° lugar">
+                    <input type="number" disabled value="<?= $podio->getPontuacao1() ?>" class="form-control disable" id="p1" aria-describedby="faltas" placeholder="Pontuação do 1° lugar">
 
                 </div>
 
                 <div class="form-group">
                     <label for="p2">Pontuação para a 2° colocação</label>
-                    <input type="number" value="<?=$podio->getPontuacao2()?>" class="form-control" id="p2" aria-describedby="faltas" placeholder="Pontuação do 2° lugar">
+                    <input type="number" disabled value="<?= $podio->getPontuacao2() ?>" class="form-control disable" id="p2" aria-describedby="faltas" placeholder="Pontuação do 2° lugar">
 
                 </div>
 
                 <div class="form-group">
                     <label for="p3">Pontuação para a 3° colocação</label>
-                    <input type="number" value="<?=$podio->getPontuacao3()?>" class="form-control" id="p3" aria-describedby="faltas" placeholder="Pontuação do 3° lugar">
+                    <input type="number" disabled value="<?= $podio->getPontuacao3() ?>" class="form-control disable" id="p3" aria-describedby="faltas" placeholder="Pontuação do 3° lugar">
 
                 </div>
 
                 <div class="form-group">
                     <label for="p3_2">Pontuação para a 3° colocação</label>
-                    <input type="number" value="<?=$podio->getPontuacao3_2()?>" class="form-control" id="p3_2" aria-describedby="faltas" placeholder="Pontuação do 3° lugar">
+                    <input type="number" disabled value="<?= $podio->getPontuacao3_2() ?>" class="form-control disable" id="p3_2" aria-describedby="faltas" placeholder="Pontuação do 3° lugar">
 
                 </div>
 
             </form>
-            
+
         </div>
-        <button type="button" id="cad" class="btn btn-primary" onclick="insertPodio()">Inserir pódio</button>
+        <button type="button" id="btUp" class="btn btn-primary" onclick="updatePodio()">Salvar alterações</button>
     </div>
     <script src="../../JudoSystem/view/js/podioAjax.js"></script>
 </body>

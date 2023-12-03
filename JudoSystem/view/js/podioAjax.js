@@ -102,3 +102,13 @@ function setInputValue(input,slct){
         i++;
     }
 }
+function allowUpdate(check){
+    inputs = document.querySelectorAll('.disable')
+
+    for(let i = 0;i < inputs.length;i++){
+        inputs[i].disabled = check.checked?false:true;
+    }
+
+    bt = document.querySelector('#btUp');
+    bt.style.display = check.checked?'block':'none'
+}

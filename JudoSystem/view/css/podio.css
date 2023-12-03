@@ -9,8 +9,18 @@
 div{
     margin-top: 1%;
 }
+form{
+    margin-bottom: 3%;
+}
 #cad{
     margin-top: 1%;
     margin-bottom: 3%;
     width: 10%;
+}
+#check{
+    align-self: flex-start;
+}
+#btUp{
+    display: none;
+    margin-bottom: 3%;
 }
