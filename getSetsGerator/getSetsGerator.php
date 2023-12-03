@@ -14,5 +14,5 @@
         }
         echo '}';
     }
-    gerator('id nome telefone email endereco','Pessoa');
+    gerator('idPodio lugar1 lugar2 lugar3 lugar3_2 pontuacao1 pontuacao2 pontuacao3 pontuacao3_2 competicaoFk categoriaFk','Podio');
 ?>

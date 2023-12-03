@@ -1,0 +1,16 @@
+#containner{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+#principal{
+    width: 50%;
+}
+div{
+    margin-top: 1%;
+}
+#cad{
+    margin-top: 1%;
+    margin-bottom: 3%;
+    width: 10%;
+}
