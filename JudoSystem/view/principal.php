@@ -169,7 +169,7 @@
         <div class="text-center">
           <h3>Ver ranking de atletas com mais medalhas</h3>
           <p>Ver ranking de atletas com mais medalhas</p>
-          <a class="cta-btn" href="s">VER</a>
+          <a class="cta-btn" href="">VER</a>
         </div>
 
       </div>
