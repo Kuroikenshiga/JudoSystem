@@ -93,6 +93,7 @@
       <div class="container">
         <div class="section-title">
           <span>Atletas com mais medalhas</span>
+
           <h2>Atletas com mais medalhas</h2>
           <p>Top 3 atletas com maiores quantidades de medalhas</p>
         </div>
@@ -166,9 +167,9 @@
       <div class="container" data-aos="zoom-in">
 
         <div class="text-center">
-          <h3>Cadastrar nova competição</h3>
-          <p>Cadastre uma nova competição aqui</p>
-          <a class="cta-btn" href="#">Adicionar competição</a>
+          <h3>Ver ranking de atletas com mais medalhas</h3>
+          <p>Ver ranking de atletas com mais medalhas</p>
+          <a class="cta-btn" href="s">VER</a>
         </div>
 
       </div>
