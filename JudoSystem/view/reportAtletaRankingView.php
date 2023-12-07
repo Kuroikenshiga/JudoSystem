@@ -34,15 +34,15 @@
         
             </div>
             <select class="form-select" id="metricas" onchange="getRankingAPI()">
-            <option selected>Escolha a matrica</option>
-            <option value="f">Atletas que usam mais força</option>
-            <option value="t">Atletas que usam mais tecnica</option>
-            <option value="c">Atletas que usam mais condicionamento fisico</option>
+                <option selected>Escolha a matrica</option>
+                <option value="f">Atletas que usam mais força</option>
+                <option value="t">Atletas que usam mais tecnica</option>
+                <option value="c">Atletas que usam mais condicionamento fisico</option>
             <option value="m">Atletas com mais medalhas</option>
-</select>
+            </select>
         <table class="table">
-            <thead>
-                <tr>
+            <thead >
+                <tr id="head">
                     <th scope="col">#</th>
                     <th scope="col">Nome</th>
                     <th scope="col">Faixa</th>
@@ -52,7 +52,7 @@
                     <th scope="col" class="center remove" >Quantidade de medalhas de Bronze</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody id="body">
                 <?php foreach($array as $a){ ?>
                 <tr>
                     <th scope="row"><?=$i+1?></th>
