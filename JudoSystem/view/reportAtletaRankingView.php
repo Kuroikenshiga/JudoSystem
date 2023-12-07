@@ -29,10 +29,17 @@
     <?php require_once('./JudoSystem/view/header.php'); $i = 0;?>
     <div id="principal">
     <div class="section-title">
-                <span>Ranking de atletas com mais medalhas</span>
-                <h2>Ranking de atletas com mais medalhas</h2>
+                <span>Ranking medalhas</span>
+                <h2>Ranking medalhas</h2>
         
             </div>
+            <select class="form-select" id="metricas" onchange="getRankingAPI()">
+            <option selected>Escolha a matrica</option>
+            <option value="f">Atletas que usam mais força</option>
+            <option value="t">Atletas que usam mais tecnica</option>
+            <option value="c">Atletas que usam mais condicionamento fisico</option>
+            <option value="m">Atletas com mais medalhas</option>
+</select>
         <table class="table">
             <thead>
                 <tr>
@@ -40,7 +47,9 @@
                     <th scope="col">Nome</th>
                     <th scope="col">Faixa</th>
                     <th scope="col">Genero</th>
-                    <th scope="col" id="center">Quantidade de medalhas</th>
+                    <th scope="col" class="center remove" >Quantidade de medalhas de ouro</th>
+                    <th scope="col" class="center remove" >Quantidade de medalhas de Prata</th>
+                    <th scope="col" class="center remove" >Quantidade de medalhas de Bronze</th>
                 </tr>
             </thead>
             <tbody>
@@ -50,12 +59,15 @@
                     <td><?=$a->nome?></td>
                     <td><?=$a->faixa?></td>
                     <td><?=$a->genero?></td>
-                    <td><?=$a->qtd?></td>
+                    <td><?=$a->qtdOuro?></td>
+                    <td><?=$a->qtdPrata?></td>
+                    <td><?=$a->qtdBronze?></td>
                 </tr>
                 <?php $i++; }?>
             </tbody>
         </table>
     </div>
+    <script src="../../JudoSystem/view/js/reports.js"></script>
 </body>
 
 </html>
