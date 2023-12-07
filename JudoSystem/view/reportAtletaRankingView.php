@@ -29,8 +29,8 @@
     <?php require_once('./JudoSystem/view/header.php'); $i = 0;?>
     <div id="principal">
     <div class="section-title">
-                <span>Ranking medalhas</span>
-                <h2>Ranking medalhas</h2>
+                <span id="span">Ranking de atletas com mais medalhas</span>
+                <h2 id="h2">Ranking de atletas com mais medalhas</h2>
         
             </div>
             <select class="form-select" id="metricas" onchange="getRankingAPI()">

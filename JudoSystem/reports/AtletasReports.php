@@ -42,12 +42,15 @@
             else{
                 $p = 'condicionamento_fisico';
             }
-            $stmt = $this->connection->prepare('select nome, faixa,genero, avg('.$p.') as '.$p.' from atleta left join lutadores on atleta_fk = id_atleta
-            group by id_atleta');
-
             $array = [];
-
             try{
+            $stmt = $this->connection->prepare('select nome, faixa,genero, avg( '.$p.' ) as '.$p.' from atleta left join lutadores on atleta_fk = id_atleta
+            group by id_atleta order by '.$p.' desc');
+
+            
+           
+
+            
                 $stmt->execute();
                 while($row = $stmt->fetch()){
                     $std = new stdClass();

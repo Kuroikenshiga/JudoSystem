@@ -167,8 +167,8 @@
       <div class="container" data-aos="zoom-in">
 
         <div class="text-center">
-          <h3>Ver ranking de atletas com mais medalhas</h3>
-          <p>Ver ranking de atletas com mais medalhas</p>
+          <h3>Ver ranking de desempenho de atletas</h3>
+          <p>Ver ranking de desempenho de atletas</p>
           <a class="cta-btn" href="index.php?class=reports&method=showRankingAtletasMedalhas">VER</a>
         </div>
 

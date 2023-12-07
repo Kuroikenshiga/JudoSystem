@@ -10,7 +10,10 @@ function getRankingAPI(){
     else{
         method = 'showRankingAtletasMedalhas';
     }
-
+    let span = document.querySelector('#span');
+    let h2 =  document.querySelector('#h2');
+    span.innerText = selecione.value == 'f'?'Ranking de atletas que mais utilizam mais força nas lutas':selecione.value == 't'?'Ranking de atletas que mais utilizam mais técnica nas lutas':selecione.value == 'c'?'Ranking de atletas com melhor condicionamento fisico':'Ranking de atletas com mais medalhas'
+    h2.innerText = selecione.value == 'f'?'Ranking de atletas que mais utilizam mais força nas lutas':selecione.value == 't'?'Ranking de atletas que mais utilizam mais técnica nas lutas':selecione.value == 'c'?'Ranking de atletas com melhor condicionamento fisico':'Ranking de atletas com mais medalhas'
     let xml = new XMLHttpRequest();
     xml.open('POST','index.php?class=reports&method='+method,true);
     xml.setRequestHeader('content-type','application/x-www-form-urlencoded');
@@ -65,7 +68,7 @@ function getRankingAPI(){
                         bodyH.removeChild(document.querySelector('#metrica'))
                     }
                     catch(error){
-
+                        console.log(xml.responseText)
                     }
 
                     let th1 = document.createElement('th');
@@ -115,7 +118,8 @@ function getRankingAPI(){
                 }
             }
             catch(error){
-                alert(error)
+                console.log(xml.responseText)
+                    
             }
         }
     }
