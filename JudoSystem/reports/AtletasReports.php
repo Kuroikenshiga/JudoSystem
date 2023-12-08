@@ -44,7 +44,7 @@
             }
             $array = [];
             try{
-            $stmt = $this->connection->prepare('select nome, faixa,genero, avg( '.$p.' ) as '.$p.' from atleta left join lutadores on atleta_fk = id_atleta
+            $stmt = $this->connection->prepare('select nome, faixa,genero, round(avg( '.$p.' ),1) as '.$p.' from atleta left join lutadores on atleta_fk = id_atleta
             group by id_atleta order by '.$p.' desc');
 
             
