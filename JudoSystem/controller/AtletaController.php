@@ -42,14 +42,50 @@
         public function delete(){
             require_once("./JudoSystem/model/Model.php");
             require_once("./JudoSystem/model/AtletaModel.php");
-    
+            require_once("./JudoSystem/model/LutasModel.php");
+            require_once("./JudoSystem/model/LutadoresModel.php");
+            require_once("./JudoSystem/model/InscricaoModel.php");
             $json = json_decode(file_get_contents("php://input"));
             $id = $json->id;
-    
+            $ldtM = new LutadoresModel(Model::createConnection());
+            $lm = new LutasModel(Model::createConnection());
             $atl = new AtletaModel(Model::createConnection());
-            if(!$atl->delete($id)){
-                die("Erro na exclusão do atleta");
+            $im = new InscricaoModel(Model::createConnection());
+
+            Model::getConnectionOfModel()->beginTransaction();
+            $lutadores = $ldtM->selectAllByAtleta($id);
+
+            $lutas = [];
+
+            foreach($lutadores as $l){
+                $lutas[] = $lm->selectById($l->getLuta_fk());
             }
+
+            foreach($lutas as $l){
+                if(!$ldtM->deleteFromLutas($l->getIdLutas())){
+                    Model::getConnectionOfModel()->rollBack();
+                    die('Erro ao excluir lutadores');
+                }
+
+                if(!$lm->delete($l->getIdLutas())){
+                    Model::getConnectionOfModel()->rollBack();
+                    die('Erro ao excluir lutas');
+                }
+
+            }
+
+            if(!$im->deleteFromAtleta($id)){
+                Model::getConnectionOfModel()->rollBack();
+                die('Erro ao excluir as incrições do atleta');
+            }
+
+            if(!$atl->delete($id)){
+                Model::getConnectionOfModel()->rollBack();
+                die("Erro na exclusão do atleta");
+            }//Fala com Marcelo sobre a questão do Podio
+            //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            Model::getConnectionOfModel()->commit();
+
             $atletas = $atl->selectAllByAcademia($_SESSION['idAcademia']);
             $atletasStdClass = [];
             foreach($atletas as $at){

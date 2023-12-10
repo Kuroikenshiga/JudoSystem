@@ -43,6 +43,7 @@
                 $stmt->bindValue(1,$id);
                 $stmt->execute();
             }catch(Exception $e){
+                echo $e->getMessage();
                 return false;
             }
             return true;

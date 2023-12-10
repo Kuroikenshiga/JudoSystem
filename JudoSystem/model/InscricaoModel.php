@@ -44,6 +44,18 @@
             return true;
         }
 
+        public function deleteFromAtleta($id){
+            $q = "DELETE FROM inscricao WHERE atleta_fk = ?";
+            try{
+                $stmt = $this->getConnection()->prepare($q);
+                $stmt->bindValue(1,$id);
+                $stmt->execute();
+            }catch(Exception $e){
+                return false;
+            }
+            return true;
+        }
+
         public function selectAll(){
             $q = "SELECT * FROM inscricao";
             $inscricao = array();

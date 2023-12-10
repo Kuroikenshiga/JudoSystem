@@ -94,6 +94,7 @@
             $rows = $stmt->fetch();
                 return $obj = new Lutas($rows["id_lutas"], $rows["tempo"], $rows["hansoku_make"], $rows["goldenscore"], $rows["categoria_fk"]);
         }
+
         public function selectAllByAtleta($atleta_fk){
             $q = "SELECT * FROM lutas WHERE atleta_fk = ?";
             $lutas = array();

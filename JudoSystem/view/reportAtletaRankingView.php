@@ -34,7 +34,7 @@
         
             </div>
             <select class="form-select" id="metricas" onchange="getRankingAPI()">
-                <option selected>Escolha a matrica</option>
+                <option selected>Escolha a metrica</option>
                 <option value="f">Atletas que usam mais força</option>
                 <option value="t">Atletas que usam mais tecnica</option>
                 <option value="c">Atletas que usam mais condicionamento fisico</option>

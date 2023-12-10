@@ -110,7 +110,7 @@
             $lm->getConnection()->beginTransaction();
 
             if(!$ltdM->deleteFromLutas($id_lutas)){
-                
+                $lm->getConnection()->rollBack();
                 die("Erro na exclusão da luta");
             }
 
@@ -119,7 +119,7 @@
                 die("Erro na exclusão da luta");
             }
 
-            
+            $lm->getConnection()->commit();
             echo("OK");
         }
         public function list(){

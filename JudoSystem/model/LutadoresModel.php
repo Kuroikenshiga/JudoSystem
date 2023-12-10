@@ -78,6 +78,24 @@
             }
             return true;
         }
+
+        public function selectAllByAtleta($id){
+            $stmt = $this->getConnection()->prepare('SELECT * FROM lutadores where atleta_fk = ?');
+            $array = [];
+            try{
+                $stmt->bindValue(1,$id);
+                $stmt->execute();
+                while($row = $stmt->fetch()){
+                    $array[] = new Lutadores($row['id_lutadores'],$row['atleta_fk'],$row['wazari_1'],$row['wazari_2'],$row['ippon'],$row['tecnica_ne_waza'],$row['tecnica'],$row['forca'],$row['condicionamento_fisico'],$row['qtd_falta_lutador'],$row['ganhador'],$row['luta_fk']);
+                }
+            }
+            catch(Exception $e){
+                echo $e->getMessage();
+                return false;
+            }
+            return $array;
+        }
+
         public function delete($id){}
         public function selectAll(){}
         public function selectById($id){}
