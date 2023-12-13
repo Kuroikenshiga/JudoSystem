@@ -68,6 +68,85 @@
             return true;
         
         }
+
+        public function selectByAtleta($id){
+            $stmt = $this->getConnection()->prepare('SELECT * FROM Podio where lugar_1 = ? or lugar_2 = ? or lugar_3 = ? or lugar_3_2 = ?');
+            $obj = [];
+            try{
+                $stmt->bindValue(1,$id);
+                $stmt->bindValue(2,$id);
+                $stmt->bindValue(3,$id);
+                $stmt->bindValue(4,$id);
+                
+                $stmt->execute();
+                while($row = $stmt->fetch()){
+                    if(!is_array($row)){
+                        return $obj;
+                    }
+                    $obj[]= new Podio($row['id_podio'],$row['lugar_1'],$row['lugar_2'],$row['lugar_3'],$row['lugar_3_2'],$row['pontuacao_1'],$row['pontuacao_2'],$row['pontuacao_3'],$row['pontuacao_3_2'],$row['competicao_fk'],$row['categoria_fk']);   
+            }
+        }
+            catch(Exception $e){
+                echo $e->getMessage();
+                return false;
+            }
+            return $obj;
+        }
+
+        public function updateLugar1WithNull($id){
+            $stmt = $this->getConnection()->prepare('UPDATE podio set lugar_1 = null where id_podio = ?');
+
+            try{
+                $stmt->bindValue(1,$id);
+                $stmt->execute();
+            }
+            catch(Exception $e){
+                echo $e->getMessage();
+                return false;
+            }
+            return true;
+        }
+        public function updateLugar2WithNull($id){
+            $stmt = $this->getConnection()->prepare('UPDATE podio set lugar_2 = null where id_podio = ?');
+
+            try{
+                $stmt->bindValue(1,$id);
+                $stmt->execute();
+            }
+            catch(Exception $e){
+                echo $e->getMessage();
+                return false;
+            }
+            return true;
+        }
+
+        public function updateLugar3WithNull($id){
+            $stmt = $this->getConnection()->prepare('UPDATE podio set lugar_3 = null where id_podio = ?');
+
+            try{
+                $stmt->bindValue(1,$id);
+                $stmt->execute();
+            }
+            catch(Exception $e){
+                echo $e->getMessage();
+                return false;
+            }
+            return true;
+        }
+
+        public function updateLugar3_2WithNull($id){
+            $stmt = $this->getConnection()->prepare('UPDATE podio set lugar_3_2 = null where id_podio = ?');
+
+            try{
+                $stmt->bindValue(1,$id);
+                $stmt->execute();
+            }
+            catch(Exception $e){
+                echo $e->getMessage();
+                return false;
+            }
+            return true;
+        }
         public function update($obj){}
         public function delete($id){}
         public function selectAll(){}

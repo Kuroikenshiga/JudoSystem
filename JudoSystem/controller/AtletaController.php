@@ -45,12 +45,14 @@
             require_once("./JudoSystem/model/LutasModel.php");
             require_once("./JudoSystem/model/LutadoresModel.php");
             require_once("./JudoSystem/model/InscricaoModel.php");
+            require_once("./JudoSystem/model/PodioModel.php");
             $json = json_decode(file_get_contents("php://input"));
             $id = $json->id;
             $ldtM = new LutadoresModel(Model::createConnection());
             $lm = new LutasModel(Model::createConnection());
             $atl = new AtletaModel(Model::createConnection());
             $im = new InscricaoModel(Model::createConnection());
+            $pm = new PodioModel(Model::createConnection());
 
             Model::getConnectionOfModel()->beginTransaction();
             $lutadores = $ldtM->selectAllByAtleta($id);
@@ -78,6 +80,35 @@
                 Model::getConnectionOfModel()->rollBack();
                 die('Erro ao excluir as incrições do atleta');
             }
+            $podios = $pm->selectByAtleta($id);
+
+            foreach($podios as $p){
+                if($p->getLugar1() == $id){
+                    if(!$pm->updateLugar1WithNull($p->getIdPodio())){
+                        Model::getConnectionOfModel()->rollBack();
+                        die('Erro ao atualizar pódios 1');
+                    }
+                }
+                if($p->getLugar2() == $id){
+                    if(!$pm->updateLugar2WithNull($p->getIdPodio())){
+                        Model::getConnectionOfModel()->rollBack();
+                        die('Erro ao atualizar pódios 2');
+                    }
+                }
+                if($p->getLugar3() == $id){
+                    if(!$pm->updateLugar3WithNull($p->getIdPodio())){
+                        Model::getConnectionOfModel()->rollBack();
+                        die('Erro ao atualizar pódios 3');
+                    }
+                }
+                if($p->getLugar3_2() == $id){
+                    if(!$pm->updateLugar3_2WithNull($p->getIdPodio())){
+                        Model::getConnectionOfModel()->rollBack();
+                        die('Erro ao atualizar pódios 3_2');
+                    }
+                }
+            }
+
 
             if(!$atl->delete($id)){
                 Model::getConnectionOfModel()->rollBack();
