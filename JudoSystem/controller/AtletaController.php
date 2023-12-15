@@ -2,7 +2,7 @@
     session_start();
     class AtletaController{
         public function showCadastro(){
-            ("./JudoSystem/view/cadastroAtletaView.php");
+            require_once("./JudoSystem/view/cadastroAtletaView.php");
         }
         public function insert(){
             require_once("./JudoSystem/model/Model.php");
