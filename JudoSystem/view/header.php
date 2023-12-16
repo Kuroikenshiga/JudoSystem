@@ -1,14 +1,4 @@
-<section id="topbar" class="d-flex align-items-center">
-    <div class="container d-flex justify-content-center justify-content-md-between">
-      
-      <div class="social-links d-none d-md-block">
-        <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-        <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-        <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-        <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></i></a>
-      </div>
-    </div>
-  </section>
+
 
   <!-- ======= Header ======= -->
   <header id="header" class="d-flex align-items-center">
@@ -24,7 +14,7 @@
           <li><a class="nav-link scrollto" href="index.php?class=atleta&method=list">Atletas</a></li>
           <li><a class="nav-link scrollto" href="index.php?class=competicao&method=list">Competições</a></li>
           <li><a class="nav-link scrollto" href="index.php?class=academia&method=showUpdate">Academia</a></li>
-          <li><a class="nav-link scrollto" href="#contact">Contato</a></li>
+          
           <li><a class="nav-link scrollto " href="index.php?class=main&method=logout">Sair</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>

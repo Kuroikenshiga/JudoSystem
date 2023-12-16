@@ -18,7 +18,7 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
     <!-- Vendor CSS Files -->
-    <link rel="stylesheet" href="../../JudoSystem/view/css/listaAtletas.css">
+    <!-- <link rel="stylesheet" href="../../JudoSystem/view/css/listaAtletas.css"> -->
     <link href="../../JudoSystem/view/assets/vendor/aos/aos.css" rel="stylesheet">
     <link href="../../JudoSystem/view/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="../../JudoSystem/view/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
@@ -45,11 +45,11 @@
     <div id="principal">
 
         <form id="luta">
-            <div class="section-title">
-                <span>Adicionar luta</span>
-                <h2>Adicionar luta</h2>
+        <div id="lutadoresText" class="section-title">
+            <span>Inserir informações da luta</span>
+            <h2>Inserir informações da luta</h2>
 
-            </div>
+        </div>
             <input type="hidden" id="categoria" value="<?= isset($_GET['id']) ? $_GET['id'] : null ?>">
 
             <div class="form-group">
@@ -71,14 +71,10 @@
 
 
 
-            <button id="proximo" type="button" class="btn btn-primary" onclick="showContent()">Próximo</button>
+           
 
         </form>
-        <div id="lutadoresText" class="section-title">
-            <span>Inserir informações da luta</span>
-            <h2>Inserir informações da luta</h2>
-
-        </div>
+        
         <div id="lutadores">
 
             <form>
@@ -215,9 +211,10 @@
 
 
         </div>
-        <button type="button" class="btn btn-info" id="btBack" onclick="showContent()">Voltar</button>
+      
         <button type="button" class="btn btn-primary" id="btCad" onclick="insertLuta()">Cadastrar</button>
     </div>
+    <?php require_once('./JudoSystem/view/footer.php') ?>
     <script src="../../JudoSystem/view/js/lutasAjax.js"></script>
 </body>
 

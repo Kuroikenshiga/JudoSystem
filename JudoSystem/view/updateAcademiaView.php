@@ -70,6 +70,7 @@
             </form>
         
     </div>
+    <?php require_once('./JudoSystem/view/footer.php') ?>
     <script src="../../JudoSystem/apiRequestsJS/states.js"></script>
     <script src="../../JudoSystem/view/js/academiaAjax.js"></script>
 </body>

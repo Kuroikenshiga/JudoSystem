@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../../JudoSystem/view/css/lutas.css">
+    <link rel="stylesheet" href="../../JudoSystem/view/css/reports.css">
     <link href="../../JudoSystem/view/assets/vendor/aos/aos.css" rel="stylesheet">
     <link href="../../JudoSystem/view/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="../../JudoSystem/view/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
@@ -66,6 +66,7 @@
     <div id="principal">
         <div id="chart_div"></div>
     </div>
+    <?php require_once('./JudoSystem/view/footer.php') ?>
 </body>
 
 </html>

@@ -44,7 +44,7 @@
      
         <div class="section-title">
           <span>Atletas cadastrados</span>
-          <h2>Atletas cadastradoss</h2>
+          <h2>Atletas cadastrados</h2>
     
         </div>
         <div id="slideBar">
@@ -91,6 +91,7 @@
           </table>
         </div>
     </div>
+    <?php require_once('./JudoSystem/view/footer.php') ?>
     <script src="../../JudoSystem/view/js/atletaAjax.js"></script>
 </body>
 </html>

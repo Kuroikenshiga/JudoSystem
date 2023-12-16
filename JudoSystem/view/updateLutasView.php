@@ -18,7 +18,7 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
     <!-- Vendor CSS Files -->
-    <link rel="stylesheet" href="../../JudoSystem/view/css/listaAtletas.css">
+    <!-- <link rel="stylesheet" href="../../JudoSystem/view/css/listaAtletas.css"> -->
     <link href="../../JudoSystem/view/assets/vendor/aos/aos.css" rel="stylesheet">
     <link href="../../JudoSystem/view/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="../../JudoSystem/view/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
@@ -224,6 +224,7 @@
         <!-- <button type="button" class="btn btn-info" id="btBack" onclick="showContent()">Voltar</button> -->
         <button type="button" class="btn btn-primary" id="btUp" onclick="updateLuta()">Salvar modificações</button>
     </div>
+    <?php require_once('./JudoSystem/view/footer.php') ?>
     <script src="../../JudoSystem/view/js/lutasAjax.js"></script>
     <script src="../../JudoSystem/view/js/inscricaoAjax.js"></script>
     

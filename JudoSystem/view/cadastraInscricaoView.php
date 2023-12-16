@@ -50,6 +50,7 @@
                 <button type="button" class="btn btn-primary" onclick="insert()">Submit</button>
         </form>
     </div>
+    <?php require_once('./JudoSystem/view/footer.php') ?>
     <script src="../../JudoSystem/view/js/inscricaoAjax.js"></script>
 </body>
 </html>

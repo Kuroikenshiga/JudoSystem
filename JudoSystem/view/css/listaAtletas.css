@@ -1,6 +1,7 @@
 #principal{
     display: flex;
     flex-direction: column; 
+    height: 84vh;
 }
 #contain{
     display: flex;
@@ -23,9 +24,16 @@
     width: 20px;
     height: 20px;
     background-color: aqua;
+    
 }
 .section-title {
     margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.section-title h2{
+    width: 70vh;
 }
 tr{
     text-align: center;

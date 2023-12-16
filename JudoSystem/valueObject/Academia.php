@@ -9,6 +9,7 @@
         private $complemento;
         private $logradouro;
         private $user;
+        private $atletas;
 
         public function __construct($id,$num_contato, $nome, $estado, $cidade, $bairro, $complemento, $logradouro,$user){
             $this->id = $id;
@@ -82,7 +83,12 @@
         public function setId($id){
             $this->id = $id;
         }
-
+        public function getAtletas(){
+            return $this->atletas;
+        }
+        public function setAtletas($a){
+            $this->atletas = $a;
+        }
         public function toStdClass(){
             // private $id;
             // private $numero;

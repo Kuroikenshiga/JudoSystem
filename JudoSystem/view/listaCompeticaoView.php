@@ -59,7 +59,7 @@
 
       </div>
     </section><!-- End Competições Section -->
-
+    <?php require_once('./JudoSystem/view/footer.php') ?>
 <script src="../../JudoSystem/view/assets/vendor/aos/aos.js"></script>
   <script src="../../JudoSystem/view/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="../../JudoSystem/view/assets/vendor/glightbox/js/glightbox.min.js"></script>

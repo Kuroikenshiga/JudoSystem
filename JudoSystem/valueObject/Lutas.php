@@ -5,6 +5,7 @@
         private $hansoku_make;
         private $goldenScore;
         private $categoria_fk;
+        private $lutadores;
 
         public function __construct($id_lutas, $tempo, $hansoku_make, $goldenScore, $categoria_fk){
             $this->id_lutas = $id_lutas;

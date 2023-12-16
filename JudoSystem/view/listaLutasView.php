@@ -88,6 +88,7 @@
           </table>
         </div>
     </div>
+    <?php require_once('./JudoSystem/view/footer.php') ?>
     <script src="../../JudoSystem/view/js/lutasAjax.js"></script>
 </body>
 </html>

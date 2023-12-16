@@ -59,6 +59,7 @@
         </form>
 
     </div>
+    <?php require_once('./JudoSystem/view/footer.php') ?>
     <script src="../../JudoSystem/view/js/atletaAjax.js"></script>
 </body>
 

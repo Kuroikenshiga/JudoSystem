@@ -13,60 +13,63 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
     <!-- Vendor CSS Files -->
-    <link rel="stylesheet" href="../../JudoSystem/view/css/listaAtletas.css">
+    <!-- <link rel="stylesheet" href="../../JudoSystem/view/css/listaAtletas.css"> -->
     <link href="../../JudoSystem/view/assets/vendor/aos/aos.css" rel="stylesheet">
     <link href="../../JudoSystem/view/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="../../JudoSystem/view/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
     <link href="../../JudoSystem/view/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
     <link href="../../JudoSystem/view/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
     <link href="../../JudoSystem/view/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../../JudoSystem//view//css//reports.css">
+    <link rel="stylesheet" href="../../JudoSystem/view/css/reports.css"
     <!-- Template Main CSS File -->
     <link href="../../JudoSystem/view/assets/css/style.css" rel="stylesheet">
 </head>
 
 <body>
-    <?php require_once('./JudoSystem/view/header.php'); $i = 0;?>
+    <?php require_once('./JudoSystem/view/header.php');
+    $i = 0; ?>
     <div id="principal">
-    <div class="section-title">
-                <span id="span">Ranking de atletas com mais medalhas</span>
-                <h2 id="h2">Ranking de atletas com mais medalhas</h2>
-        
-            </div>
-            <select class="form-select" id="metricas" onchange="getRankingAPI()">
-                <option selected>Escolha a metrica</option>
-                <option value="f">Atletas que usam mais força</option>
-                <option value="t">Atletas que usam mais tecnica</option>
-                <option value="c">Atletas que usam mais condicionamento fisico</option>
+        <div class="section-title">
+            <span id="span">Ranking de atletas com mais medalhas</span>
+            <h2 id="h2">Ranking de atletas com mais medalhas</h2>
+
+        </div>
+        <select class="form-select" id="metricas" onchange="getRankingAPI()">
+            <option selected>Escolha a metrica</option>
+            <option value="f">Atletas que usam mais força</option>
+            <option value="t">Atletas que usam mais tecnica</option>
+            <option value="c">Atletas que usam mais condicionamento fisico</option>
             <option value="m">Atletas com mais medalhas</option>
-            </select>
+        </select>
         <table class="table">
-            <thead >
+            <thead>
                 <tr id="head">
                     <th scope="col">#</th>
                     <th scope="col">Nome</th>
                     <th scope="col">Faixa</th>
                     <th scope="col">Genero</th>
-                    <th scope="col" class="center remove" >Quantidade de medalhas de ouro</th>
-                    <th scope="col" class="center remove" >Quantidade de medalhas de Prata</th>
-                    <th scope="col" class="center remove" >Quantidade de medalhas de Bronze</th>
+                    <th scope="col" class="center remove">Quantidade de medalhas de ouro</th>
+                    <th scope="col" class="center remove">Quantidade de medalhas de Prata</th>
+                    <th scope="col" class="center remove">Quantidade de medalhas de Bronze</th>
                 </tr>
             </thead>
             <tbody id="body">
-                <?php foreach($array as $a){ ?>
-                <tr>
-                    <th scope="row"><?=$i+1?></th>
-                    <td><?=$a->nome?></td>
-                    <td><?=$a->faixa?></td>
-                    <td><?=$a->genero?></td>
-                    <td><?=$a->qtdOuro?></td>
-                    <td><?=$a->qtdPrata?></td>
-                    <td><?=$a->qtdBronze?></td>
-                </tr>
-                <?php $i++; }?>
+                <?php foreach ($array as $a) { ?>
+                    <tr>
+                        <th scope="row"><?= $i + 1 ?></th>
+                        <td><?= $a->nome ?></td>
+                        <td><?= $a->faixa ?></td>
+                        <td><?= $a->genero ?></td>
+                        <td><?= $a->qtdOuro ?></td>
+                        <td><?= $a->qtdPrata ?></td>
+                        <td><?= $a->qtdBronze ?></td>
+                    </tr>
+                <?php $i++;
+                } ?>
             </tbody>
         </table>
     </div>
+    <?php require_once('./JudoSystem/view/footer.php') ?>
     <script src="../../JudoSystem/view/js/reports.js"></script>
 </body>
 
