@@ -60,6 +60,7 @@ function update(){
             }
         }   
     }
+    console.log(JSON.stringify(obj))
     xml.send(JSON.stringify(obj))
 }
 function getAtleta(){

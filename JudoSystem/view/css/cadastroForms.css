@@ -1,9 +1,9 @@
 @keyframes animationOn{
     from {width: 300px; height: 300px;}
-    to {width: 50%; height: 85%;}
+    to {width: 50%; height: 80%;}
 }
 @keyframes animationOff{
-    from {width: 50%; height: 85%;}
+    from {width: 50%; height: 80%;}
     to {width: 300px; height: 300px;}
 }
 

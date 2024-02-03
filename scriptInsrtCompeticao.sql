@@ -1,5 +1,5 @@
-insert into competicao(nome,data_competicao,estado,cidade,bairro,complemento,logradouro) values('Quebra queixo','2023-11-23','Bahia','qualquer uma','tanto faz','sdsdsd','adfsdfsdf')
-insert into competicao(nome,data_competicao,estado,cidade,bairro,complemento,logradouro) values('Tamanho não é documento','2023-11-23','Bahia','qualquer uma','tanto faz','sdsdsd','adfsdfsdf')
-insert into competicao(nome,data_competicao,estado,cidade,bairro,complemento,logradouro) values('Competição dos bronze','2023-11-23','Bahia','qualquer uma','tanto faz','sdsdsd','adfsdfsdf')
-insert into competicao(nome,data_competicao,estado,cidade,bairro,complemento,logradouro) values('Quero quero quebra mão','2023-11-23','Bahia','qualquer uma','tanto faz','sdsdsd','adfsdfsdf')
-insert into competicao(nome,data_competicao,estado,cidade,bairro,complemento,logradouro) values('Cai duro','2023-11-23','Bahia','qualquer uma','tanto faz','sdsdsd','adfsdfsdf')
+insert into competicao(nome,data_competicao,estado,cidade,bairro,complemento,logradouro) values('Quebra queixo','2024-11-24','Bahia','qualquer uma','tanto faz','sdsdsd','adfsdfsdf');
+insert into competicao(nome,data_competicao,estado,cidade,bairro,complemento,logradouro) values('Tamanho não é documento','2024-11-24','Bahia','qualquer uma','tanto faz','sdsdsd','adfsdfsdf');
+insert into competicao(nome,data_competicao,estado,cidade,bairro,complemento,logradouro) values('Competição dos bronze','2024-11-24','Bahia','qualquer uma','tanto faz','sdsdsd','adfsdfsdf');
+insert into competicao(nome,data_competicao,estado,cidade,bairro,complemento,logradouro) values('Quero quero quebra mão','2024-11-24','Bahia','qualquer uma','tanto faz','sdsdsd','adfsdfsdf');
+insert into competicao(nome,data_competicao,estado,cidade,bairro,complemento,logradouro) values('Cai duro','2024-11-24','Bahia','qualquer uma','tanto faz','sdsdsd','adfsdfsdf');

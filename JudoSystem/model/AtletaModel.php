@@ -16,6 +16,7 @@
                 $stmt->bindValue(6,$obj->getAcademia());
                 $stmt->execute();
             }catch(Exception $e){
+                echo $e->getMessage();
                 return false;
             }
             return true;

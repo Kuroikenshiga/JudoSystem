@@ -18,8 +18,9 @@
             require_once("./JudoSystem/view/principal.php");
         }
         public function logout(){
-            echo $_SESSION['idAcademia'];
             
+            session_destroy();
+            header("location: index.php?class=user&method=showLogin");
         }
     }
 ?>

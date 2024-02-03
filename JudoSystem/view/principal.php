@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Day Bootstrap Template - Index</title>
+  <title>Tela inicial</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -68,8 +68,8 @@
   <section id="hero" class="d-flex align-items-center">
     <div class="container position-relative" data-aos="fade-up" data-aos-delay="500">
       <h1>JudoSystem</h1>
-      <h2>Blá blá blá. Blá blá</h2>
-      <a href="#why-us" class="btn-get-started scrollto">Descer</a>
+      <h2>Além do tatame</h2>
+      <a href="#Competições" class="btn-get-started scrollto">Descer</a>
     </div>
   </section><!-- End Hero -->
 
@@ -77,45 +77,7 @@
 
     
 
-    <!-- ======= Why Us Section ======= -->
-    <section id="why-us" class="why-us">
-      <div class="container">
-        <div class="section-title">
-          <span>Atletas com mais medalhas</span>
-
-          <h2>Atletas com mais medalhas</h2>
-          <p>Top 3 atletas com maiores quantidades de medalhas</p>
-        </div>
-        <div class="row">
-
-          <div class="col-lg-4" data-aos="fade-up">
-            <div class="box">
-              <span>01</span>
-              <h4>Jão do Botijão</h4>
-              <p>Ulamco laboris nisi ut aliquip ex ea commodo consequat. Et consectetur ducimus vero placeat</p>
-            </div>
-          </div>
-
-          <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="150">
-            <div class="box">
-              <span>02</span>
-              <h4>Pedro Dois Capa Deitei</h4>
-              <p>Dolorem est fugiat occaecati voluptate velit esse. Dicta veritatis dolor quod et vel dire leno para dest</p>
-            </div>
-          </div>
-
-          <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="300">
-            <div class="box">
-              <span>03</span>
-              <h4>Tonho Mela Calsa</h4>
-              <p>Molestiae officiis omnis illo asperiores. Aut doloribus vitae sunt debitis quo vel nam quis</p>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </section><!-- End Why Us Section -->
+   
 
    
 
@@ -133,6 +95,7 @@
           <?php
             $timeToShow = ["","data-aos-delay='150'","data-aos-delay='300'","data-aos-delay='450'","data-aos-delay='600'","data-aos-delay='750'"];
             $icons = ['bx bxl-dribbble','bx bx-file','bx bx-tachometer','bx bx-world','bx bx-slideshow','bx bx-arch'];
+            
             for($i = 0; $i < sizeof($competicoes);$i++){
           ?>
             <div class="col-lg-4 col-md-6 d-flex align-items-center" data-aos="fade-up" <?=$timeToShow[$i]?> >
@@ -173,9 +136,9 @@
       <div class="container">
 
         <div class="section-title">
-          <span>Team</span>
-          <h2>Team</h2>
-          <p>Sit sint consectetur velit quisquam cupiditate impedit suscipit alias</p>
+          <span>Equipe</span>
+          <h2>Equipe</h2>
+          <p>Responsaveis pelo desenvolvimento do sistema</p>
         </div>
 
         <div class="row">
