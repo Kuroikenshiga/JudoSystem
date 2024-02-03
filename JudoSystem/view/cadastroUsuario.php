@@ -29,8 +29,8 @@
                 <div id="form" class="sonOfSubContainer">
                     <img  class="svg" src="../../JudoSystem/view/svg/userAvatar.svg" alt="">
                     
-                    <form id="formulario" method="post">
-                    <h1 id="login">Me cadastrar</h1>
+                    <form id="formulario" method="post" >
+                    <h4 id="login">Me cadastrar</h4>
                         <div class="control">
                             <span class="material-symbols-outlined">person</span>
                             <label for="userName">Nome de usuário</label><br>
@@ -60,7 +60,7 @@
                     
                 </div>
             </div>
-            <div class="subContainer" id="rigth">
+            <div class="subContainer" id="right">
             <div id="form" class="sonOfSubContainer">
             <img  class="svg" src="../../JudoSystem/view/svg/academyAvatar.svg" alt="">
             <form id="formAcademy">
