@@ -22,7 +22,7 @@
 <body>
     <div id="principal">
         <div id="container">
-            <div id="subContainer">
+            <div class="subContainer">
                 <div id="logo" class="sonOfSubContainer"></div>
                 <div id="form" class="sonOfSubContainer">
                     <img id="userAvatar" src="../../JudoSystem/view/svg/userAvatar.svg" alt="">

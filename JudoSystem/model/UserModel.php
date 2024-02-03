@@ -12,7 +12,8 @@
                 $stmt->bindValue(3,$obj->getEmail());
                 $stmt->execute();
             }catch(Exception $e){
-                return $e->getMessage();
+                echo $e->getMessage();
+                return false;
             }
             return $stmt->fetch()['id_usuario'];
         }

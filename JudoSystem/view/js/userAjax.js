@@ -22,11 +22,12 @@ function insert(){
    xml.onreadystatechange = ()=> {
         if(xml.status == 200 && xml.readyState == 4){
             let json;
+            //console.log(xml.responseText)
             try{
                 json = JSON.parse(xml.responseText);
             }
             catch(error){
-                alert(error)
+                console.log(error)
                 return 0
             }
 

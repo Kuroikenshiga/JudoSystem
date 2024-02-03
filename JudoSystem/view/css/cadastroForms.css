@@ -1,0 +1,76 @@
+@keyframes animationOn{
+    from {width: 300px; height: 300px;}
+    to {width: 50%; height: 95%;}
+}
+@keyframes animationOff{
+    from {width: 50%; height: 95%;}
+    to {width: 300px; height: 300px;}
+}
+
+.subContainer{
+    justify-content: end;
+    width: 300px; 
+    height: 300px;
+}
+/* .subContainer:hover{
+    animation-name: animationOn;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+} */
+
+.svg{
+    width: 65%;
+    
+}
+.container{
+    display: flex;
+    flex-direction: row;
+}
+#formAcademy{
+    
+
+    display: flex;
+    display: none;
+    width: 100%;
+    align-items: center;
+    flex-direction: column;
+    margin-right: 10%;
+}
+#formAcademy div{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+.academyInput{
+    text-align: center;
+    font-family: 'Fira Sans', sans-serif;
+    color: #03BB63;
+    height: 20px;
+    font-size: medium;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    width: 100%;
+    border-bottom:1px solid #03BB63 ;
+    background-color: transparent;
+}
+.academyInput:focus{
+    box-shadow: 0 0 0 0;
+    outline: none;
+    text-align: left;
+}
+form label{
+    font-family:'Roboto', sans-serif;
+    margin-top: 5px;
+}
+select{
+    margin-top: 5px;
+    height: 39px;
+}
+#formulario{
+    display: none;
+
+}
+.sonOfSubContainer{
+    width: 100%;
+}
