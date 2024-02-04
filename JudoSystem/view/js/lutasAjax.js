@@ -181,7 +181,7 @@ function constraintCheckbx(){
 function validaTempo(){
     let tempo = document.querySelector("#tempo").value
 
-    alert(tempo.match(/[1-5][:][0-5][0-9]/))
+    // alert(tempo.match(/[1-5][:][0-5][0-9]/))
     tempo.value = tempo.match(/[1-5]/)
 }
 

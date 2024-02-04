@@ -43,7 +43,7 @@ h6 {
   right: 15px;
   bottom: 15px;
   z-index: 996;
-  background: #cc1616;
+  background: #977d1d;
   width: 40px;
   height: 40px;
   transition: all 0.4s;
@@ -56,7 +56,7 @@ h6 {
 }
 
 .back-to-top:hover {
-  background: #e72323;
+  background: #528133;
   color: #fff;
 }
 
@@ -84,7 +84,7 @@ h6 {
   position: fixed;
   top: calc(50% - 30px);
   left: calc(50% - 30px);
-  border: 6px solid #cc1616;
+  border: 6px solid #31c00d;
   border-top-color: #efefef;
   border-radius: 50%;
   width: 60px;
@@ -158,14 +158,14 @@ h6 {
 # Header
 --------------------------------------------------------------*/
 #header {
-  background: #228B22;
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(12,127,114,1) 35%, rgba(144,141,27,1) 100%);
   transition: all 0.5s;
   z-index: 997;
   height: 70px;
 }
 
 #header.fixed-top {
-  background: #228B22;
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(12,127,114,1) 35%, rgba(144,141,27,1) 100%);
 }
 
 #header .logo {
@@ -226,6 +226,8 @@ h6 {
   color: #fff;
   white-space: nowrap;
   transition: 0.3s;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: bolder;
 }
 
 .navbar a i,
@@ -235,11 +237,12 @@ h6 {
   margin-left: 5px;
 }
 
-.navbar a:hover,
-.navbar .active,
-.navbar .active:focus,
+/* .navbar a:hover,
+.navbar .active, */
+/* .navbar .active:focus, */
 .navbar li:hover>a {
-  background: #cc1616;
+  background: #509974;
+  color: white;
 }
 
 .navbar .dropdown ul {
@@ -465,8 +468,8 @@ h6 {
 }
 
 #hero .btn-get-started:hover {
-  background: #cc1616;
-  border-color: #cc1616;
+  background: #E9C441;
+  border-color: #E9C441;
 }
 
 @media (min-width: 1024px) {
@@ -715,8 +718,8 @@ section {
 }
 
 .services .icon-box:hover {
-  background: #2E8B57;
-  border-color: #cc1616;
+  background: linear-gradient(90deg, rgba(99,165,139,1) 0%, rgba(50,143,132,1) 33%, rgba(22,97,141,1) 100%);;
+  border-color: white;
   padding: 70px 20px 90px 20px;
 }
 
@@ -771,8 +774,8 @@ section {
 }
 
 .cta .cta-btn:hover {
-  background: #cc1616;
-  border: 2px solid #cc1616;
+  background: #E9C441;
+  border: 2px solid #E9C441;
 }
 
 /*--------------------------------------------------------------
@@ -1278,7 +1281,7 @@ section {
 # Footer
 --------------------------------------------------------------*/
 #footer {
-  background: #055505;
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(12,127,114,1) 35%, rgba(144,141,27,1) 100%);
   padding: 0 0 30px 0;
   color: #fff;
   font-size: 14px;
