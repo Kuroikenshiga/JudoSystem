@@ -1,3 +1,6 @@
+<?php
+  require_once('./JudoSystem/tools/redirectToErrorLoginView.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

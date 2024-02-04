@@ -1,3 +1,6 @@
+<?php
+  require_once('./JudoSystem/tools/redirectToErrorLoginView.php');
+?>
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">

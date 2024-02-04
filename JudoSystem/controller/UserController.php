@@ -71,7 +71,10 @@
             echo(json_encode($objResponse));
             
         }  
-
+        
+        public function logoutError(){
+            require_once('./JudoSystem/view/logoutError.php');
+        }
         
     }
 

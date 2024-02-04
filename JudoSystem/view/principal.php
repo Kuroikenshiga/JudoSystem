@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,6 +26,7 @@
   <link href="../../JudoSystem/view/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="../../JudoSystem/view/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
   
+
   <!-- Template Main CSS File -->
   <link href="../../JudoSystem/view/assets/css/style.css" rel="stylesheet">
   <link rel="stylesheet" href="../../JudoSystem/view/css/mainCss.css">
@@ -38,18 +40,21 @@
 </head>
 
 <body>
-
+<?php
+  require_once('./JudoSystem/tools/redirectToErrorLoginView.php');
+?>
   <!-- ======= Top Bar ======= -->
 
 
   <!-- ======= Header ======= -->
   <header id="header" class="d-flex align-items-center">
+  <img id="logoImg" src="../../JudoSystem/view/img/logo.png" alt="">
     <div class="container d-flex align-items-center justify-content-between">
 
-      <h1 class="logo"><a href="index.php?class=main&method=showMain">JudoSystem</a></h1>
+      <h1 class="logo"><a href="index.php?class=main&method=showMain">JudoSystem</a> </h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
-
+      
       <nav id="navbar" class="navbar">
         <ul>
           <li><a class="nav-link scrollto active" href="#hero">Inicio</a></li>
@@ -62,6 +67,7 @@
       </nav><!-- .navbar -->
 
     </div>
+    
   </header><!-- End Header -->
 
   <!-- ======= Hero Section ======= -->
@@ -196,6 +202,7 @@
         </div>
 
       </div>
+     
     </section><!-- End Team Section -->
 
     
@@ -233,7 +240,7 @@
 
   <!-- Template Main JS File -->
   <script src="../../JudoSystem/view/assets/js/main.js"></script>
-
+  
 </body>
 
 </html>

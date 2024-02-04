@@ -1,3 +1,6 @@
+<?php
+  require_once('./JudoSystem/tools/redirectToErrorLoginView.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,7 +29,7 @@
 </head>
 
 <body>
-    <?php require_once('./JudoSystem/view/header.php');
+    <?php $bool = false; require_once('./JudoSystem/view/header.php');
     $i = 0; ?>
     <div id="principal">
         <div class="section-title">

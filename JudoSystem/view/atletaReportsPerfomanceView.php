@@ -1,3 +1,7 @@
+<?php
+    session_start();
+    require_once('./JudoSystem/tools/redirectToErrorLoginView.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,7 +16,7 @@
     <link href="../../JudoSystem/view/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
     <link href="../../JudoSystem/view/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
     <link href="../../JudoSystem/view/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
+    
     <!-- Template Main CSS File -->
     <link href="../../JudoSystem/view/assets/css/style.css" rel="stylesheet">
 
@@ -62,6 +66,7 @@
 </head>
 
 <body>
+
     <?php require_once('./JudoSystem/view/header.php') ?>
     <div id="principal">
         <div id="chart_div"></div>
