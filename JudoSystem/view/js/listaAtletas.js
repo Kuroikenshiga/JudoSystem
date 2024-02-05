@@ -1,11 +1,15 @@
 showing = false
 
 function showSlideBar(slideButton){
-    slideButton.style.marginLeft = !showing?'180px':'0px'
+    slideButton.style.animationName = !showing?'animacaoDaBarraShowButton':'animacaoDaBarraHiddenButton'
     let slideBar = document.querySelector('#slideBar');
+    slideButton.style.animationDuration = '1s';
+    slideButton.style.animationFillMode = 'forwards';
     
-    slideBar.style.display = showing?'none':'block';
-
+    slideBar.style.animationName = showing?'animacaoDaBarraHidden':'animacaoDaBarraShow';
+    slideBar.style.animationDuration = '1s';
+    slideBar.style.animationFillMode = 'forwards';
     showing = !showing;
+    console.log(showing)
 }
 
