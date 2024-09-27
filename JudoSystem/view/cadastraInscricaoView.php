@@ -50,7 +50,7 @@
             </select>
             
 
-                <button type="button" class="btn btn-primary" onclick="insert()">Submit</button>
+                <button type="button" class="btn btn-primary" onclick="insert()">Inscrever atleta</button>
         </form>
     </div>
     <?php require_once('./JudoSystem/view/footer.php') ?>
