@@ -31,7 +31,7 @@
 <body>
     <?php $bool = false; require_once('./JudoSystem/view/header.php');
     $i = 0; ?>
-    <div id="principal">
+    <div id="principal2">
         <div class="section-title">
             <span id="span">Ranking de atletas com mais medalhas</span>
             <h2 id="h2">Ranking de atletas com mais medalhas</h2>

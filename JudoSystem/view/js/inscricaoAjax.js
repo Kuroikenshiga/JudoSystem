@@ -63,14 +63,14 @@ function update(){
     console.log(JSON.stringify(obj))
     xml.send(JSON.stringify(obj))
 }
-function getAtleta(){
+function getAtleta(id){
     
     let barraDePesquisa = document.querySelector('#search');
     let select = document.querySelector('#atletas');
     
     let xml = new XMLHttpRequest();
     
-    xml.open('GET','../../index.php?class=atleta&method=listAtletaJson&nome='+barraDePesquisa.value,true);
+    xml.open('GET','../../index.php?class=atleta&method=listAtletaJson&nome='+barraDePesquisa.value+"&idAcad="+id,true);
     xml.setRequestHeader('content-type','www-url-form-encoded');
 
     xml.onreadystatechange = ()=>{

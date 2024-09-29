@@ -16,7 +16,7 @@
     <link href="../../JudoSystem/view/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
     <link href="../../JudoSystem/view/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
     <link href="../../JudoSystem/view/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
+    <link rel="shortcut icon" href="../../JudoSystem/view/img/logo.png" type="image/x-icon">
     <!-- Template Main CSS File -->
     <link href="../../JudoSystem/view/assets/css/style.css" rel="stylesheet">
 </head>

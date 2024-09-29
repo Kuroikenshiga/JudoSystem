@@ -13,8 +13,11 @@
         public function showMain(){
             require_once('./JudoSystem/model/CompeticaoModel.php');
             require_once('./JudoSystem/model/Model.php');
+            require_once('./JudoSystem/reports/AtletasReports.php');
+            $ar = new AtletaReports(Model::createConnection());
             $cm = new CompeticaoModel(Model::createConnection());
             $competicoes = $cm->selectAllLimited();
+            $report = $ar->categoriaReport();
             require_once("./JudoSystem/view/principal.php");
         }
         public function logout(){

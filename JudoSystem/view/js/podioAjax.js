@@ -17,7 +17,12 @@ function insertPodio(){
 
     xml.onreadystatechange = ()=>{
         if(xml.readyState == 4 && xml.status == 200){
-            alert(xml.responseText)
+            if(xml.responseText == "OK"){
+                window.history.back();
+            }
+            else{
+                alert(xml.responseText)
+            }
         }
     }
     xml.send(JSON.stringify(obj))
@@ -42,7 +47,12 @@ function updatePodio(){
 
     xml.onreadystatechange = ()=>{
         if(xml.readyState == 4 && xml.status == 200){
-            alert(xml.responseText)
+            if(xml.responseText == "OK"){
+                window.history.back();
+            }
+            else{
+                alert(xml.responseText)
+            }
         }
     }
     xml.send(JSON.stringify(obj))

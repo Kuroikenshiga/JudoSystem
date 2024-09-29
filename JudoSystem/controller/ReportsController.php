@@ -22,6 +22,7 @@
         public function showPerfomanceAtelta(){
             $reports = new AtletaReports(Model::createConnection());
             $atleta = $reports->selectByIdPerformanceAtleta(isset($_GET['metricas'])?$_GET['metricas']:null);
+            $atletaReport = $reports->selectReports($_GET['metricas']);
             require_once('./JudoSystem/view/atletaReportsPerfomanceView.php');
         }
     }

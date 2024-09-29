@@ -11,7 +11,7 @@
     <title>Adionar nova luta</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
-
+    <link rel="shortcut icon" href="../../JudoSystem/view/img/logo.png" type="image/x-icon">
     <!-- Favicons -->
     <link href="assets/img/favicon.png" rel="icon">
     <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">

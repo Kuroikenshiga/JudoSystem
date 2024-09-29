@@ -11,6 +11,7 @@
     <link href="../../JudoSystem/view/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
     <link href="../../JudoSystem/view/assets/css/style.css" rel="stylesheet">
     <link rel="stylesheet" href="../../JudoSystem/view/css/inscricao.css">
+    <link rel="shortcut icon" href="../../JudoSystem/view/img/logo.png" type="image/x-icon">
 </head>
 <body>
 
@@ -24,7 +25,7 @@
             </div>
             <input type="hidden" id="competicao" value="<?=$_GET['id']?>">
             <div class="mb-3">
-                <input type="text" class="form-control" id="search" placeholder="Pesquisar atleta" oninput="getAtleta()">
+                <input type="text" class="form-control" id="search" placeholder="Pesquisar atleta" oninput="getAtleta(<?=$_SESSION['idAcademia']?>)">
             </div>
             <select id="atletas" class="form-select" multiple aria-label="multiple select example" onchange="changeSearchValue()">
                

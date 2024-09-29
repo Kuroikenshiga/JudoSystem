@@ -165,11 +165,12 @@
         }
         public function listAtletaJson(){
             $nome = $_GET['nome'];
+            $idAcad = $_GET["idAcad"];
             require_once("./JudoSystem/model/Model.php");
             require_once("./JudoSystem/model/AtletaModel.php");
             $json = [];
             $atl = new AtletaModel(Model::createConnection());
-            $s = $atl->selectFiltred($nome);
+            $s = $atl->selectFiltred($nome,$idAcad);
             if(!$s and !is_countable($s)){
                 
                 die($s);

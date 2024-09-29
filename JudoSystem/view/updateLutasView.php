@@ -143,7 +143,7 @@
                 </div>
 
                 <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="vencedor" disabled <?= $lutadores[0]->getGanhador() ? 'checked' : '' ?>>
+                    <input type="checkbox" class="form-check-input control" id="vencedor" disabled <?= $lutadores[0]->getGanhador() ? 'checked' : '' ?>>
                     <label class="form-check-label control" for="vencedor">Vencedor</label>
                 </div>
 
