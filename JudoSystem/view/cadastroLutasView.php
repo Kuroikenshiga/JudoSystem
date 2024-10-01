@@ -95,24 +95,49 @@
                 </div>
                 <div class="form-group">
                     <label for="wazari1">Golpe 1° Wazari</label>
-                    <input type="text" class="form-control" id="wazari1" aria-describedby="wazari1" placeholder="1° wazari">
+                    
+                    <select id="wazari1" class="form-select" aria-label="Selecione o  1° wazari">
+                        <option value="">Selecione o golpe</option>
+                        <?php
+                        foreach ($golpes as $g) { ?>
+                            <option value="<?= $g->golpe ?>"><?= $g->golpe ?></option>
+                        <?php } ?>
+                    </select>
 
                 </div>
 
                 <div class="form-group">
                     <label for="wazari2">Golpe 2° Wazari</label>
-                    <input type="text" class="form-control" id="wazari2" aria-describedby="wazari2" placeholder="2° wazari">
+                    
+                    <select id="wazari2" class="form-select" aria-label="Selecione o  2° wazari">
+                    <option value="">Selecione o golpe</option>
+                        <?php
+                        foreach ($golpes as $g) { ?>
+                            <option value="<?= $g->golpe ?>"><?= $g->golpe ?></option>
+                        <?php } ?>
+                    </select>
 
                 </div>
                 <div class="form-group">
                     <label for="ippon">Golpe Ippon</label>
-                    <input type="text" class="form-control" id="ippon" aria-describedby="ippon" placeholder="Ippon">
-
+                    <select id="ippon" class="form-select" aria-label="Selecione o golpe ippon">
+                    <option value="">Selecione o golpe</option>
+                        <?php
+                        foreach ($golpes as $g) { ?>
+                            <option value="<?= $g->golpe ?>"><?= $g->golpe ?></option>
+                        <?php } ?>
+                    </select>
                 </div>
                 <div class="form-group">
-                    <label for="ne-waza">Tecnica de solo</label>
-                    <input type="text" class="form-control" id="ne-waza" aria-describedby="ne-waza" placeholder="ne-waza">
-
+                    <label for="ne-waza">Técnica de solo</label>
+                    
+                    <select id="ne-waza" class="form-select" aria-label="Selecione a técnica ne-waza">
+                    <option value="">Selecione o golpe</option>
+                        <?php
+                        foreach ($golpesSolo as $g) { ?>
+                            <option value="<?= $g->golpe ?>"><?= $g->golpe ?></option>
+                        <?php } ?>
+                    </select>
                 </div>
 
                 <div class="form-group">
@@ -159,25 +184,45 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="wazari1">Golpe 1° Wazari</label>
-                    <input type="text" class="form-control" id="wazari1_2" aria-describedby="wazari1" placeholder="1° wazari">
-
+                    <label for="wazari1_2">Golpe 1° Wazari</label>
+                    <select id="wazari1_2" class="form-select" aria-label="Selecione o 1° wazari">
+                    <option value="">Selecione o golpe</option>
+                        <?php
+                        foreach ($golpes as $g) { ?>
+                            <option value="<?= $g->golpe ?>"><?= $g->golpe ?></option>
+                        <?php } ?>
+                    </select>
                 </div>
 
                 <div class="form-group">
-                    <label for="wazari1">Golpe 2° Wazari</label>
-                    <input type="text" class="form-control" id="wazari2_2" aria-describedby="wazari2" placeholder="2° wazari">
-
+                    <label for="wazari2_2">Golpe 2° Wazari</label>
+                    <select id="wazari2_2" class="form-select" aria-label="Selecione o 2° wazari">
+                    <option value="">Selecione o golpe</option>
+                        <?php
+                        foreach ($golpes as $g) { ?>
+                            <option value="<?= $g->golpe ?>"><?= $g->golpe ?></option>
+                        <?php } ?>
+                    </select>
                 </div>
                 <div class="form-group">
-                    <label for="ippon">Golpe Ippon</label>
-                    <input type="text" class="form-control" id="ippon_2" aria-describedby="ippon" placeholder="Ippon">
-
+                    <label for="ippon_2">Golpe Ippon</label>
+                    <select id="ippon_2" class="form-select" aria-label="Selecione o golpe ippon">
+                    <option value="">Selecione o golpe</option>
+                        <?php
+                        foreach ($golpes as $g) { ?>
+                            <option value="<?= $g->golpe ?>"><?= $g->golpe ?></option>
+                        <?php } ?>
+                    </select>
                 </div>
                 <div class="form-group">
-                    <label for="ne-waza">Tecnica de solo</label>
-                    <input type="text" class="form-control" id="ne-waza_2" aria-describedby="ne-waza" placeholder="ne-waza">
-
+                    <label for="ne-waza_2">Técnica de solo</label>
+                    <select id="ne-waza_2" class="form-select" aria-label="Selecione a técnica ne-waza">
+                    <option value="">Selecione o golpe</option>
+                        <?php
+                        foreach ($golpesSolo as $g) { ?>
+                            <option value="<?= $g->golpe ?>"><?= $g->golpe ?></option>
+                        <?php } ?>
+                    </select>
                 </div>
 
                 <div class="form-group">

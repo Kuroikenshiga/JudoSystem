@@ -42,7 +42,7 @@
                 <select class="form-select" aria-label="Default select example" id="genero">
                     <option selected>Selecione o gênero</option>
                     <option value="Masculino">Masculino</option>
-                    <option value="Masculino">Feminino</option>
+                    <option value="Feminino">Feminino</option>
 
                 </select>
             </div>

@@ -18,6 +18,10 @@
             $cm = new CompeticaoModel(Model::createConnection());
             $competicoes = $cm->selectAllLimited();
             $report = $ar->categoriaReport();
+            $genderReport = $ar->atletaGenderReport();
+            $medalhas = $ar->medalRelationship();
+            $array = $ar->defeatRelationship();
+            
             require_once("./JudoSystem/view/principal.php");
         }
         public function logout(){

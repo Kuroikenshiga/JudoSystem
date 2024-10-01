@@ -103,30 +103,57 @@
                     </select>
                 </div>
                 <div class="form-group">
+                    
                     <label for="wazari1">Golpe 1° Wazari</label>
-                    <input type="text" class="form-control control" id="wazari1" aria-describedby="wazari1" value="<?= $lutadores[0]->getWazari1() ?>" placeholder="1° wazari" disabled>
-
+                    
+                    <select id="wazari1" class="form-select control" aria-label="Selecione o golpe do 1° wazari" disabled>
+                        <option value="">Selecione o golpe</option>
+                        <?php
+                        foreach ($golpes as $g) { ?>
+                            <option <?php echo $lutadores[0]->getWazari1() == $g->golpe?"selected":""?> value="<?= $g->golpe ?>"><?= $g->golpe ?></option>
+                        <?php } ?>
+                    </select>
                 </div>
 
                 <div class="form-group">
                     <label for="wazari2">Golpe 2° Wazari</label>
-                    <input type="text" class="form-control control" id="wazari2" aria-describedby="wazari2" placeholder="2° wazari" disabled value="<?= $lutadores[0]->getWazari2() ?>">
+
+                    <select id="wazari2" class="form-select control" aria-label="Selecione o golpe do 2° wazari" disabled>
+                        <option value="">Selecione o golpe</option>
+                        <?php
+                        foreach ($golpes as $g) { ?>
+                            <option <?php echo $lutadores[0]->getWazari2() == $g->golpe?"selected":""?> value="<?= $g->golpe ?>"><?= $g->golpe ?></option>
+                        <?php } ?>
+                    </select>
 
                 </div>
                 <div class="form-group">
                     <label for="ippon">Golpe Ippon</label>
-                    <input type="text" class="form-control control" id="ippon" aria-describedby="ippon" placeholder="Ippon" disabled value="<?= $lutadores[0]->getIppon() ?>">
+
+                    <select id="ippon" class="form-select control" aria-label="Selecione o golpe ippon" disabled>
+                        <option value="">Selecione o golpe</option>
+                        <?php
+                        foreach ($golpes as $g) { ?>
+                            <option <?php echo $lutadores[0]->getIppon() == $g->golpe?"selected":""?> value="<?= $g->golpe ?>"><?= $g->golpe ?></option>
+                        <?php } ?>
+                    </select>
 
                 </div>
                 <div class="form-group">
-                    <label for="ne-waza">Tecnica de solo</label>
-                    <input type="text" class="form-control control" id="ne-waza" aria-describedby="ne-waza" placeholder="ne-waza" disabled value="<?= $lutadores[0]->getTecnicaNeWaza() ?>">
+                    <label for="ne-waza">Técnica de solo</label>
 
+                    <select id="ne-waza" class="form-select control" aria-label="Selecione a técnica de solo" disabled>
+                        <option value="">Selecione o golpe</option>
+                        <?php
+                        foreach ($golpesSolo as $g) { ?>
+                            <option <?php echo $lutadores[0]->getTecnicaNeWaza() == $g->golpe?"selected":""?> value="<?= $g->golpe ?>"><?= $g->golpe ?></option>
+                        <?php } ?>
+                    </select>
                 </div>
 
                 <div class="form-group">
                     <label for="tecnica">Avaliação da técnica(0 a 10)</label>
-                    <input type="number" class="form-control control" id="tecnica" aria-describedby="Tecnica" placeholder="Técnica" disabled value="<?= $lutadores[0]->getTecnica() ?>">
+                    <input type="number" class="form-control control" id="tecnica" aria-describedby="Técnica" placeholder="Técnica" disabled value="<?= $lutadores[0]->getTecnica() ?>">
 
                 </div>
 
@@ -169,29 +196,57 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="wazari1">Golpe 1° Wazari</label>
-                    <input type="text" class="form-control control" id="wazari1_2" aria-describedby="wazari1" placeholder="1° wazari" disabled value="<?= $lutadores[1]->getWazari1() ?>">
+                    <label for="wazari1_2">Golpe 1° Wazari</label>
+
+                    <select id="wazari1_2" class="form-select control" aria-label="Selecione o 1° Wazari" disabled>
+                        <option value="">Selecione o golpe</option>
+                        <?php
+                        foreach ($golpes as $g) { ?>
+                            <option <?php echo $lutadores[1]->getWazari1() == $g->golpe?"selected":""?> value="<?= $g->golpe ?>"><?= $g->golpe ?></option>
+                        <?php } ?>
+                    </select>
 
                 </div>
 
                 <div class="form-group">
-                    <label for="wazari1">Golpe 2° Wazari</label>
-                    <input type="text" class="form-control control" id="wazari2_2" aria-describedby="wazari2" placeholder="2° wazari" disabled value="<?= $lutadores[1]->getWazari2() ?>">
+                    <label for="wazari2_2">Golpe 2° Wazari</label>
+
+                    <select id="wazari2_2" class="form-select control" aria-label="Selecione o 2° Wazari" disabled>
+                        <option value="">Selecione o golpe</option>
+                        <?php
+                        foreach ($golpes as $g) { ?>
+                            <option <?php echo $lutadores[1]->getWazari2() == $g->golpe?"selected":""?> value="<?= $g->golpe ?>"><?= $g->golpe ?></option>
+                        <?php } ?>
+                    </select>
 
                 </div>
                 <div class="form-group">
-                    <label for="ippon">Golpe Ippon</label>
-                    <input type="text" class="form-control control" id="ippon_2" aria-describedby="ippon" placeholder="Ippon" disabled value="<?= $lutadores[1]->getIppon() ?>">
+                    <label for="ippon_2">Golpe Ippon</label>
+
+                    <select id="ippon_2" class="form-select control" aria-label="Selecione o ippon" disabled>
+                        <option value="">Selecione o golpe</option>
+                        <?php
+                        foreach ($golpes as $g) { ?>
+                            <option <?php echo $lutadores[1]->getIppon() == $g->golpe?"selected":""?> value="<?= $g->golpe ?>"><?= $g->golpe ?></option>
+                        <?php } ?>
+                    </select>
 
                 </div>
                 <div class="form-group">
-                    <label for="ne-waza">Tecnica de solo</label>
-                    <input type="text" class="form-control control" id="ne-waza_2" aria-describedby="ne-waza" placeholder="ne-waza" disabled value="<?= $lutadores[1]->getTecnicaNeWaza() ?>">
+                    <label for="ne-waza_2">Técnica de solo</label>
+
+                    <select id="ne-waza_2" class="form-select control" aria-label="Selecione o ippon" disabled>
+                        <option value="">Selecione a técnica de solo</option>
+                        <?php
+                        foreach ($golpesSolo as $g) { ?>
+                            <option <?php echo $lutadores[1]->getTecnicaNeWaza() == $g->golpe?"selected":""?> value="<?= $g->golpe ?>"><?= $g->golpe ?></option>
+                        <?php } ?>
+                    </select>
 
                 </div>
 
                 <div class="form-group">
-                    <label for="Tecnica">Avaliação da tecnica(0 a 10)</label>
+                    <label for="Tecnica">Avaliação da técnica(0 a 10)</label>
                     <input type="number" class="form-control control" id="tecnica_2" aria-describedby="Tecnica" placeholder="Técnica" disabled value="<?= $lutadores[1]->getTecnica() ?>">
                         
                     </div>

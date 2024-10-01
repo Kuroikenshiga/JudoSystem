@@ -3,9 +3,16 @@
         public function showCadastro(){
             require_once("./JudoSystem/model/Model.php");
             require_once("./JudoSystem/model/AtletaModel.php");
+            require_once("./JudoSystem/model/GolpesModel.php");
+            require_once("./JudoSystem/model/GolpesSoloModel.php");
             $am = new AtletaModel(Model::createConnection());
             $atletas = $am->selectAtletaByCategoriaAndCompeticao(isset($_GET['id'])?$_GET['id']:null,isset($_GET['comp'])?$_GET['comp']:null);
-            
+            $gm = new GolpesModel(Model::createConnection());
+            $gsm = new GolpesSoloModel(Model::createConnection());
+
+            $golpesSolo = $gsm->selectAll();
+            $golpes = $gm->selectAll();
+
             require_once("./JudoSystem/view/cadastroLutasView.php");
 
         }
@@ -47,9 +54,18 @@
             require_once("./JudoSystem/model/Model.php");
             require_once("./JudoSystem/model/LutasModel.php");
             require_once("./JudoSystem/model/LutadoresModel.php");
+            require_once("./JudoSystem/model/GolpesModel.php");
+            require_once("./JudoSystem/model/GolpesSoloModel.php");
+
             $lm = new LutasModel(Model::createConnection());
             $ltdM = new LutadoresModel(Model::createConnection());
             $lutadores = $ltdM->selectAllByLuta(isset($_GET['id_lutas'])?$_GET['id_lutas']:null);
+
+            $gm = new GolpesModel(Model::createConnection());
+            $gsm = new GolpesSoloModel(Model::createConnection());
+
+            $golpesSolo = $gsm->selectAll();
+            $golpes = $gm->selectAll();
 
             $luta = $lm->selectById(isset($_GET['id_lutas'])?$_GET['id_lutas']:null);
             $am = new AtletaModel(Model::createConnection());

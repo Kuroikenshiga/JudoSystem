@@ -133,4 +133,82 @@ class AtletaReports
         }
         return $reports;
     }
+    public function atletaGenderReport(){
+        $stmt = $this->connection->prepare("select genero,count(*) as qtd from atleta where academia_fk = ? group by genero");
+        $stmt->bindValue(1,$_SESSION["idAcademia"]);
+        $genderReport = [];
+        try{
+            $stmt->execute();
+            while($row = $stmt->fetch()){
+                $std = new stdClass();
+                $std->genero = $row["genero"];
+                $std->qtd = $row["qtd"];
+                $std->color = ($std->genero == "Masculino"?"blue":"pink");
+                $genderReport[] = $std;
+            }
+
+        }catch(Exception $e){
+            return false;
+        }
+        return $genderReport;
+    }
+    public function medalRelationship(){
+        $stmt = $this->connection->prepare("select count(lugar_1) as ouro, count(lugar_2) as prata,count(lugar_3) as bronze,count(lugar_3_2)as bronze2
+from podio inner join atleta
+on lugar_1 = id_atleta or lugar_2 = id_atleta or lugar_3 = id_atleta or lugar_3_2 = id_atleta
+where academia_fk = ?");
+        $medals = [];
+        try{
+            $stmt->bindValue(1,$_SESSION["idAcademia"]);
+            $stmt->execute();
+            while($row = $stmt->fetch()){
+                $stdOuro = new stdClass();
+                $stdOuro->medalha = "Ouro";
+                $stdOuro->qtd = $row["ouro"];
+                $stdOuro->color = "yellow";
+
+                $stdPrata = new stdClass();
+                $stdPrata->medalha = "Prata";
+                $stdPrata->qtd = $row["prata"];
+                $stdPrata->color = "gray";
+
+                $stdBronze = new stdClass();
+                $stdBronze->medalha = "Bronze";
+                $stdBronze->qtd = $row["bronze"]+$row["bronze2"];
+                $stdBronze->color = "orange";
+
+                $medals[] = $stdOuro;
+                $medals[] = $stdPrata;
+                $medals[] = $stdBronze;
+            }
+        }catch(Exception $e){
+            return false;
+        }
+        return $medals;
+    }
+    public function defeatRelationship(){
+        $stmt = $this->connection->prepare("select (select count(*) from lutas inner join lutadores on luta_fk = id_lutas left join atleta on id_atleta = atleta_fk where academia_fk = ? and ganhador = true) as vitorias,(select count(*) from lutas inner join lutadores on luta_fk = id_lutas left join atleta on id_atleta = atleta_fk where academia_fk = ? and ganhador = false) as derrotas");
+        $array = [];
+        try{
+            $stmt->bindValue(1,$_SESSION["idAcademia"]);
+            $stmt->bindValue(2,$_SESSION["idAcademia"]);
+            $stmt->execute();
+            while($row = $stmt->fetch()){
+                $stdV = new stdClass();
+                $stdV->resultado = "Vitórias";
+                $stdV->qtd = $row["vitorias"];
+                $array[] = $stdV;
+
+
+                $stdD = new stdClass();
+                $stdD->resultado = "Derrotas";
+                $stdD->qtd = $row["derrotas"];
+                $array[] = $stdD;
+
+            }
+        }catch(Exception $e){
+            return false;
+        }
+        return $array;
+    }
 }

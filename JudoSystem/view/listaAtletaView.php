@@ -72,7 +72,7 @@ require_once('./JudoSystem/tools/redirectToErrorLoginView.php');
             <th>Faixa</th>
             <th>Gênero</th>
             <th>Data de nascimento</th>
-            <th>Pontos no ranking</th>
+            
           </tr>
         </thead>
         <tbody id="bodyTable">
@@ -84,7 +84,7 @@ require_once('./JudoSystem/tools/redirectToErrorLoginView.php');
               <td><?php echo $i->getFaixa() ?></td>
               <td><?php echo $i->getGenero() ?></td>
               <td><?php echo $i->getData_Nascimento() ?></td>
-              <td><?php echo $i->getPontuacao() ?></td>
+              
               <td><a href="index.php?class=reports&method=showPerfomanceAtelta&metricas=<?= $i->getId() ?>"><i class="bi bi-eye"></i></a></td>
               <td><a href="index.php?class=Atleta&method=ShowUpdate&id_atleta=<?php echo $i->getId() ?>"><button type="button" class="btn btn-info">Modificar</button></a></td>
               <td><button class="btn btn-danger" onclick="remove(<?php echo $i->getId() ?>)">Deletar</button></td>

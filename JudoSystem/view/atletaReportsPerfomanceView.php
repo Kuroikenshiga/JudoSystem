@@ -86,11 +86,11 @@ require_once('./JudoSystem/tools/redirectToErrorLoginView.php');
             <table class="table">
                 <thead>
                     <tr>
-                        <th scope="col">Vitorias</th>
+                        <th scope="col">Vitórias</th>
                         <th scope="col">Derrotas</th>
                         <th scope="col">N° de desqualificações</th>
                         <th scope="col">N° de lutas</th>
-                        <th scope="col">Porcentagem de vitorias</th>
+                        <th scope="col">Porcentagem de vitórias</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -99,7 +99,7 @@ require_once('./JudoSystem/tools/redirectToErrorLoginView.php');
                         <td><?=$atletaReport->d?></td>
                         <td><?=$atletaReport->h?></td>
                         <td><?=($atletaReport->v+$atletaReport->d)?></td>
-                        <td><?=($atletaReport->v*100)/($atletaReport->v+$atletaReport->d)?>%</td>
+                        <td><?=($atletaReport->v*100)/(($atletaReport->v+$atletaReport->d) == 0?1:($atletaReport->v+$atletaReport->d))?>%</td>
                    </tr>
                 </tbody>
             </table>

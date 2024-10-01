@@ -43,6 +43,11 @@
             $json = json_decode(file_get_contents("php://input"));
             $podio = new Podio(null,$json->l1,$json->l2,$json->l3,$json->l3_2,$json->p1,$json->p2,$json->p3,$json->p3_2,$json->competicao,$json->categoria);
             $pm = new PodioModel(Model::createConnection());
+            $podioSelect = $pm->selectByCompeticaoAndCategoria($json->competicao,$json->categoria);
+
+            if($podioSelect != null){
+                die("OK");
+            }
 
             if(!$pm->insert($podio)){
                 die('Erro de inserção');

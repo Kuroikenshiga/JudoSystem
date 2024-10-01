@@ -61,16 +61,53 @@
       data.addRows([
         <?php
         foreach ($report as $r) {
-        ?>
-          ["<?=$r->classe?>", <?=$r->qtd?>, "<?=$r->color?>"],
+        ?>["<?= $r->classe ?>", <?= $r->qtd ?>, "<?= $r->color ?>"],
         <?php
         } ?>
 
       ]);
 
       // Set chart options
-      var options = {
+      var options1 = {
         'title': 'Quantidade de lutas de cada categoria por classe',
+        'width': 700,
+        'height': 300,
+        'legend': {
+          position: "center"
+        },
+        'pieHole': 0.4,
+        colors: ["#2b8ff3", "#2bf343", "#d1fa18", "#fa8c18", "#9318fa"]
+      };
+
+      // Instantiate and draw our chart, passing in some options.
+      var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+      chart.draw(data, options1);
+    }
+    google.charts.setOnLoadCallback(drawChartGender);
+
+    function drawChartGender() {
+
+      // Create the data table.
+      var data = new google.visualization.DataTable();
+
+      data.addColumn('string', 'Genero');
+      data.addColumn('number', '');
+      data.addColumn({
+        role: 'style'
+      });
+
+      data.addRows([
+        <?php
+        foreach ($genderReport as $rg) {
+        ?>["<?= $rg->genero ?>", <?= $rg->qtd ?>, "<?= $rg->color ?>"],
+        <?php
+        } ?>
+
+      ]);
+
+      // Set chart options
+      var options2 = {
+        'title': 'Relação entre competidores por sexo',
         'width': 700,
         'height': 300,
         'legend': {
@@ -79,8 +116,85 @@
       };
 
       // Instantiate and draw our chart, passing in some options.
-      var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
-      chart.draw(data, options);
+      var chart = new google.visualization.PieChart(document.getElementById('chart_div2'));
+      chart.draw(data, options2);
+    }
+    google.charts.setOnLoadCallback(drawChartMedals);
+
+    function drawChartMedals() {
+
+      // Create the data table.
+      var data = new google.visualization.DataTable();
+
+      data.addColumn('string', 'Medalha');
+      data.addColumn('number', '');
+      data.addColumn({
+        role: 'style'
+      });
+
+      data.addRows([
+        <?php
+        foreach ($medalhas as $m) {
+        ?>["<?= $m->medalha ?>", <?= $m->qtd ?>, "<?= $m->color ?>"],
+        <?php
+        } ?>
+
+      ]);
+
+      // Set chart options
+      var options3 = {
+        'title': 'Relação entre medalhas conquistadas',
+        'width': 700,
+        'height': 300,
+        'legend': {
+          position: "center"
+        },
+        'pieHole': 0.4,
+        colors: ['#f7e800', '#b9b9b3', '#e79300']
+
+      };
+
+      // Instantiate and draw our chart, passing in some options.
+      var chart = new google.visualization.PieChart(document.getElementById('chart_div3'));
+      chart.draw(data, options3);
+    }
+    google.charts.setOnLoadCallback(drawChartDefeat);
+    function drawChartDefeat() {
+
+      // Create the data table.
+      var data = new google.visualization.DataTable();
+
+      data.addColumn('string', 'Status');
+      data.addColumn('number', '');
+      data.addColumn({
+        role: 'style'
+      });
+      
+      data.addRows([
+        <?php
+        foreach ($array as $a) {
+        ?>["<?= $a->resultado ?>", <?= $a->qtd ?>,"red"],
+        <?php
+        } ?>
+
+      ]);
+
+      // Set chart options
+      var options4 = {
+        'title': 'Relação entre vitórias e derrotas',
+        'width': 700,
+        'height': 300,
+        'legend': {
+          position: "center"
+        },
+
+        colors: ['#42d800', '#f32c09']
+
+      };
+
+      // Instantiate and draw our chart, passing in some options.
+      var chart = new google.visualization.PieChart(document.getElementById('chart_div4'));
+      chart.draw(data, options4);
     }
   </script>
 </head>
@@ -175,10 +289,17 @@
 
 
     <section id="report">
-      <div class="containerhart">
+      <div id="principalChartDiv">
+        <div class="containerchart">
 
-        <div id="chart_div"></div>
+          <div id="chart_div"></div>
+          <div id="chart_div2"></div>
+        </div>
+        <div class="containerchart">
 
+          <div id="chart_div3"></div>
+          <div id="chart_div4"></div>
+        </div>
       </div>
 
     </section>

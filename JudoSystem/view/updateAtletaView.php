@@ -41,9 +41,13 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="genero">Gênero</label>
-                    <input type="text" class="form-control" id="genero" value="<?php echo $atleta->getGenero() ?>">
-                </div>
+                <select class="form-select" aria-label="Default select example" id="genero">
+                    <option selected>Selecione o gênero</option>
+                    <option value="Masculino" <?php echo $atleta->getGenero() == "Masculino"?"selected":""?>>Masculino</option>
+                    <option value="Feminino" <?php echo $atleta->getGenero() == "Feminino"?"selected":""?>>Feminino</option>
+
+                </select>
+            </div>
 
                 <div class="form-group">
                     <label for="dtnasc">Data Nascimento</label>
