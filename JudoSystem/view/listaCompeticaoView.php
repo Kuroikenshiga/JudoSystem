@@ -36,7 +36,7 @@
 
         <div class="section-title">
           <span>Competições</span>
-          <h2>Competições  <?=sizeof($competicoes)?></h2>
+          <h2>Competições</h2>
           
         </div>
           

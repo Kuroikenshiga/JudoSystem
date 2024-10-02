@@ -111,6 +111,23 @@
             }
             return $lutas;
         }
+
+        public function selectAllByAtletaId($id){
+            $q = "select*from lutas where id_lutas in (select luta_fk from lutadores where atleta_fk in (
+                select id_atleta from atleta where id_atleta = ? ))";
+            $lutas = array();
+            try{
+                $stmt = $this->getConnection()->prepare($q);
+                $stmt->bindValue(1,$id);
+                $stmt->execute();
+                while($rows = $stmt->fetch()){
+                    $lutas[] = new Lutas($rows["id_lutas"], $rows["tempo"], $rows["hansoku_make"], $rows["goldenscore"], $rows["categoria_fk"]);
+                }
+            }catch(Exception $e){
+                return false;
+            }
+            return $lutas;
+        }
        
     }
 ?>

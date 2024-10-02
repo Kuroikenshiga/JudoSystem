@@ -37,7 +37,9 @@
 }
 #contain{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    justify-content: end;
+    align-items: end;
 }
 #slideBar{
     width: 200px;
@@ -83,4 +85,11 @@ tr{
 }
 #showSlideBar a {
     color: rgba(45, 130, 92);;
+}
+#btnMod{
+    background-color: #258262;
+}
+#btnDel{
+    background-color: #CFC70A;
+    border: none;
 }

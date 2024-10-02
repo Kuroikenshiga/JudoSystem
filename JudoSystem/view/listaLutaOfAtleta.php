@@ -45,8 +45,8 @@
     <div id="principal">
      
         <div class="section-title">
-          <span>Lutas cadastradas</span>
-          <h2>Lutas cadastradas</h2>
+          <span>Lutas que <?= $_GET["nome"]?> participou</span>
+          <h2>Lutas que <?= $_GET["nome"]?> participou</h2>
     
         </div>
         
@@ -70,7 +70,7 @@
                   <?php
                    
                     foreach($lutas as $l){
-                    $lutadores = getNomeOponentes($l->getIdLutas());    
+                    $lutadores = getNomeOponentes2($l->getIdLutas());    
                   ?>
                       <tr id="<?=$l->getIdLutas()?>">
                         <td><?=$l->getIdLutas()?></td>
@@ -79,7 +79,7 @@
                         <td><?php echo $l->getTempo() ?></td>
                         <td><?php echo $l->getHansokuMake()?'Sim':'Não' ?></td>
                         <td><?php echo $l->getGoldenScore() ?></td>
-                        <td><a href="index.php?class=Lutas&method=showUpdate&id_lutas=<?php echo $l->getIdLutas() ?>&comp=<?=$_GET['comp']?>&categoria=<?=$_GET['categoria']?>"><button type="button" class="btn btn-info">Detalhar lutas</button></a></td>
+                        <td><a href="index.php?class=Lutas&method=showUpdate&id_lutas=<?php echo $l->getIdLutas() ?>"><button type="button" class="btn btn-info">Detalhar lutas</button></a></td>
                         <td><button class="btn btn-danger" onclick="deletaLuta(<?php echo $l->getIdLutas() ?>)">Deletar</button></td>
                       </tr>
                   <?php
