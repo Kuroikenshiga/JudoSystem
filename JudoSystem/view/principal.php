@@ -76,7 +76,7 @@
           position: "center"
         },
         'pieHole': 0.4,
-        colors: ["#2b8ff3", "#2bf343", "#d1fa18", "#fa8c18", "#9318fa"]
+        colors: ["#020527", "#258262", "#CFC70A", "#fa8c18", "#5a3a7c"]
       };
 
       // Instantiate and draw our chart, passing in some options.
@@ -113,6 +113,7 @@
         'legend': {
           position: "center"
         },
+        colors: [ '#CFC70A', '#020527']
       };
 
       // Instantiate and draw our chart, passing in some options.
@@ -188,7 +189,7 @@
           position: "center"
         },
 
-        colors: ['#42d800', '#f32c09']
+        colors: ['#328359', '#020527']
 
       };
 

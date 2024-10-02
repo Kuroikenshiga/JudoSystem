@@ -17,7 +17,7 @@ function insertLuta(){
     obj.oponente1.forca = document.querySelector('#forca').value;
     obj.oponente1.condFisico = document.querySelector('#condFisico').value;
     obj.oponente1.vencedor = document.querySelector('#vencedor').checked;
-    obj.oponente1.qtdFaltas = document.querySelector('#faltas').value;
+    obj.oponente1.qtdFaltas = document.querySelector('#faltas').value == ""?0:document.querySelector('#faltas').value;
 
     obj.oponente2 = new Object();
     obj.oponente2.atleta = document.querySelector('#atletas_2').value == ''?null:document.querySelector('#atletas_2').value;
@@ -29,7 +29,7 @@ function insertLuta(){
     obj.oponente2.forca = document.querySelector('#forca_2').value;
     obj.oponente2.condFisico = document.querySelector('#condFisico_2').value;
     obj.oponente2.vencedor = document.querySelector('#vencedor_2').checked;
-    obj.oponente2.qtdFaltas = document.querySelector('#faltas_2').value;
+    obj.oponente2.qtdFaltas = document.querySelector('#faltas_2').value == ""?0:document.querySelector('#faltas_2').value;
 
     console.log(JSON.stringify(obj))
     let xml = new XMLHttpRequest();
@@ -41,6 +41,7 @@ function insertLuta(){
             alert(xml.responseText)
             if(xml.responseText == "Funcionou"){
                 window.history.back();
+                return;
             }
             alert(xml.responseText);
         }

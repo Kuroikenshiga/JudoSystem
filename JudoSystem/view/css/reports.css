@@ -2,11 +2,11 @@ th,td{
     text-align: center;
 }
 #principal{
-    height: 84vh;
+    min-height: 84vh;
     display: flex;
     justify-content: center;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
 }
 #principal2{
@@ -16,4 +16,24 @@ th,td{
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+#rows{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+#row2{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+#charts{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
 }

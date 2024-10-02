@@ -1,5 +1,5 @@
 <?php
-if(session_status() != PHP_SESSION_ACTIVE){
+if (session_status() != PHP_SESSION_ACTIVE) {
     session_start();
 }
 require_once('./JudoSystem/tools/redirectToErrorLoginView.php');
@@ -49,9 +49,9 @@ require_once('./JudoSystem/tools/redirectToErrorLoginView.php');
                 role: 'style'
             });
             data.addRows([
-                ['Técnica', <?= $atleta->t == null ? 0 : $atleta->t ?>, 'blue'],
-                ['Força', <?= $atleta->f == null ? 0 : $atleta->f ?>, 'red'],
-                ['Condicionamento fisico', <?= $atleta->c == null ? 0 : $atleta->c ?>, 'green'],
+                ['Técnica', <?= $atleta->t == null ? 0 : $atleta->t ?>, '#020527'],
+                ['Força', <?= $atleta->f == null ? 0 : $atleta->f ?>, '#258262'],
+                ['Condicionamento fisico', <?= $atleta->c == null ? 0 : $atleta->c ?>, '#CFC70A'],
 
             ]);
 
@@ -63,11 +63,88 @@ require_once('./JudoSystem/tools/redirectToErrorLoginView.php');
                 'legend': {
                     position: "none"
                 },
+                vAxis: {
+                    viewWindow: {
+                        max: 10 // Define o valor máximo do eixo Y como 3000
+                    }
+                }
+
             };
 
             // Instantiate and draw our chart, passing in some options.
             var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
             chart.draw(data, options);
+        }
+        google.charts.setOnLoadCallback(drawChartStrokes);
+
+        function drawChartStrokes() {
+
+            // Create the data table.
+            var data = new google.visualization.DataTable();
+
+            data.addColumn('string', 'Golpe');
+            data.addColumn('number', '');
+            data.addColumn({
+                role: 'style'
+            });
+            data.addRows([
+                <?php
+                foreach ($strokes as $s) { ?>["<?= $s->golpe ?>", <?= $s->qtd ?>, '<?= $s->color ?>'],
+                <?php
+                } ?>
+
+            ]);
+
+            // Set chart options
+            var options2 = {
+                'title': 'Golpes usados com mais frequência por <?= $atleta->nome ?> nas lutas',
+                'width': 700,
+                'height': 300,
+                'legend': {
+                    position: "none"
+                },
+
+
+            };
+
+            // Instantiate and draw our chart, passing in some options.
+            var chart = new google.visualization.BarChart(document.getElementById('chart_div2'));
+            chart.draw(data, options2);
+        }
+        google.charts.setOnLoadCallback(drawChartNeWaza);
+        function drawChartNeWaza() {
+
+            // Create the data table.
+            var data = new google.visualization.DataTable();
+
+            data.addColumn('string', 'Técnica de solo');
+            data.addColumn('number', '');
+            data.addColumn({
+                role: 'style'
+            });
+            data.addRows([
+                <?php
+                foreach ($strokesNeWaza as $s) { ?>["<?= $s->golpe ?>", <?= $s->qtd ?>, '<?= $s->color ?>'],
+                <?php
+                } ?>
+
+            ]);
+
+            // Set chart options
+            var options3 = {
+                'title': 'Técnicas de solo mais usadas por <?= $atleta->nome ?> nas lutas',
+                'width': 700,
+                'height': 300,
+                'legend': {
+                    position: "none"
+                },
+
+
+            };
+
+            // Instantiate and draw our chart, passing in some options.
+            var chart = new google.visualization.BarChart(document.getElementById('chart_div3'));
+            chart.draw(data, options3);
         }
     </script>
 </head>
@@ -76,12 +153,11 @@ require_once('./JudoSystem/tools/redirectToErrorLoginView.php');
 
     <?php require_once('./JudoSystem/view/header.php') ?>
     <div class="section-title">
-      <span>Informações de desempenho de <?=$atleta->nome?></span>
-      <h2>Informações de desempenho de <?=$atleta->nome?></h2>
+        <span>Informações de desempenho de <?= $atleta->nome ?></span>
+        <h2>Informações de desempenho de <?= $atleta->nome ?></h2>
 
     </div>
     <div id="principal">
-        <div id="chart_div"></div>
         <div id="reports">
             <table class="table">
                 <thead>
@@ -94,15 +170,25 @@ require_once('./JudoSystem/tools/redirectToErrorLoginView.php');
                     </tr>
                 </thead>
                 <tbody>
-                   <tr>
-                        <td><?=$atletaReport->v?></td>
-                        <td><?=$atletaReport->d?></td>
-                        <td><?=$atletaReport->h?></td>
-                        <td><?=($atletaReport->v+$atletaReport->d)?></td>
-                        <td><?=($atletaReport->v*100)/(($atletaReport->v+$atletaReport->d) == 0?1:($atletaReport->v+$atletaReport->d))?>%</td>
-                   </tr>
+                    <tr>
+                        <td><?= $atletaReport->v ?></td>
+                        <td><?= $atletaReport->d ?></td>
+                        <td><?= $atletaReport->h ?></td>
+                        <td><?= ($atletaReport->v + $atletaReport->d) ?></td>
+                        <td><?= ($atletaReport->v * 100) / (($atletaReport->v + $atletaReport->d) == 0 ? 1 : ($atletaReport->v + $atletaReport->d)) ?>%</td>
+                    </tr>
                 </tbody>
             </table>
+        </div>
+        <div id="charts">
+            <div id="rows">
+                <div id="chart_div3"></div>
+                <div id="chart_div2"></div>
+            </div>
+            <div id="rows2">
+                <div id="chart_div"></div>
+                
+            </div>
         </div>
     </div>
     <?php require_once('./JudoSystem/view/footer.php') ?>
