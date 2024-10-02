@@ -5,7 +5,7 @@ function insert(){
     obj.faixa = document.querySelector("#faixa").value
     obj.genero = document.querySelector("#genero").value
     obj.data_nascimento = document.querySelector("#data_nascimento").value
-    obj.pontuacao = document.querySelector("#pontuacao").value
+    obj.pontuacao = 0;
 
 
     let xml = new XMLHttpRequest();
@@ -31,7 +31,7 @@ function update(){
     obj.faixa = document.querySelector("#faixa").value
     obj.genero = document.querySelector("#genero").value
     obj.data_nascimento = document.querySelector("#dtnasc").value
-    obj.pontuacao = document.querySelector("#pontuacao").value
+    obj.pontuacao = 0
 
     let xml = new XMLHttpRequest();
     xml.open("POST",'../../index.php?class=atleta&method=update');

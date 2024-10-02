@@ -52,10 +52,10 @@
                 <input type="date" class="form-control" id="data_nascimento">
             </div>
 
-            <div class="form-group">
+            <!-- <div class="form-group">
                 <label for="pontucao">Pontuação</label>
                 <input type="number" class="form-control" id="pontuacao">
-            </div>
+            </div> -->
 
             <button type="button" class="btn btn-primary" onclick="insert()">Cadastrar</button>
 

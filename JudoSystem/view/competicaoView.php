@@ -110,8 +110,8 @@
                         <td><?=searchAtletaInList($atletas,$ins->getAtleta_fk())?></td>
                         <td><?=Date('d-m-Y',strtotime($ins->getData_inscricao()))?></td>
                         <td><?=explode('.',$ins->getHora_inscricao())[0]?></td>
-                        <td><a href="index.php?class=inscricao&method=showUpdate&id=<?=!isset($_GET['id'])?null:$_GET['id']?>&id_inscricao=<?=$ins->getId_inscricao()?>"><button class="btn btn-info">Modificar</button></a></td>
-                        <td><button class="btn btn-danger" onclick="deletar('<?=$ins->getId_inscricao()?>')">Deletar</button></td>
+                        <td><a href="index.php?class=inscricao&method=showUpdate&id=<?=!isset($_GET['id'])?null:$_GET['id']?>&id_inscricao=<?=$ins->getId_inscricao()?>"><button id="btnMod" class="btn btn-info">Modificar</button></a></td>
+                        <td><button class="btn btn-danger" id="btnDel" onclick="deletar('<?=$ins->getId_inscricao()?>')">Deletar</button></td>
                         
                     </tr>
                 <?php

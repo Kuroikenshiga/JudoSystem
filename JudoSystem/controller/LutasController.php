@@ -199,31 +199,32 @@
             
         }
 
-        public function listByAtletaId(){
-            require_once("./JudoSystem/model/Model.php");
-            require_once("./JudoSystem/model/LutasModel.php");
-            require_once("./JudoSystem/model/LutadoresModel.php");
-            require_once('./JudoSystem/model/AtletaModel.php');
-            require_once('./JudoSystem/model/CategoriaModel.php');
-            //$ltdM = new LutadoresModel(Model::createConnection());
+        // public function listByAtletaId(){
+        //     require_once("./JudoSystem/model/Model.php");
+        //     require_once("./JudoSystem/model/LutasModel.php");
+        //     require_once("./JudoSystem/model/LutadoresModel.php");
+        //     require_once('./JudoSystem/model/AtletaModel.php');
+        //     require_once('./JudoSystem/model/CategoriaModel.php');
+        //     //$ltdM = new LutadoresModel(Model::createConnection());
            
-            $lm = new LutasModel(Model::createConnection());
-            $lutas = $lm->selectAllByAtletaId(!isset($_GET["id"])?null:$_GET["id"]);
-            $cm = new CategoriaModel(Model::createConnection());
-
-            function getNomeOponentes2($luta){
-                $ltdM = new LutadoresModel(Model::createConnection());
-                $am = new AtletaModel(Model::createConnection());
-                $atletas = [];
-                $lutadores = $ltdM->selectAllByLuta($luta);
-                $atletas[] = is_null($lutadores[0]->getAtletaFk())?null:$am->selectById($lutadores[0]->getAtletaFk());
-                $atletas[] = is_null($lutadores[1]->getAtletaFk())?null:$am->selectById($lutadores[1]->getAtletaFk());
-                
-                return $atletas;
-            }
-                require_once("./JudoSystem/view/listaLutaOfAtleta.php");
+        //     $lm = new LutasModel(Model::createConnection());
+        //     $lutas = $lm->selectAllByAtletaId(!isset($_GET["id"])?null:$_GET["id"]);
+        //     $cm = new CategoriaModel(Model::createConnection());
             
-        }
+        //     $idAtleta;
+        //     function getNomeOponentes2($luta){
+        //         $ltdM = new LutadoresModel(Model::createConnection());
+        //         $am = new AtletaModel(Model::createConnection());
+        //         $atletas = [];
+        //         $lutadores = $ltdM->selectAllByLuta($luta);
+        //         $atletas[] = is_null($lutadores[0]->getAtletaFk())?null:$am->selectById($lutadores[0]->getAtletaFk());
+        //         $atletas[] = is_null($lutadores[1]->getAtletaFk())?null:$am->selectById($lutadores[1]->getAtletaFk());
+            
+        //         return $atletas;
+        //     }
+        //         require_once("./JudoSystem/view/listaLutaOfAtleta.php");
+            
+        // }
 
     }
 ?>

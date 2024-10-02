@@ -54,10 +54,10 @@
                     <input type="date" class="form-control" id="dtnasc" value="<?php echo $atleta->getData_Nascimento() ?>">
                 </div>
 
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <label for="pontucao">Pontuação</label>
                     <input type="number" class="form-control" id="pontuacao" value="<?php echo $atleta->getPontuacao() ?>">
-                </div>
+                </div> -->
 
                 <button type="button" class="btn btn-primary" onclick="update()">Modificar</button>
             </form>

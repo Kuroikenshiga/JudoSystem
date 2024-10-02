@@ -22,3 +22,10 @@
 #showLutas{
     margin-left: 1cm;
 }
+#btnMod{
+    background-color: #258262;
+}
+#btnDel{
+    background-color: #CFC70A;
+    border: none;
+}
