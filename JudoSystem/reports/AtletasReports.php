@@ -50,7 +50,7 @@ class AtletaReports
         }
         $array = [];
         try {
-            $stmt = $this->connection->prepare('select nome, faixa,genero, round(avg( ' . $p . ' ),1) as ' . $p . ' from atleta left join lutadores on atleta_fk = id_atleta where academia_fk = ?
+            $stmt = $this->connection->prepare('select nome, faixa,genero, round(avg( ' . $p . ' ),1) as ' . $p . ' from atleta inner join lutadores on atleta_fk = id_atleta where academia_fk = ?
             group by id_atleta order by ' . $p . ' desc');
             $stmt->bindValue(1, $_SESSION["idAcademia"]);
             $stmt->execute();

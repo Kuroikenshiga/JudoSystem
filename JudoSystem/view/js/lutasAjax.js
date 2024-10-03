@@ -38,7 +38,7 @@ function insertLuta(){
 
     xml.onreadystatechange = ()=>{
         if(xml.readyState == 4 && xml.status == 200){
-            alert(xml.responseText)
+            
             if(xml.responseText == "Funcionou"){
                 window.history.back();
                 return;

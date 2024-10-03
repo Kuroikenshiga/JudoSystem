@@ -280,7 +280,7 @@
       <div class="container" data-aos="zoom-in">
 
         <div class="text-center">
-          <h3>Ver ranking de desempenho de atletas</h3>
+          <h3>Ranking de desempenho de atletas</h3>
           <p>Ver ranking de desempenho de atletas</p>
           <a class="cta-btn" href="index.php?class=reports&method=showRankingAtletasMedalhas">VER</a>
         </div>
@@ -319,27 +319,27 @@
         <div class="row">
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in">
             <div class="member">
-              <img src="../../JudoSystem/view/assets/img/team/team-1.jfif" alt="">
+              <img src="../../JudoSystem/view/img/Salim2.png" alt="">
               <h4>Salim Lopes</h4>
-              <span>Chief Executive Officer</span>
-              <p>
-                Magni qui quod omnis unde et eos fuga et exercitationem. Odio veritatis perspiciatis quaerat qui aut aut aut
+              <span>Concluinte</span>
+              <!-- <p>
+                
               </p>
               <div class="social">
                 <a href=""><i class="bi bi-twitter"></i></a>
                 <a href=""><i class="bi bi-facebook"></i></a>
                 <a href=""><i class="bi bi-instagram"></i></a>
                 <a href=""><i class="bi bi-linkedin"></i></a>
-              </div>
+              </div> -->
             </div>
           </div>
 
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in">
             <div class="member">
-              <img src="../../JudoSystem/view/assets/img/team/team-2.jpg" alt="">
+              <img src="../../JudoSystem/view/img/Marcelo2.png" alt="">
               <h4>Marcelo Silva</h4>
-              <span>Product Manager</span>
-              <p>
+              <span>Orientador do projeto</span>
+              <!-- <p>
                 Repellat fugiat adipisci nemo illum nesciunt voluptas repellendus. In architecto rerum rerum temporibus
               </p>
               <div class="social">
@@ -347,16 +347,16 @@
                 <a href=""><i class="bi bi-facebook"></i></a>
                 <a href=""><i class="bi bi-instagram"></i></a>
                 <a href=""><i class="bi bi-linkedin"></i></a>
-              </div>
+              </div> -->
             </div>
           </div>
 
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in">
             <div class="member">
-              <img src="../../JudoSystem/view/assets/img/team/team-3.jfif" alt="">
+              <img src="../../JudoSystem/view/img/eu2.png" alt="">
               <h4>Rogerio Palafoz</h4>
-              <span>CTO</span>
-              <p>
+              <span>Conclinte</span>
+              <!-- <p>
                 Voluptas necessitatibus occaecati quia. Earum totam consequuntur qui porro et laborum toro des clara
               </p>
               <div class="social">
@@ -364,7 +364,7 @@
                 <a href=""><i class="bi bi-facebook"></i></a>
                 <a href=""><i class="bi bi-instagram"></i></a>
                 <a href=""><i class="bi bi-linkedin"></i></a>
-              </div>
+              </div> -->
             </div>
           </div>
 

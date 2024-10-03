@@ -38,10 +38,10 @@
 
         </div>
         <select class="form-select" id="metricas" onchange="getRankingAPI()">
-            <option selected>Escolha a metrica</option>
-            <option value="f">Atletas que usam mais força</option>
-            <option value="t">Atletas que usam mais tecnica</option>
-            <option value="c">Atletas que usam mais condicionamento fisico</option>
+            <option selected>Escolha a métrica</option>
+            <option value="f">Atletas que usam mais força nas lutas</option>
+            <option value="t">Atletas que usam mais técnica nas lutas</option>
+            <option value="c">Atletas com melhor condicionamento físico</option>
             <option value="m">Atletas com mais medalhas</option>
         </select>
         <table class="table">
@@ -50,7 +50,7 @@
                     <th scope="col">#</th>
                     <th scope="col">Nome</th>
                     <th scope="col">Faixa</th>
-                    <th scope="col">Genero</th>
+                    <th scope="col">Gênero</th>
                     <th scope="col" class="center remove">Quantidade de medalhas de ouro</th>
                     <th scope="col" class="center remove">Quantidade de medalhas de Prata</th>
                     <th scope="col" class="center remove">Quantidade de medalhas de Bronze</th>

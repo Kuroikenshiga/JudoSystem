@@ -12,8 +12,8 @@ function getRankingAPI(){
     }
     let span = document.querySelector('#span');
     let h2 =  document.querySelector('#h2');
-    span.innerText = selecione.value == 'f'?'Ranking de atletas que mais utilizam mais força nas lutas':selecione.value == 't'?'Ranking de atletas que mais utilizam mais técnica nas lutas':selecione.value == 'c'?'Ranking de atletas com melhor condicionamento fisico':'Ranking de atletas com mais medalhas'
-    h2.innerText = selecione.value == 'f'?'Ranking de atletas que mais utilizam mais força nas lutas':selecione.value == 't'?'Ranking de atletas que mais utilizam mais técnica nas lutas':selecione.value == 'c'?'Ranking de atletas com melhor condicionamento fisico':'Ranking de atletas com mais medalhas'
+    span.innerText = selecione.value == 'f'?'Ranking de atletas que mais utilizam mais força nas lutas':selecione.value == 't'?'Ranking de atletas que mais utilizam mais técnica nas lutas':selecione.value == 'c'?'Ranking de atletas com melhor condicionamento físico':'Ranking de atletas com mais medalhas'
+    h2.innerText = selecione.value == 'f'?'Ranking de atletas que mais utilizam mais força nas lutas':selecione.value == 't'?'Ranking de atletas que mais utilizam mais técnica nas lutas':selecione.value == 'c'?'Ranking de atletas com melhor condicionamento físico':'Ranking de atletas com mais medalhas'
     let xml = new XMLHttpRequest();
     xml.open('POST','index.php?class=reports&method='+method,true);
     xml.setRequestHeader('content-type','application/x-www-form-urlencoded');
@@ -31,12 +31,12 @@ function getRankingAPI(){
                 if(selecione.value != 'm'){
                     try{
                         let th = document.querySelector('#metrica');
-                        th.innerText = selecione.value == 'f'?'Força':selecione.value == 't'?'Tecnica':'Condicionamento Fisico';
+                        th.innerText = selecione.value == 'f'?'Força':selecione.value == 't'?'Técnica':'Condicionamento Físico';
                        
                     }
                     catch(error){
                         let th = document.createElement('th');
-                        th.innerText = selecione.value == 'f'?'Força':selecione.value == 't'?'Tecnica':'Condicionamento Fisico'
+                        th.innerText = selecione.value == 'f'?'Força':selecione.value == 't'?'Técnica':'Condicionamento Físico'
                         th.id = 'metrica';
                         bodyH.appendChild(th)
                         
