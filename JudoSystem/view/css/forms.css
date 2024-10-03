@@ -19,3 +19,9 @@ form #cidade{
 .form-group{
     margin-top: 10px;
 }
+#alert{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    
+}

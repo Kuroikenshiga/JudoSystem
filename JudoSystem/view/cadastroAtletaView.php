@@ -23,6 +23,9 @@
 
 <body>
     <?php require_once('./JudoSystem/view/header.php') ?>
+    <div class="alert alert-success" id="alert" role="alert">
+        <p id="msg">Por favor preencha todos os campos</p>
+    </div>
     <div id="principal">
 
         <h1>Cadastro de Atleta</h1>
@@ -30,16 +33,16 @@
         <form>
             <div class="form-group">
                 <label for="nome">Nome</label>
-                <input type="text" class="form-control" id="nome">
+                <input type="text" class="form-control validate" id="nome">
             </div>
 
             <div class="form-group">
                 <label for="faixa">Faixa</label>
-                <input type="text" class="form-control" id="faixa">
+                <input type="text" class="form-control validate" id="faixa">
             </div>
 
             <div class="form-group">
-                <select class="form-select" aria-label="Default select example" id="genero">
+                <select class="form-select validate" aria-label="Default select example" id="genero">
                     <option selected>Selecione o gênero</option>
                     <option value="Masculino">Masculino</option>
                     <option value="Feminino">Feminino</option>
@@ -49,7 +52,7 @@
 
             <div class="form-group">
                 <label for="data_nascimento">Data Nascimento</label>
-                <input type="date" class="form-control" id="data_nascimento">
+                <input type="date" class="form-control validate" id="data_nascimento">
             </div>
 
             <!-- <div class="form-group">

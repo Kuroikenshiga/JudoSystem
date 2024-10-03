@@ -1,4 +1,14 @@
-function insert(){
+
+function insert() {
+
+    if (!validate()) {
+
+        return;
+    }
+    if (document.querySelector("#passWord").value != document.querySelector("#RpassWord").value) {
+
+        return;
+    }
 
     let objUser = new Object()
     objUser.senha = document.querySelector("#passWord").value;
@@ -14,52 +24,70 @@ function insert(){
     objAcademia.logradouro = document.querySelector("#logradouro").value;
     objAcademia.complemento = document.querySelector("#complemento").value;
     objUser.academia = objAcademia;
-    
+
     let xml = new XMLHttpRequest();
-    xml.open("POST","../../index.php?class=User&method=insert",true);
-    xml.setRequestHeader("content-Type","Application/Json");
-    
-   xml.onreadystatechange = ()=> {
-        if(xml.status == 200 && xml.readyState == 4){
+    xml.open("POST", "../../index.php?class=User&method=insert", true);
+    xml.setRequestHeader("content-Type", "Application/Json");
+
+    xml.onreadystatechange = () => {
+        if (xml.status == 200 && xml.readyState == 4) {
             let json;
             //console.log(xml.responseText)
-            try{
+            try {
                 json = JSON.parse(xml.responseText);
             }
-            catch(error){
+            catch (error) {
                 console.log(error)
                 return 0
             }
 
             window.location.href = json.way
         }
-   }
+    }
 
     xml.send(JSON.stringify(objUser))
 
 
 }
-function login(){
+function login() {
     obj = new Object()
     obj.senha = document.querySelector("#passWord").value;
     obj.email = document.querySelector("#email").value;
 
     let xml = new XMLHttpRequest();
-    xml.open("POST","../../index.php?class=user&method=login",true);
-    xml.setRequestHeader("content-Type","Application/Json");
-    
-   xml.onreadystatechange = ()=> {
-        if(xml.status == 200 && xml.readyState == 4){
+    xml.open("POST", "../../index.php?class=user&method=login", true);
+    xml.setRequestHeader("content-Type", "Application/Json");
+
+    xml.onreadystatechange = () => {
+        if (xml.status == 200 && xml.readyState == 4) {
             //alert(xml.responseText);
-            try{
+            try {
                 let objResponse = JSON.parse(xml.responseText);
                 window.location.href = objResponse.way;
             }
-            catch(exception){
+            catch (exception) {
                 alert(xml.responseText)
             }
         }
-   }
+    }
 
     xml.send(JSON.stringify(obj))
+}
+function validate() {
+    let alertObj = document.querySelector("#alert");
+    let inputs = document.getElementsByClassName("validate");
+    for (let i = 0; i < inputs.length; i++) {
+        if (inputs[i].value == "") {
+            inputs[i].style.backgroundColor = "yellow"
+            inputs[i].focus();
+            alertObj.style.display ="flex"
+            setInterval(() => {
+                inputs[i].style.backgroundColor = ""
+                alertObj.style.display = "none"
+            }, 3000)
+
+            return false;
+        }
+    }
+    return true;
 }

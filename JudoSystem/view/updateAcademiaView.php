@@ -16,17 +16,20 @@
 </head>
 <body onload="initializeForm()">
     <?php require_once('./JudoSystem/view/header.php') ?>
+    <div class="alert alert-success" id="alert" role="alert">
+        <p id="msg">Por favor preencha todos os campos</p>
+    </div>
     <div id="principal">
         <h1>Informações da academia</h1>
             <form id="form">
                 <div class="form-group">
                     <label for="numero">Número para contato</label>
-                    <input type="text" class="form-control" id="numero"  placeholder="Número para contato">
+                    <input type="text" class="form-control validate" id="numero"  placeholder="Número para contato">
                    
                 </div>
                 <div class="form-group">
                     <label for="Nome">Nome da academia</label>
-                    <input type="text" class="form-control" id="nome"  placeholder="Nome">
+                    <input type="text" class="form-control validate" id="nome"  placeholder="Nome">
                    
                 </div>
                 <div class="form-group">
@@ -35,7 +38,7 @@
                         <div class="input-group-prepend">
                             <label class="input-group-text" for="inputGroupSelect01">Options</label>
                         </div>
-                        <select class="custom-select" id="estado" onchange="promiseCity()">
+                        <select class="custom-select validate" id="estado" onchange="promiseCity()">
                             <option selected>Selecione a unidade federal</option>
                             
                         </select>
@@ -47,7 +50,7 @@
                         <div class="input-group-prepend">
                             <label class="input-group-text" for="cidade">Options</label>
                         </div>
-                        <select class="custom-select" id="cidade" >
+                        <select class="custom-select validate" id="cidade" >
                             <option selected>Selecione a cidade</option>
                             
                         </select>
@@ -55,17 +58,17 @@
                 </div>
                 <div class="form-group">
                     <label for="bairro">Bairro</label>
-                    <input type="text" class="form-control" id="bairro"  placeholder="Bairro">
+                    <input type="text" class="form-control validate" id="bairro"  placeholder="Bairro">
                    
                 </div>
                 <div class="form-group">
                     <label for="logradouro">Logradouro</label>
-                    <input type="text" class="form-control" id="logradouro"  placeholder="logradouro">
+                    <input type="text" class="form-control validate" id="logradouro"  placeholder="logradouro">
                    
                 </div>
                 <div class="form-group">
                     <label for="complemento">Complemento</label>
-                    <input type="text" class="form-control" id="complemento"  placeholder="complemento">
+                    <input type="text" class="form-control validate" id="complemento"  placeholder="complemento">
                    
                 </div>
                 

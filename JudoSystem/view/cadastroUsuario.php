@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -25,43 +24,47 @@
 </head>
 
 <body onload="promiseState()">
+    <div class="alert alert-success" id="alert" role="alert">
+        <p id="msg">Por favor preencha todos os campos</p>
+    </div>
     <div id="principal">
 
         <div id="container">
+
             <h2>Adesão de usuário</h2>
             <div id="cardsContainer">
 
 
                 <div class="subContainer" id="left">
-                
+
                     <div id="form" class="sonOfSubContainer">
                         <img class="svg" src="../../JudoSystem/view/svg/userAvatar.svg" alt="">
                         <h5 id="login">Dados pessoais</h5>
                         <form id="formulario" method="post">
-                            
+
                             <div class="control">
                                 <span class="material-symbols-outlined">person</span>
                                 <label for="userName">Nome de usuário</label><br>
                             </div>
-                            <input type="text" name="usuario" id="userName"><br>
+                            <input type="text" class="validate" name="usuário" id="userName"><br>
 
                             <div class="control">
                                 <span class="material-symbols-outlined">person</span>
                                 <label for="email">Email</label><br>
                             </div>
-                            <input type="text" name="email" id="email"><br>
+                            <input type="text" class="validate" name="email" id="email"><br>
 
                             <div class="control">
                                 <span id="lock" class="material-symbols-outlined">lock</span>
                                 <label for="passWord">Senha</label><br>
                             </div>
-                            <input type="password" name="senha" id="passWord"><br>
+                            <input type="password" class="validate" name="senha" id="passWord"><br>
 
                             <div class="control">
                                 <span id="lock" class="material-symbols-outlined">lock</span>
                                 <label for="RpassWord">Repita a senha</label><br>
                             </div>
-                            <input type="password" name="senha" id="RpassWord"><br>
+                            <input type="password" class="validate" name="senha" id="RpassWord"><br>
 
                         </form>
 
@@ -75,20 +78,20 @@
 
                             <div class="form-group">
                                 <label for="numero">Número para contato</label>
-                                <input type="text" class="form-control academyInput" id="numero" placeholder="Número para contato">
+                                <input type="text" class="form-control academyInput validate" id="numero" placeholder="Número para contato">
 
                             </div>
                             <div class="form-group">
                                 <label for="Nome">Nome da academia</label>
-                                <input type="text" class="form-control academyInput" id="nome" placeholder="Nome">
+                                <input type="text" class="form-control academyInput validate" id="nome" placeholder="Nome">
 
                             </div>
                             <div class="form-group">
 
                                 <div class="input-group mb-3">
 
-                                    <select class="custom-select" id="estado" onchange="promiseCity()">
-                                        <option selected>Selecione a unidade federal</option>
+                                    <select class="custom-select validate" id="estado" onchange="promiseCity()">
+                                        <option value="" selected>Selecione a unidade federal</option>
 
                                     </select>
                                 </div>
@@ -97,25 +100,25 @@
 
                                 <div class="input-group mb-3">
 
-                                    <select class="custom-select" id="cidade">
-                                        <option selected>Selecione a cidade</option>
+                                    <select class="custom-select validate" id="cidade">
+                                        <option value="" selected>Selecione a cidade</option>
 
                                     </select>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="bairro">Bairro</label>
-                                <input type="text" class="form-control academyInput" id="bairro" placeholder="Bairro">
+                                <input type="text" class="form-control academyInput validate" id="bairro" placeholder="Bairro">
 
                             </div>
                             <div class="form-group">
                                 <label for="logradouro">Logradouro</label>
-                                <input type="text" class="form-control academyInput" id="logradouro" placeholder="logradouro">
+                                <input type="text" class="form-control academyInput validate" id="logradouro" placeholder="logradouro">
 
                             </div>
                             <div class="form-group">
                                 <label for="complemento">Complemento</label>
-                                <input type="text" class="form-control academyInput" id="complemento" placeholder="complemento">
+                                <input type="text" class="form-control academyInput validate" id="complemento" placeholder="complemento">
 
                             </div>
 
@@ -133,6 +136,7 @@
     <script src="../../JudoSystem/view/js/academiaAjax.js"></script>
     <script src="../../JudoSystem/view//js/userAjax.js"></script>
     <script src="../../JudoSystem/view//js/animationsForms.js"></script>
+
 </body>
 
 </html>
